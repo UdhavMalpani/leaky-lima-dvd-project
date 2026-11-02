@@ -1,0 +1,1524 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: * c
+
+Doing analysis at TEMP = 51.415782 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 121.649631 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 51.084124 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -39.247233 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 104.599554 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 33.794296 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 110.669820 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -35.793416 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -34.695207 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -28.035166 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 98.187749 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 56.695236 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 72.746571 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 92.678513 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 43.917987 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 93.911956 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -23.514399 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 85.109396 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 56.087905 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 61.081625 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 70.575002 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 21.138761 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 73.696313 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 63.212579 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -34.567694 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 71.422766 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -4.949528 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 93.221778 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 51.531455 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 32.375059 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 86.412923 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -33.958945 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 124.500187 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 107.404950 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 102.301885 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -2.556034 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 49.390010 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 119.700820 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 50.951059 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -13.800202 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -24.535708 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -30.422927 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 33.012862 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 18.227430 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 63.910294 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 89.863354 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 73.006725 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -18.230554 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 38.870446 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -34.285901 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 59.969209 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 88.740283 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 68.566118 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 37.472542 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -32.383843 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -30.466695 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -5.812383 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 86.436063 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -25.054631 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 9.229891 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 77.291889 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 78.874506 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -26.868261 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 22.485165 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 35.256947 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 97.549470 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 28.807429 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -32.855058 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 96.152167 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 102.943703 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 69.297966 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -13.016399 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 43.772916 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 48.190077 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 14.394722 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 103.845767 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 45.212403 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 3.663879 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 24.601872 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 99.585818 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 40.885407 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 40.004576 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 75.900457 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 2.987268 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 78.341131 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 70.374653 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 98.929719 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -28.938805 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 117.224574 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -30.493799 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 56.866622 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 97.284415 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 3.450186 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -13.704888 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 65.278562 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 89.625887 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -28.315689 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -13.664069 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 114.946867 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 120.615490 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 34.187696 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -7.767272 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 60.665384 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 8.672315 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 120.648157 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -15.060481 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 77.903490 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 117.046168 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -17.288323 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 82.009650 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 26.958300 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 116.428529 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 14.440485 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 12.737629 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 38.528913 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 23.100471 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 38.151376 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 14.887210 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -22.764425 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 119.118139 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 121.914808 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 118.999621 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 45.021641 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 117.709666 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 79.947294 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 112.676050 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 101.389452 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 119.857802 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 121.609041 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 54.770019 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 2.530555 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 16.912498 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -13.025090 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 111.036796 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 6.171158 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -8.923179 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 20.283605 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 60.166332 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 81.051424 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -30.689299 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 89.517062 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 39.542533 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 122.624308 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 32.575155 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 88.058231 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -11.612985 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -18.077569 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -5.213909 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -0.920811 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 19.452809 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -28.388240 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 82.776083 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 50.245215 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 105.650810 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 63.898427 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -26.218559 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 102.917922 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 64.865488 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 31.058058 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 117.920025 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -20.935117 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 91.551785 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 44.770215 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -14.065368 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 5.429655 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 49.648250 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -7.920727 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 14.211960 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 13.466819 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 112.464768 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -9.221018 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 84.254337 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 10.877344 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 60.856370 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 57.158841 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 55.193038 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 5.268795 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 102.908510 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 35.343329 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -13.022930 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 0.190319 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 37.751143 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 109.449759 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 29.109678 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 110.419460 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -18.457081 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -14.827023 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 16.448080 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 55.108140 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -34.589729 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 34.777382 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+ Reference value :  0.00000e+00
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 82.485708 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 88.702882 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 13.144302 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 114.940540 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 77.851170 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 121.877004 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 71.499442 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 103.976647 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 23.105013 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 119.910614 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 76.315198 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 14.013430 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 103.267779 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 123.816105 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 99.094431 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 80.186001 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -28.925070 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 78.238907 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 106.645013 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 88.574285 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 54.323303 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 92.067873 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -29.230795 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 104.235350 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 100.718743 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 98.472756 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 32.305670 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -12.166652 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 103.510833 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -1.355931 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 101.663844 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 25.186884 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 27.161699 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 89.162506 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 108.203290 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 16.129554 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 6.200099 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 44.961151 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 44.889727 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 90.328697 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 3.095807 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 19.628252 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 87.685026 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 69.195643 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 59.814154 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -8.851540 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 25.623949 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 66.105390 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 20.803132 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = -32.327442 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 98.088015 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 60.521614 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 62.416503 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 117.052004 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 124.628220 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 2.136435 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 37.152975 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 102.647164 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Doing analysis at TEMP = 118.089389 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+Warning: toxe, toxp and dtox all given and toxe != toxp + dtox; dtox ignored.
+
+No. of Data Rows : 1
+Note: Simulation executed from .control section 

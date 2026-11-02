@@ -1,0 +1,107 @@
+* or_AND2
+.include C:/Users/udhav/DVD-Project/models/16nm_HP.pm
+.options gmin=1e-18 abstol=1e-18 reltol=1e-6 vntol=1e-9
+Vdd vdd 0 0
+Va a 0 0
+Vb b 0 0
+Mnand20_MP_A g_nd a vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
+Mnand20_MP_B g_nd b vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
+Mnand20_MN_A g_nd a nand20_x 0 nmos W=3.200000000e-08 L=1.600000000e-08
+Mnand20_MN_B nand20_x b 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+Minv1_MP out g_nd vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
+Minv1_MN out g_nd 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+.control
+set appendwrite
+set wr_vecnames=0
+altermod nmos vth0=4.752651118e-01
+altermod nmos toxe=9.927349936e-10
+altermod nmos ndep=7.153369389e+18
+altermod nmos u0=2.890992929e-02
+altermod nmos xj=5.236338682e-09
+altermod pmos vth0=-4.691363958e-01
+altermod pmos toxe=1.031022092e-09
+altermod pmos ndep=5.343039397e+18
+altermod pmos u0=5.680722957e-03
+altermod pmos xj=4.991726780e-09
+alter vdd dc=1.048354189e+00
+alter va dc=1.048354189e+00
+alter vb dc=1.048354189e+00
+option temp=22.796486
+op
+let idx = 0
+wrdata C:/Users/udhav/DVD-Project/work/or_AND2_9.out idx i(Vdd) i(Va) i(Vb) v(g_nd) v(nand20_x) v(out)
+destroy all
+altermod nmos vth0=5.036600206e-01
+altermod nmos toxe=9.877009584e-10
+altermod nmos ndep=7.125856982e+18
+altermod nmos u0=2.765189796e-02
+altermod nmos xj=5.157409149e-09
+altermod pmos vth0=-4.000406172e-01
+altermod pmos toxe=1.006264911e-09
+altermod pmos ndep=5.835836607e+18
+altermod pmos u0=5.619541206e-03
+altermod pmos xj=5.470415918e-09
+alter vdd dc=9.182991210e-01
+alter va dc=9.182991210e-01
+alter vb dc=9.182991210e-01
+option temp=-17.936004
+op
+let idx = 1
+wrdata C:/Users/udhav/DVD-Project/work/or_AND2_9.out idx i(Vdd) i(Va) i(Vb) v(g_nd) v(nand20_x) v(out)
+destroy all
+altermod nmos vth0=4.995377650e-01
+altermod nmos toxe=9.286228895e-10
+altermod nmos ndep=6.515867032e+18
+altermod nmos u0=3.186573647e-02
+altermod nmos xj=5.116647654e-09
+altermod pmos vth0=-4.713816317e-01
+altermod pmos toxe=1.037259591e-09
+altermod pmos ndep=5.810210402e+18
+altermod pmos u0=5.788002873e-03
+altermod pmos xj=5.366315516e-09
+alter vdd dc=1.008228764e+00
+alter va dc=1.008228764e+00
+alter vb dc=1.008228764e+00
+option temp=69.303627
+op
+let idx = 2
+wrdata C:/Users/udhav/DVD-Project/work/or_AND2_9.out idx i(Vdd) i(Va) i(Vb) v(g_nd) v(nand20_x) v(out)
+destroy all
+altermod nmos vth0=4.847783224e-01
+altermod nmos toxe=8.600259238e-10
+altermod nmos ndep=7.289214641e+18
+altermod nmos u0=3.182682829e-02
+altermod nmos xj=4.546405715e-09
+altermod pmos vth0=-4.616802800e-01
+altermod pmos toxe=9.492682099e-10
+altermod pmos ndep=5.465538596e+18
+altermod pmos u0=6.421988608e-03
+altermod pmos xj=5.072457996e-09
+alter vdd dc=1.001554447e+00
+alter va dc=1.001554447e+00
+alter vb dc=1.001554447e+00
+option temp=97.041168
+op
+let idx = 3
+wrdata C:/Users/udhav/DVD-Project/work/or_AND2_9.out idx i(Vdd) i(Va) i(Vb) v(g_nd) v(nand20_x) v(out)
+destroy all
+altermod nmos vth0=5.091048985e-01
+altermod nmos toxe=1.037953530e-09
+altermod nmos ndep=6.412040986e+18
+altermod nmos u0=3.037259941e-02
+altermod nmos xj=4.736654882e-09
+altermod pmos vth0=-4.438926254e-01
+altermod pmos toxe=1.041413766e-09
+altermod pmos ndep=5.936210552e+18
+altermod pmos u0=5.403906800e-03
+altermod pmos xj=5.182362668e-09
+alter vdd dc=1.074267875e+00
+alter va dc=1.074267875e+00
+alter vb dc=1.074267875e+00
+option temp=22.180874
+op
+let idx = 4
+wrdata C:/Users/udhav/DVD-Project/work/or_AND2_9.out idx i(Vdd) i(Va) i(Vb) v(g_nd) v(nand20_x) v(out)
+destroy all
+.endc
+.end

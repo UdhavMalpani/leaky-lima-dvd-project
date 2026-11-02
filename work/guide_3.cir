@@ -1,0 +1,616 @@
+* guide
+.include C:/Users/udhav/DVD-Project/models/16nm_HP.pm
+.options gmin=1e-18 abstol=1e-18 reltol=1e-6 vntol=1e-9
+M1 d g s b nmos W=3.200000000e-08 L=1.600000000e-08
+Vd d 0 0
+Vg g 0 0
+Vs s 0 0
+Vb b 0 0
+.control
+set appendwrite
+set wr_vecnames=0
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5037593984962405
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 0
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.506265664160401
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 1
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5087719298245614
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 2
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5112781954887218
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 3
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5137844611528821
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 4
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5162907268170426
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 5
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.518796992481203
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 6
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5213032581453634
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 7
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5238095238095237
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 8
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5263157894736842
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 9
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5288220551378446
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 10
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.531328320802005
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 11
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5338345864661653
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 12
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5363408521303258
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 13
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5388471177944862
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 14
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5413533834586466
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 15
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5438596491228069
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 16
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5463659147869674
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 17
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5488721804511278
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 18
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5513784461152882
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 19
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5538847117794485
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 20
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.556390977443609
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 21
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5588972431077694
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 22
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5614035087719298
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 23
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5639097744360901
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 24
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5664160401002506
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 25
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.568922305764411
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 26
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5714285714285714
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 27
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5739348370927317
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 28
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5764411027568922
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 29
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5789473684210527
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 30
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.581453634085213
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 31
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5839598997493733
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 32
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5864661654135338
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 33
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5889724310776943
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 34
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5914786967418546
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 35
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.593984962406015
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 36
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5964912280701754
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 37
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.5989974937343359
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 38
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6015037593984962
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 39
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6040100250626566
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 40
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.606516290726817
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 41
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6090225563909775
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 42
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6115288220551378
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 43
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6140350877192982
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 44
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6165413533834586
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 45
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6190476190476191
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 46
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6215538847117794
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 47
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6240601503759398
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 48
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6265664160401002
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 49
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6290726817042607
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 50
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.631578947368421
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 51
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6340852130325814
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 52
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6365914786967418
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 53
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6390977443609023
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 54
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6416040100250626
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 55
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.644110275689223
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 56
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6466165413533834
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 57
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6491228070175439
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 58
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6516290726817042
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 59
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6541353383458646
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 60
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.656641604010025
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 61
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6591478696741855
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 62
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6616541353383458
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 63
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6641604010025062
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 64
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6666666666666666
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 65
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+option temp=27.0
+alter vd dc=1.0
+alter vg dc=0.6691729323308271
+alter vs dc=0
+alter vb dc=0
+op
+let idx = 66
+wrdata C:/Users/udhav/DVD-Project/work/guide_3.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+.endc
+.end

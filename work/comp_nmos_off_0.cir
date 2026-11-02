@@ -1,0 +1,3763 @@
+* c
+.include C:/Users/udhav/DVD-Project/models/16nm_HP.pm
+.options gmin=1e-18 abstol=1e-18 reltol=1e-6 vntol=1e-9
+M1 d g s b nmos W=1.600000000e-08 L=1.600000000e-08
+Vd d 0 0
+Vg g 0 0
+Vs s 0 0
+Vb b 0 0
+.control
+set appendwrite
+set wr_vecnames=0
+altermod nmos vth0=4.368276109e-01
+altermod nmos toxe=8.758979810e-10
+altermod nmos ndep=6.352839649e+18
+altermod nmos u0=2.705129297e-02
+altermod nmos xj=4.704530146e-09
+alter m1 w=8.224674389e-08
+alter vd dc=1.808204577e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.580562558e-01
+alter vb dc=0.000000000e+00
+option temp=-15.262121
+op
+let idx = 0
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.748252739e-01
+altermod nmos toxe=8.997948245e-10
+altermod nmos ndep=7.197901709e+18
+altermod nmos u0=2.738029551e-02
+altermod nmos xj=5.493194807e-09
+alter m1 w=5.878297026e-08
+alter vd dc=4.842599509e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.583163024e-01
+alter vb dc=0.000000000e+00
+option temp=5.355138
+op
+let idx = 1
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.385499641e-01
+altermod nmos toxe=9.696266715e-10
+altermod nmos ndep=7.677948044e+18
+altermod nmos u0=2.897598781e-02
+altermod nmos xj=4.838123799e-09
+alter m1 w=3.740005409e-08
+alter vd dc=7.735493283e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.442071101e-01
+alter vb dc=0.000000000e+00
+option temp=45.184670
+op
+let idx = 2
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.156721446e-01
+altermod nmos toxe=9.237056072e-10
+altermod nmos ndep=7.462523476e+18
+altermod nmos u0=3.027978793e-02
+altermod nmos xj=4.708936056e-09
+alter m1 w=8.664470051e-08
+alter vd dc=7.419175995e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.240605401e-01
+alter vb dc=0.000000000e+00
+option temp=-14.563474
+op
+let idx = 3
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.200425783e-01
+altermod nmos toxe=8.785963067e-10
+altermod nmos ndep=7.345761558e+18
+altermod nmos u0=3.102229594e-02
+altermod nmos xj=4.858592739e-09
+alter m1 w=6.241537294e-08
+alter vd dc=6.928472535e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.792528359e-01
+alter vb dc=0.000000000e+00
+option temp=73.791304
+op
+let idx = 4
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.618022556e-01
+altermod nmos toxe=8.756223494e-10
+altermod nmos ndep=6.734666531e+18
+altermod nmos u0=3.282744764e-02
+altermod nmos xj=5.444884913e-09
+alter m1 w=3.911672205e-08
+alter vd dc=1.425609711e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.570371030e-01
+alter vb dc=0.000000000e+00
+option temp=-32.660094
+op
+let idx = 5
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.446834020e-01
+altermod nmos toxe=1.033863052e-09
+altermod nmos ndep=6.901259189e+18
+altermod nmos u0=2.822817195e-02
+altermod nmos xj=5.410065627e-09
+alter m1 w=9.743968147e-08
+alter vd dc=3.888946856e-02
+alter vg dc=0.000000000e+00
+alter vs dc=9.232791799e-01
+alter vb dc=0.000000000e+00
+option temp=54.645679
+op
+let idx = 6
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.477422616e-01
+altermod nmos toxe=9.594773632e-10
+altermod nmos ndep=6.510616962e+18
+altermod nmos u0=2.993246418e-02
+altermod nmos xj=5.166222153e-09
+alter m1 w=7.548774306e-08
+alter vd dc=5.574482232e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.942386843e-01
+alter vb dc=0.000000000e+00
+option temp=33.172105
+op
+let idx = 7
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.134568100e-01
+altermod nmos toxe=9.060644867e-10
+altermod nmos ndep=7.533789767e+18
+altermod nmos u0=2.822732071e-02
+altermod nmos xj=5.009079165e-09
+alter m1 w=1.876839702e-08
+alter vd dc=9.067927407e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.737568567e-01
+alter vb dc=0.000000000e+00
+option temp=10.406653
+op
+let idx = 8
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.112473024e-01
+altermod nmos toxe=8.849632236e-10
+altermod nmos ndep=7.181710573e+18
+altermod nmos u0=2.966697170e-02
+altermod nmos xj=4.666525449e-09
+alter m1 w=4.536709524e-08
+alter vd dc=4.353363374e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.160462502e-01
+alter vb dc=0.000000000e+00
+option temp=49.228028
+op
+let idx = 9
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.200908440e-01
+altermod nmos toxe=8.550958414e-10
+altermod nmos ndep=7.553274238e+18
+altermod nmos u0=3.131559947e-02
+altermod nmos xj=5.004915957e-09
+alter m1 w=2.622336113e-08
+alter vd dc=3.977868849e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.021627468e-01
+alter vb dc=0.000000000e+00
+option temp=115.467736
+op
+let idx = 10
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.946410397e-01
+altermod nmos toxe=1.028020309e-09
+altermod nmos ndep=6.710138308e+18
+altermod nmos u0=2.990753028e-02
+altermod nmos xj=5.287512281e-09
+alter m1 w=4.928790049e-08
+alter vd dc=4.729848318e-02
+alter vg dc=0.000000000e+00
+alter vs dc=4.641025978e-01
+alter vb dc=0.000000000e+00
+option temp=4.558091
+op
+let idx = 11
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.557625712e-01
+altermod nmos toxe=9.971375163e-10
+altermod nmos ndep=6.598649502e+18
+altermod nmos u0=3.277052485e-02
+altermod nmos xj=4.681765558e-09
+alter m1 w=5.448113648e-08
+alter vd dc=6.971000817e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.679249263e-02
+alter vb dc=0.000000000e+00
+option temp=36.572912
+op
+let idx = 12
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.993480222e-01
+altermod nmos toxe=8.749560233e-10
+altermod nmos ndep=7.151518372e+18
+altermod nmos u0=2.938760556e-02
+altermod nmos xj=4.724084656e-09
+alter m1 w=4.885125954e-08
+alter vd dc=4.430460185e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.204082330e-03
+alter vb dc=0.000000000e+00
+option temp=98.030605
+op
+let idx = 13
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.337767663e-01
+altermod nmos toxe=8.711212527e-10
+altermod nmos ndep=6.889438782e+18
+altermod nmos u0=3.175187974e-02
+altermod nmos xj=4.636420610e-09
+alter m1 w=5.654574378e-08
+alter vd dc=7.753421944e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.948887653e-01
+alter vb dc=0.000000000e+00
+option temp=34.772711
+op
+let idx = 14
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.047320548e-01
+altermod nmos toxe=9.783121162e-10
+altermod nmos ndep=6.351357231e+18
+altermod nmos u0=2.978410072e-02
+altermod nmos xj=5.072396293e-09
+alter m1 w=2.381308176e-08
+alter vd dc=8.871247945e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.010841893e+00
+alter vb dc=0.000000000e+00
+option temp=38.751201
+op
+let idx = 15
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.227063961e-01
+altermod nmos toxe=8.880589811e-10
+altermod nmos ndep=6.847214932e+18
+altermod nmos u0=3.223574619e-02
+altermod nmos xj=4.785883392e-09
+alter m1 w=1.245985531e-07
+alter vd dc=6.112015428e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.342302584e-01
+alter vb dc=0.000000000e+00
+option temp=-17.233582
+op
+let idx = 16
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.214068635e-01
+altermod nmos toxe=9.246302652e-10
+altermod nmos ndep=6.540488934e+18
+altermod nmos u0=3.248311360e-02
+altermod nmos xj=4.760351496e-09
+alter m1 w=3.520304136e-08
+alter vd dc=2.044452221e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.015024139e-01
+alter vb dc=0.000000000e+00
+option temp=116.652857
+op
+let idx = 17
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.746766301e-01
+altermod nmos toxe=1.031214824e-09
+altermod nmos ndep=6.468039056e+18
+altermod nmos u0=3.022027324e-02
+altermod nmos xj=5.204836090e-09
+alter m1 w=1.196491434e-07
+alter vd dc=4.996877085e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.910379027e-01
+alter vb dc=0.000000000e+00
+option temp=57.480833
+op
+let idx = 18
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.092167430e-01
+altermod nmos toxe=9.132514094e-10
+altermod nmos ndep=7.588583981e+18
+altermod nmos u0=2.986143528e-02
+altermod nmos xj=4.665781286e-09
+alter m1 w=2.236092524e-08
+alter vd dc=1.793539754e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.869160925e-01
+alter vb dc=0.000000000e+00
+option temp=-13.854725
+op
+let idx = 19
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.172878106e-01
+altermod nmos toxe=9.193387800e-10
+altermod nmos ndep=6.398967293e+18
+altermod nmos u0=2.764128091e-02
+altermod nmos xj=5.497268987e-09
+alter m1 w=4.848684419e-08
+alter vd dc=9.648493419e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.588905732e-01
+alter vb dc=0.000000000e+00
+option temp=2.642776
+op
+let idx = 20
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.122544961e-01
+altermod nmos toxe=9.967119118e-10
+altermod nmos ndep=7.019422356e+18
+altermod nmos u0=3.059388676e-02
+altermod nmos xj=5.313024811e-09
+alter m1 w=1.068273809e-07
+alter vd dc=5.331750400e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.078905248e-01
+alter vb dc=0.000000000e+00
+option temp=108.864339
+op
+let idx = 21
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.228150407e-01
+altermod nmos toxe=8.730191765e-10
+altermod nmos ndep=7.026790708e+18
+altermod nmos u0=2.922630860e-02
+altermod nmos xj=4.658954036e-09
+alter m1 w=8.538129707e-08
+alter vd dc=7.579631654e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.020513482e+00
+alter vb dc=0.000000000e+00
+option temp=37.625281
+op
+let idx = 22
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.054666825e-01
+altermod nmos toxe=9.010018452e-10
+altermod nmos ndep=7.386116331e+18
+altermod nmos u0=2.729191595e-02
+altermod nmos xj=4.696323908e-09
+alter m1 w=1.269588344e-07
+alter vd dc=5.870244362e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.175339692e-01
+alter vb dc=0.000000000e+00
+option temp=-33.154915
+op
+let idx = 23
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.972673476e-01
+altermod nmos toxe=1.018411526e-09
+altermod nmos ndep=6.343116741e+18
+altermod nmos u0=2.991078078e-02
+altermod nmos xj=4.831245667e-09
+alter m1 w=6.133892605e-08
+alter vd dc=2.061547430e-02
+alter vg dc=0.000000000e+00
+alter vs dc=4.187394610e-01
+alter vb dc=0.000000000e+00
+option temp=35.655767
+op
+let idx = 24
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.885070431e-01
+altermod nmos toxe=8.667770567e-10
+altermod nmos ndep=6.676790813e+18
+altermod nmos u0=2.725840073e-02
+altermod nmos xj=5.277124594e-09
+alter m1 w=9.287945974e-08
+alter vd dc=5.047328819e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.439038189e-01
+alter vb dc=0.000000000e+00
+option temp=109.455057
+op
+let idx = 25
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.651636582e-01
+altermod nmos toxe=9.543968638e-10
+altermod nmos ndep=6.765410590e+18
+altermod nmos u0=2.941954773e-02
+altermod nmos xj=4.686806566e-09
+alter m1 w=3.562085009e-08
+alter vd dc=9.299804118e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.228767952e-01
+alter vb dc=0.000000000e+00
+option temp=-1.914224
+op
+let idx = 26
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.524439906e-01
+altermod nmos toxe=1.004454098e-09
+altermod nmos ndep=7.333125583e+18
+altermod nmos u0=2.826352547e-02
+altermod nmos xj=4.737566637e-09
+alter m1 w=9.223139291e-08
+alter vd dc=8.929783047e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.965834850e-01
+alter vb dc=0.000000000e+00
+option temp=18.361418
+op
+let idx = 27
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.575664886e-01
+altermod nmos toxe=8.759407916e-10
+altermod nmos ndep=6.567193811e+18
+altermod nmos u0=2.721839499e-02
+altermod nmos xj=4.563046208e-09
+alter m1 w=1.130947756e-07
+alter vd dc=8.674316845e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.738559297e-01
+alter vb dc=0.000000000e+00
+option temp=-3.334856
+op
+let idx = 28
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.747632471e-01
+altermod nmos toxe=1.003593578e-09
+altermod nmos ndep=6.558613617e+18
+altermod nmos u0=2.803785180e-02
+altermod nmos xj=5.040963692e-09
+alter m1 w=1.048371877e-07
+alter vd dc=8.757166232e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.084678058e-01
+alter vb dc=0.000000000e+00
+option temp=119.963419
+op
+let idx = 29
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.406039998e-01
+altermod nmos toxe=1.008265941e-09
+altermod nmos ndep=7.638886498e+18
+altermod nmos u0=2.736447294e-02
+altermod nmos xj=4.534866499e-09
+alter m1 w=2.868975897e-08
+alter vd dc=8.605364111e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.290315839e-01
+alter vb dc=0.000000000e+00
+option temp=105.929032
+op
+let idx = 30
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.438489838e-01
+altermod nmos toxe=8.999357271e-10
+altermod nmos ndep=7.499548542e+18
+altermod nmos u0=2.743476076e-02
+altermod nmos xj=5.439639857e-09
+alter m1 w=8.773456709e-08
+alter vd dc=2.170115644e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.573496105e-01
+alter vb dc=0.000000000e+00
+option temp=-5.010477
+op
+let idx = 31
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.823714869e-01
+altermod nmos toxe=8.782079114e-10
+altermod nmos ndep=6.716875673e+18
+altermod nmos u0=2.722524562e-02
+altermod nmos xj=5.439338933e-09
+alter m1 w=5.677275162e-08
+alter vd dc=7.150578646e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.287369835e-01
+alter vb dc=0.000000000e+00
+option temp=-39.578712
+op
+let idx = 32
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.541320197e-01
+altermod nmos toxe=8.734063761e-10
+altermod nmos ndep=7.340533929e+18
+altermod nmos u0=3.273187319e-02
+altermod nmos xj=5.287166669e-09
+alter m1 w=6.391349989e-08
+alter vd dc=4.457960518e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.234027661e-01
+alter vb dc=0.000000000e+00
+option temp=5.409128
+op
+let idx = 33
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.669895683e-01
+altermod nmos toxe=9.465033718e-10
+altermod nmos ndep=7.071532162e+18
+altermod nmos u0=3.130983678e-02
+altermod nmos xj=5.276431573e-09
+alter m1 w=9.633972727e-08
+alter vd dc=9.298398898e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.348035154e-01
+alter vb dc=0.000000000e+00
+option temp=-38.627143
+op
+let idx = 34
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.845830919e-01
+altermod nmos toxe=9.730822667e-10
+altermod nmos ndep=6.377073023e+18
+altermod nmos u0=3.045748488e-02
+altermod nmos xj=4.656388893e-09
+alter m1 w=6.103214424e-08
+alter vd dc=4.446679352e-02
+alter vg dc=0.000000000e+00
+alter vs dc=7.444891439e-01
+alter vb dc=0.000000000e+00
+option temp=38.584619
+op
+let idx = 35
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.380852986e-01
+altermod nmos toxe=8.563162180e-10
+altermod nmos ndep=7.008941664e+18
+altermod nmos u0=3.214236777e-02
+altermod nmos xj=4.654550746e-09
+alter m1 w=2.720768483e-08
+alter vd dc=4.531887234e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.570331655e-01
+alter vb dc=0.000000000e+00
+option temp=103.641437
+op
+let idx = 36
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.639631177e-01
+altermod nmos toxe=9.417982470e-10
+altermod nmos ndep=6.523426500e+18
+altermod nmos u0=2.977657973e-02
+altermod nmos xj=5.110080621e-09
+alter m1 w=1.001590452e-07
+alter vd dc=5.593309036e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.769059155e-01
+alter vb dc=0.000000000e+00
+option temp=100.847903
+op
+let idx = 37
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.783635156e-01
+altermod nmos toxe=8.985536295e-10
+altermod nmos ndep=7.225237170e+18
+altermod nmos u0=3.213995851e-02
+altermod nmos xj=4.740263357e-09
+alter m1 w=1.061696040e-07
+alter vd dc=4.190958197e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.033943300e+00
+alter vb dc=0.000000000e+00
+option temp=69.995020
+op
+let idx = 38
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.030483260e-01
+altermod nmos toxe=9.583151836e-10
+altermod nmos ndep=7.274994374e+18
+altermod nmos u0=2.800878305e-02
+altermod nmos xj=5.413829701e-09
+alter m1 w=8.295784264e-08
+alter vd dc=4.076422810e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.008528380e-01
+alter vb dc=0.000000000e+00
+option temp=1.353537
+op
+let idx = 39
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.497953632e-01
+altermod nmos toxe=8.904083587e-10
+altermod nmos ndep=6.468572500e+18
+altermod nmos u0=2.835946218e-02
+altermod nmos xj=4.698875961e-09
+alter m1 w=5.804394996e-08
+alter vd dc=1.090446243e+00
+alter vg dc=0.000000000e+00
+alter vs dc=6.746751215e-01
+alter vb dc=0.000000000e+00
+option temp=-28.064109
+op
+let idx = 40
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.245550899e-01
+altermod nmos toxe=8.790689394e-10
+altermod nmos ndep=7.692756486e+18
+altermod nmos u0=2.738128179e-02
+altermod nmos xj=4.834505142e-09
+alter m1 w=7.475220189e-08
+alter vd dc=3.905828447e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.888082723e-01
+alter vb dc=0.000000000e+00
+option temp=2.883858
+op
+let idx = 41
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.104361571e-01
+altermod nmos toxe=9.546523044e-10
+altermod nmos ndep=6.887569188e+18
+altermod nmos u0=2.808974910e-02
+altermod nmos xj=4.578690977e-09
+alter m1 w=3.504162151e-08
+alter vd dc=6.760805026e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.585940063e-01
+alter vb dc=0.000000000e+00
+option temp=0.537393
+op
+let idx = 42
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.220356950e-01
+altermod nmos toxe=8.887221734e-10
+altermod nmos ndep=7.662751642e+18
+altermod nmos u0=3.138227453e-02
+altermod nmos xj=5.010093930e-09
+alter m1 w=1.249831877e-07
+alter vd dc=1.280212569e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.146839380e-01
+alter vb dc=0.000000000e+00
+option temp=8.043870
+op
+let idx = 43
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.676588181e-01
+altermod nmos toxe=9.676555271e-10
+altermod nmos ndep=6.793513365e+18
+altermod nmos u0=3.088810977e-02
+altermod nmos xj=5.391106367e-09
+alter m1 w=6.090509909e-08
+alter vd dc=7.380021722e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.915954627e-01
+alter vb dc=0.000000000e+00
+option temp=-27.951374
+op
+let idx = 44
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.159468913e-01
+altermod nmos toxe=9.730863648e-10
+altermod nmos ndep=6.503929979e+18
+altermod nmos u0=2.889393631e-02
+altermod nmos xj=5.064227681e-09
+alter m1 w=1.109959144e-07
+alter vd dc=1.787919198e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.687470620e-01
+alter vb dc=0.000000000e+00
+option temp=-1.370877
+op
+let idx = 45
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.453263247e-01
+altermod nmos toxe=8.673807669e-10
+altermod nmos ndep=7.297298339e+18
+altermod nmos u0=3.201001279e-02
+altermod nmos xj=5.265809364e-09
+alter m1 w=1.052479925e-07
+alter vd dc=7.289529395e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.679448387e-01
+alter vb dc=0.000000000e+00
+option temp=87.419258
+op
+let idx = 46
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.028639001e-01
+altermod nmos toxe=9.761868368e-10
+altermod nmos ndep=6.564729896e+18
+altermod nmos u0=3.021730869e-02
+altermod nmos xj=4.888123505e-09
+alter m1 w=1.276363132e-07
+alter vd dc=7.124424637e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.621833017e-01
+alter vb dc=0.000000000e+00
+option temp=42.417400
+op
+let idx = 47
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.595609603e-01
+altermod nmos toxe=9.693325876e-10
+altermod nmos ndep=6.304343910e+18
+altermod nmos u0=3.140599815e-02
+altermod nmos xj=4.765600996e-09
+alter m1 w=3.195425398e-08
+alter vd dc=4.679961844e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.745855496e-02
+alter vb dc=0.000000000e+00
+option temp=102.777602
+op
+let idx = 48
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.427002170e-01
+altermod nmos toxe=9.176195882e-10
+altermod nmos ndep=6.695229227e+18
+altermod nmos u0=3.209829985e-02
+altermod nmos xj=5.418168884e-09
+alter m1 w=3.571219251e-08
+alter vd dc=6.102025695e-02
+alter vg dc=0.000000000e+00
+alter vs dc=3.928241169e-01
+alter vb dc=0.000000000e+00
+option temp=100.871120
+op
+let idx = 49
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.358182317e-01
+altermod nmos toxe=1.043363626e-09
+altermod nmos ndep=7.177047630e+18
+altermod nmos u0=3.248183772e-02
+altermod nmos xj=5.489446365e-09
+alter m1 w=1.047150423e-07
+alter vd dc=5.432893105e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.161013520e-01
+alter vb dc=0.000000000e+00
+option temp=67.411641
+op
+let idx = 50
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.187289317e-01
+altermod nmos toxe=9.118710975e-10
+altermod nmos ndep=6.814250781e+18
+altermod nmos u0=3.004606534e-02
+altermod nmos xj=4.941504000e-09
+alter m1 w=9.543095373e-08
+alter vd dc=1.521873533e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.331555714e-01
+alter vb dc=0.000000000e+00
+option temp=-32.277997
+op
+let idx = 51
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.412141703e-01
+altermod nmos toxe=9.007316739e-10
+altermod nmos ndep=7.590967604e+18
+altermod nmos u0=2.839328271e-02
+altermod nmos xj=4.681455250e-09
+alter m1 w=6.431214113e-08
+alter vd dc=8.726517707e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.250240700e-01
+alter vb dc=0.000000000e+00
+option temp=104.132268
+op
+let idx = 52
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.556281563e-01
+altermod nmos toxe=9.126187641e-10
+altermod nmos ndep=6.786869972e+18
+altermod nmos u0=2.930318453e-02
+altermod nmos xj=5.473947487e-09
+alter m1 w=1.879568554e-08
+alter vd dc=8.516733519e-03
+alter vg dc=0.000000000e+00
+alter vs dc=4.340179389e-01
+alter vb dc=0.000000000e+00
+option temp=31.836850
+op
+let idx = 53
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.470567228e-01
+altermod nmos toxe=9.769680356e-10
+altermod nmos ndep=7.404085307e+18
+altermod nmos u0=2.946322906e-02
+altermod nmos xj=5.490262302e-09
+alter m1 w=7.694192600e-08
+alter vd dc=2.432552156e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.299673031e-02
+alter vb dc=0.000000000e+00
+option temp=27.213359
+op
+let idx = 54
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.519414002e-01
+altermod nmos toxe=1.022648318e-09
+altermod nmos ndep=7.469337942e+18
+altermod nmos u0=3.057547518e-02
+altermod nmos xj=4.647840085e-09
+alter m1 w=3.763482668e-08
+alter vd dc=4.114783060e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.225727483e-01
+alter vb dc=0.000000000e+00
+option temp=-20.502664
+op
+let idx = 55
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.683188395e-01
+altermod nmos toxe=9.989668202e-10
+altermod nmos ndep=6.429512130e+18
+altermod nmos u0=2.879687455e-02
+altermod nmos xj=4.518814143e-09
+alter m1 w=3.564846803e-08
+alter vd dc=3.274286993e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.030291610e+00
+alter vb dc=0.000000000e+00
+option temp=-16.078830
+op
+let idx = 56
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.590314760e-01
+altermod nmos toxe=1.031547832e-09
+altermod nmos ndep=6.700074465e+18
+altermod nmos u0=2.769137039e-02
+altermod nmos xj=4.991497767e-09
+alter m1 w=2.005827397e-08
+alter vd dc=6.073500832e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.287181482e-01
+alter vb dc=0.000000000e+00
+option temp=28.666814
+op
+let idx = 57
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.349839916e-01
+altermod nmos toxe=8.995840093e-10
+altermod nmos ndep=6.561569407e+18
+altermod nmos u0=3.148268404e-02
+altermod nmos xj=4.726503289e-09
+alter m1 w=2.531411990e-08
+alter vd dc=3.932379907e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.007528327e+00
+alter vb dc=0.000000000e+00
+option temp=28.102046
+op
+let idx = 58
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.001268151e-01
+altermod nmos toxe=8.825794396e-10
+altermod nmos ndep=7.446359741e+18
+altermod nmos u0=2.966433340e-02
+altermod nmos xj=5.438790039e-09
+alter m1 w=7.206529654e-08
+alter vd dc=7.170002315e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.407439936e-01
+alter vb dc=0.000000000e+00
+option temp=-6.852484
+op
+let idx = 59
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.029957990e-01
+altermod nmos toxe=8.886346790e-10
+altermod nmos ndep=6.672084386e+18
+altermod nmos u0=2.759831638e-02
+altermod nmos xj=5.021721248e-09
+alter m1 w=5.973434934e-08
+alter vd dc=2.370865785e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.262768518e-01
+alter vb dc=0.000000000e+00
+option temp=-18.760484
+op
+let idx = 60
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.996672273e-01
+altermod nmos toxe=8.865388680e-10
+altermod nmos ndep=7.061547772e+18
+altermod nmos u0=3.037487097e-02
+altermod nmos xj=4.901744903e-09
+alter m1 w=8.734130233e-08
+alter vd dc=3.357460737e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.241347435e-01
+alter vb dc=0.000000000e+00
+option temp=47.289760
+op
+let idx = 61
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.963734513e-01
+altermod nmos toxe=9.264621771e-10
+altermod nmos ndep=6.564829076e+18
+altermod nmos u0=3.009920334e-02
+altermod nmos xj=5.236027069e-09
+alter m1 w=2.875737957e-08
+alter vd dc=4.632465307e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.346348682e-01
+alter vb dc=0.000000000e+00
+option temp=6.910666
+op
+let idx = 62
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.052359396e-01
+altermod nmos toxe=1.009625018e-09
+altermod nmos ndep=7.654263973e+18
+altermod nmos u0=2.927969118e-02
+altermod nmos xj=5.177412776e-09
+alter m1 w=6.467362853e-08
+alter vd dc=3.029377380e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.025365303e-01
+alter vb dc=0.000000000e+00
+option temp=13.810390
+op
+let idx = 63
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.466849547e-01
+altermod nmos toxe=9.094476304e-10
+altermod nmos ndep=7.627095321e+18
+altermod nmos u0=3.232914948e-02
+altermod nmos xj=4.866170896e-09
+alter m1 w=9.623353831e-08
+alter vd dc=9.047168144e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.060481029e-01
+alter vb dc=0.000000000e+00
+option temp=48.000690
+op
+let idx = 64
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.802483879e-01
+altermod nmos toxe=1.003721175e-09
+altermod nmos ndep=7.442854086e+18
+altermod nmos u0=2.894617941e-02
+altermod nmos xj=5.371580858e-09
+alter m1 w=1.195772414e-07
+alter vd dc=5.891020773e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.999073767e-01
+alter vb dc=0.000000000e+00
+option temp=-11.904101
+op
+let idx = 65
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.186395504e-01
+altermod nmos toxe=1.033608393e-09
+altermod nmos ndep=7.529459497e+18
+altermod nmos u0=2.751281049e-02
+altermod nmos xj=5.384765468e-09
+alter m1 w=5.148431668e-08
+alter vd dc=3.264779211e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.069762582e-01
+alter vb dc=0.000000000e+00
+option temp=-35.946721
+op
+let idx = 66
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.467746082e-01
+altermod nmos toxe=9.157172212e-10
+altermod nmos ndep=7.562448449e+18
+altermod nmos u0=2.748252353e-02
+altermod nmos xj=5.069691766e-09
+alter m1 w=1.178876162e-07
+alter vd dc=7.842433573e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.168091397e-01
+alter vb dc=0.000000000e+00
+option temp=109.819032
+op
+let idx = 67
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.893367791e-01
+altermod nmos toxe=9.771212324e-10
+altermod nmos ndep=7.524174583e+18
+altermod nmos u0=2.849315480e-02
+altermod nmos xj=5.034766388e-09
+alter m1 w=9.227033556e-08
+alter vd dc=8.754778041e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.942037359e-01
+alter vb dc=0.000000000e+00
+option temp=97.330370
+op
+let idx = 68
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.263612358e-01
+altermod nmos toxe=9.903916532e-10
+altermod nmos ndep=7.212487066e+18
+altermod nmos u0=2.817811952e-02
+altermod nmos xj=4.682200272e-09
+alter m1 w=4.027828231e-08
+alter vd dc=8.030002226e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.744760852e-01
+alter vb dc=0.000000000e+00
+option temp=-13.127944
+op
+let idx = 69
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.874950480e-01
+altermod nmos toxe=8.771138330e-10
+altermod nmos ndep=7.330109306e+18
+altermod nmos u0=3.283537496e-02
+altermod nmos xj=4.724060023e-09
+alter m1 w=7.688022934e-08
+alter vd dc=7.457097776e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.227661597e-01
+alter vb dc=0.000000000e+00
+option temp=67.979350
+op
+let idx = 70
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.409634871e-01
+altermod nmos toxe=9.621357753e-10
+altermod nmos ndep=7.070708110e+18
+altermod nmos u0=2.860930065e-02
+altermod nmos xj=4.897395251e-09
+alter m1 w=1.131444626e-07
+alter vd dc=6.255427237e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.963159028e-01
+alter vb dc=0.000000000e+00
+option temp=-38.806299
+op
+let idx = 71
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.390421769e-01
+altermod nmos toxe=1.017170987e-09
+altermod nmos ndep=7.198142626e+18
+altermod nmos u0=2.826720718e-02
+altermod nmos xj=4.987316706e-09
+alter m1 w=1.101617799e-07
+alter vd dc=2.274574426e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.807247841e-01
+alter vb dc=0.000000000e+00
+option temp=-22.443406
+op
+let idx = 72
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.720336296e-01
+altermod nmos toxe=9.901438065e-10
+altermod nmos ndep=7.582624996e+18
+altermod nmos u0=3.088543381e-02
+altermod nmos xj=4.698793591e-09
+alter m1 w=8.031117235e-08
+alter vd dc=5.844782164e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.483178193e-01
+alter vb dc=0.000000000e+00
+option temp=53.194328
+op
+let idx = 73
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.095345034e-01
+altermod nmos toxe=8.833382661e-10
+altermod nmos ndep=6.383290557e+18
+altermod nmos u0=3.103151257e-02
+altermod nmos xj=4.668883651e-09
+alter m1 w=4.987897059e-08
+alter vd dc=7.022562376e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.877566982e-01
+alter vb dc=0.000000000e+00
+option temp=30.986328
+op
+let idx = 74
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.135539545e-01
+altermod nmos toxe=9.680541141e-10
+altermod nmos ndep=6.516214989e+18
+altermod nmos u0=3.115281097e-02
+altermod nmos xj=5.486951691e-09
+alter m1 w=5.810417449e-08
+alter vd dc=4.840113861e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.220523194e-01
+alter vb dc=0.000000000e+00
+option temp=37.522488
+op
+let idx = 75
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.246966310e-01
+altermod nmos toxe=1.009329553e-09
+altermod nmos ndep=6.373738680e+18
+altermod nmos u0=2.982302301e-02
+altermod nmos xj=4.733312572e-09
+alter m1 w=1.034759126e-07
+alter vd dc=2.725466867e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.074473209e-01
+alter vb dc=0.000000000e+00
+option temp=101.331585
+op
+let idx = 76
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.128237991e-01
+altermod nmos toxe=9.959480887e-10
+altermod nmos ndep=7.237920509e+18
+altermod nmos u0=2.948757786e-02
+altermod nmos xj=4.676139022e-09
+alter m1 w=1.085151021e-07
+alter vd dc=3.431482461e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.584681880e-01
+alter vb dc=0.000000000e+00
+option temp=100.548010
+op
+let idx = 77
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.154187266e-01
+altermod nmos toxe=8.718876680e-10
+altermod nmos ndep=7.367566746e+18
+altermod nmos u0=2.918219053e-02
+altermod nmos xj=5.378298254e-09
+alter m1 w=1.218320849e-07
+alter vd dc=3.122663606e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.056705746e-01
+alter vb dc=0.000000000e+00
+option temp=66.623419
+op
+let idx = 78
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.237799298e-01
+altermod nmos toxe=1.035332536e-09
+altermod nmos ndep=7.615805224e+18
+altermod nmos u0=3.152414190e-02
+altermod nmos xj=5.091080250e-09
+alter m1 w=1.113422131e-07
+alter vd dc=9.137768158e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.360210952e-01
+alter vb dc=0.000000000e+00
+option temp=10.632495
+op
+let idx = 79
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.603839589e-01
+altermod nmos toxe=9.509398240e-10
+altermod nmos ndep=6.982799029e+18
+altermod nmos u0=2.877740901e-02
+altermod nmos xj=5.169214924e-09
+alter m1 w=3.566181334e-08
+alter vd dc=8.464589007e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.704252496e-01
+alter vb dc=0.000000000e+00
+option temp=116.233458
+op
+let idx = 80
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.639496880e-01
+altermod nmos toxe=9.902814360e-10
+altermod nmos ndep=7.515961275e+18
+altermod nmos u0=2.984307719e-02
+altermod nmos xj=4.845819203e-09
+alter m1 w=7.388660795e-08
+alter vd dc=9.136950222e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.242059495e-01
+alter vb dc=0.000000000e+00
+option temp=60.352862
+op
+let idx = 81
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.635179147e-01
+altermod nmos toxe=1.035179788e-09
+altermod nmos ndep=7.277228848e+18
+altermod nmos u0=2.819415239e-02
+altermod nmos xj=4.612768508e-09
+alter m1 w=2.934366334e-08
+alter vd dc=7.238415154e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.772859413e-02
+alter vb dc=0.000000000e+00
+option temp=43.512943
+op
+let idx = 82
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.870419381e-01
+altermod nmos toxe=8.698981495e-10
+altermod nmos ndep=6.702203744e+18
+altermod nmos u0=3.050061699e-02
+altermod nmos xj=4.734902912e-09
+alter m1 w=7.492444051e-08
+alter vd dc=1.318338349e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.523972801e-01
+alter vb dc=0.000000000e+00
+option temp=1.430129
+op
+let idx = 83
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.484059131e-01
+altermod nmos toxe=9.708413548e-10
+altermod nmos ndep=6.459705644e+18
+altermod nmos u0=2.746700280e-02
+altermod nmos xj=5.084098463e-09
+alter m1 w=6.612431817e-08
+alter vd dc=5.760930458e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.748373764e-01
+alter vb dc=0.000000000e+00
+option temp=-36.479748
+op
+let idx = 84
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.887452063e-01
+altermod nmos toxe=8.586314198e-10
+altermod nmos ndep=7.263739078e+18
+altermod nmos u0=3.207736980e-02
+altermod nmos xj=5.268340101e-09
+alter m1 w=8.292537862e-08
+alter vd dc=1.856047535e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.141216055e-01
+alter vb dc=0.000000000e+00
+option temp=2.078900
+op
+let idx = 85
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.322531770e-01
+altermod nmos toxe=9.399152977e-10
+altermod nmos ndep=7.368924025e+18
+altermod nmos u0=3.245526010e-02
+altermod nmos xj=4.811483468e-09
+alter m1 w=4.871348650e-08
+alter vd dc=9.549203694e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.870802670e-01
+alter vb dc=0.000000000e+00
+option temp=13.586638
+op
+let idx = 86
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.940752023e-01
+altermod nmos toxe=1.018434382e-09
+altermod nmos ndep=7.272864687e+18
+altermod nmos u0=2.881528186e-02
+altermod nmos xj=5.220620923e-09
+alter m1 w=5.439772031e-08
+alter vd dc=2.503777429e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.799133861e-01
+alter vb dc=0.000000000e+00
+option temp=25.453017
+op
+let idx = 87
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.091464481e-01
+altermod nmos toxe=8.875755837e-10
+altermod nmos ndep=6.960272152e+18
+altermod nmos u0=3.207174544e-02
+altermod nmos xj=5.298096895e-09
+alter m1 w=1.166621730e-07
+alter vd dc=1.401463464e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.629260364e-01
+alter vb dc=0.000000000e+00
+option temp=-21.661679
+op
+let idx = 88
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.204027987e-01
+altermod nmos toxe=9.888984061e-10
+altermod nmos ndep=6.538112651e+18
+altermod nmos u0=2.942206143e-02
+altermod nmos xj=4.728404496e-09
+alter m1 w=1.030022544e-07
+alter vd dc=7.190931136e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.731395984e-01
+alter vb dc=0.000000000e+00
+option temp=-35.207471
+op
+let idx = 89
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.198982408e-01
+altermod nmos toxe=1.021236238e-09
+altermod nmos ndep=7.289953896e+18
+altermod nmos u0=2.767096094e-02
+altermod nmos xj=4.611121946e-09
+alter m1 w=1.271621801e-07
+alter vd dc=7.757380973e-02
+alter vg dc=0.000000000e+00
+alter vs dc=3.732096362e-01
+alter vb dc=0.000000000e+00
+option temp=44.024582
+op
+let idx = 90
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.203125850e-01
+altermod nmos toxe=8.819964941e-10
+altermod nmos ndep=7.512070091e+18
+altermod nmos u0=3.089262770e-02
+altermod nmos xj=5.273929170e-09
+alter m1 w=2.311607902e-08
+alter vd dc=4.325545646e-02
+alter vg dc=0.000000000e+00
+alter vs dc=9.942264849e-01
+alter vb dc=0.000000000e+00
+option temp=33.440889
+op
+let idx = 91
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.081091772e-01
+altermod nmos toxe=1.032974704e-09
+altermod nmos ndep=7.166374347e+18
+altermod nmos u0=3.182925784e-02
+altermod nmos xj=4.863404352e-09
+alter m1 w=7.713668627e-08
+alter vd dc=6.085920562e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.401871539e-01
+alter vb dc=0.000000000e+00
+option temp=34.939343
+op
+let idx = 92
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.132997926e-01
+altermod nmos toxe=9.125388775e-10
+altermod nmos ndep=7.298943098e+18
+altermod nmos u0=3.023983514e-02
+altermod nmos xj=5.242397851e-09
+alter m1 w=9.692740279e-08
+alter vd dc=4.904229996e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.123441698e-01
+alter vb dc=0.000000000e+00
+option temp=99.042821
+op
+let idx = 93
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.025669353e-01
+altermod nmos toxe=8.770832348e-10
+altermod nmos ndep=6.677669540e+18
+altermod nmos u0=2.944026832e-02
+altermod nmos xj=4.773097727e-09
+alter m1 w=1.224503606e-07
+alter vd dc=7.568560080e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.050135188e-01
+alter vb dc=0.000000000e+00
+option temp=-33.289873
+op
+let idx = 94
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.455446107e-01
+altermod nmos toxe=8.579969825e-10
+altermod nmos ndep=6.417436602e+18
+altermod nmos u0=3.216067824e-02
+altermod nmos xj=5.274081141e-09
+alter m1 w=1.075749214e-07
+alter vd dc=7.216484748e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.549658862e-01
+alter vb dc=0.000000000e+00
+option temp=61.280878
+op
+let idx = 95
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.130357256e-01
+altermod nmos toxe=1.023174992e-09
+altermod nmos ndep=7.155679379e+18
+altermod nmos u0=2.721372573e-02
+altermod nmos xj=5.087446470e-09
+alter m1 w=2.750249085e-08
+alter vd dc=6.409062779e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.005248455e+00
+alter vb dc=0.000000000e+00
+option temp=73.747910
+op
+let idx = 96
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.939154278e-01
+altermod nmos toxe=9.819186131e-10
+altermod nmos ndep=7.005769961e+18
+altermod nmos u0=2.980373081e-02
+altermod nmos xj=5.270893773e-09
+alter m1 w=1.151401548e-07
+alter vd dc=4.450230843e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.043234526e-01
+alter vb dc=0.000000000e+00
+option temp=-12.747330
+op
+let idx = 97
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.144752059e-01
+altermod nmos toxe=9.778175084e-10
+altermod nmos ndep=6.651909262e+18
+altermod nmos u0=2.741165209e-02
+altermod nmos xj=5.434490119e-09
+alter m1 w=9.572683832e-08
+alter vd dc=8.580069633e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.362939576e-01
+alter vb dc=0.000000000e+00
+option temp=112.849079
+op
+let idx = 98
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.449245537e-01
+altermod nmos toxe=9.801645486e-10
+altermod nmos ndep=6.438006814e+18
+altermod nmos u0=2.805844206e-02
+altermod nmos xj=5.310616306e-09
+alter m1 w=7.651963494e-08
+alter vd dc=1.763085754e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.716319479e-01
+alter vb dc=0.000000000e+00
+option temp=93.984592
+op
+let idx = 99
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.521457032e-01
+altermod nmos toxe=9.306981628e-10
+altermod nmos ndep=6.434618834e+18
+altermod nmos u0=3.258348963e-02
+altermod nmos xj=4.798477155e-09
+alter m1 w=4.230348815e-08
+alter vd dc=2.843762003e-02
+alter vg dc=0.000000000e+00
+alter vs dc=8.757978686e-01
+alter vb dc=0.000000000e+00
+option temp=108.958363
+op
+let idx = 100
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.250669543e-01
+altermod nmos toxe=8.966007464e-10
+altermod nmos ndep=6.518122104e+18
+altermod nmos u0=3.224057230e-02
+altermod nmos xj=4.868243074e-09
+alter m1 w=2.568426600e-08
+alter vd dc=2.482656569e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.748562957e-01
+alter vb dc=0.000000000e+00
+option temp=-2.655699
+op
+let idx = 101
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.040456680e-01
+altermod nmos toxe=9.402607193e-10
+altermod nmos ndep=7.075007561e+18
+altermod nmos u0=3.244083543e-02
+altermod nmos xj=4.552125984e-09
+alter m1 w=1.040220284e-07
+alter vd dc=4.859028444e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.270773691e-01
+alter vb dc=0.000000000e+00
+option temp=75.347862
+op
+let idx = 102
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.479144330e-01
+altermod nmos toxe=8.938105605e-10
+altermod nmos ndep=6.964126581e+18
+altermod nmos u0=3.246974724e-02
+altermod nmos xj=4.539249102e-09
+alter m1 w=1.619921028e-08
+alter vd dc=2.809135031e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.601224718e-01
+alter vb dc=0.000000000e+00
+option temp=89.166310
+op
+let idx = 103
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.181681915e-01
+altermod nmos toxe=9.458744040e-10
+altermod nmos ndep=7.632211922e+18
+altermod nmos u0=3.091306550e-02
+altermod nmos xj=4.586812323e-09
+alter m1 w=9.031686515e-08
+alter vd dc=8.001466295e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.198357498e-01
+alter vb dc=0.000000000e+00
+option temp=115.552943
+op
+let idx = 104
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.119282490e-01
+altermod nmos toxe=1.028082887e-09
+altermod nmos ndep=6.303691462e+18
+altermod nmos u0=3.040823257e-02
+altermod nmos xj=5.307620253e-09
+alter m1 w=3.834227125e-08
+alter vd dc=2.409731914e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.492670634e-01
+alter vb dc=0.000000000e+00
+option temp=75.388424
+op
+let idx = 105
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.907743300e-01
+altermod nmos toxe=8.698606535e-10
+altermod nmos ndep=7.007128173e+18
+altermod nmos u0=2.817528443e-02
+altermod nmos xj=5.464518635e-09
+alter m1 w=5.220356174e-08
+alter vd dc=5.992347522e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.876816299e-02
+alter vb dc=0.000000000e+00
+option temp=-4.684469
+op
+let idx = 106
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.077296896e-01
+altermod nmos toxe=9.357163486e-10
+altermod nmos ndep=6.309991234e+18
+altermod nmos u0=2.768597493e-02
+altermod nmos xj=5.420104447e-09
+alter m1 w=1.162028965e-07
+alter vd dc=2.301798987e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.664864610e-01
+alter vb dc=0.000000000e+00
+option temp=21.517859
+op
+let idx = 107
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.768086363e-01
+altermod nmos toxe=8.882129905e-10
+altermod nmos ndep=7.535863660e+18
+altermod nmos u0=3.158444644e-02
+altermod nmos xj=4.797991212e-09
+alter m1 w=5.051443032e-08
+alter vd dc=9.861257557e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.663565496e-01
+alter vb dc=0.000000000e+00
+option temp=119.593929
+op
+let idx = 108
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.452351389e-01
+altermod nmos toxe=1.013976982e-09
+altermod nmos ndep=6.368313752e+18
+altermod nmos u0=2.772344168e-02
+altermod nmos xj=4.688840866e-09
+alter m1 w=7.634973286e-08
+alter vd dc=2.481279536e-02
+alter vg dc=0.000000000e+00
+alter vs dc=6.454714557e-01
+alter vb dc=0.000000000e+00
+option temp=87.179864
+op
+let idx = 109
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.355546260e-01
+altermod nmos toxe=8.961002937e-10
+altermod nmos ndep=7.183105662e+18
+altermod nmos u0=2.978370139e-02
+altermod nmos xj=5.365557001e-09
+alter m1 w=1.270046309e-07
+alter vd dc=3.908117756e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.002530000e+00
+alter vb dc=0.000000000e+00
+option temp=-33.792928
+op
+let idx = 110
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.358828409e-01
+altermod nmos toxe=8.625654564e-10
+altermod nmos ndep=6.704758148e+18
+altermod nmos u0=2.987925330e-02
+altermod nmos xj=4.844528782e-09
+alter m1 w=5.807445869e-08
+alter vd dc=4.904732457e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.690229624e-01
+alter vb dc=0.000000000e+00
+option temp=16.628849
+op
+let idx = 111
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.681866988e-01
+altermod nmos toxe=8.840359013e-10
+altermod nmos ndep=6.656006476e+18
+altermod nmos u0=3.050060078e-02
+altermod nmos xj=5.474825196e-09
+alter m1 w=7.612840724e-08
+alter vd dc=9.234367716e-02
+alter vg dc=0.000000000e+00
+alter vs dc=6.660647447e-01
+alter vb dc=0.000000000e+00
+option temp=85.912594
+op
+let idx = 112
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.542863363e-01
+altermod nmos toxe=9.605616893e-10
+altermod nmos ndep=7.356620957e+18
+altermod nmos u0=2.935166915e-02
+altermod nmos xj=4.781972855e-09
+alter m1 w=1.272315058e-07
+alter vd dc=4.191066207e-02
+alter vg dc=0.000000000e+00
+alter vs dc=4.352389147e-01
+alter vb dc=0.000000000e+00
+option temp=103.269974
+op
+let idx = 113
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.415393110e-01
+altermod nmos toxe=8.562299616e-10
+altermod nmos ndep=7.412084437e+18
+altermod nmos u0=2.760698433e-02
+altermod nmos xj=4.857264729e-09
+alter m1 w=1.168760139e-07
+alter vd dc=9.078064545e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.154280185e-01
+alter vb dc=0.000000000e+00
+option temp=50.989760
+op
+let idx = 114
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.800196305e-01
+altermod nmos toxe=9.900808265e-10
+altermod nmos ndep=7.605476488e+18
+altermod nmos u0=2.735885182e-02
+altermod nmos xj=5.425897958e-09
+alter m1 w=1.696322792e-08
+alter vd dc=4.701229340e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.489183279e-01
+alter vb dc=0.000000000e+00
+option temp=98.977130
+op
+let idx = 115
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.178923134e-01
+altermod nmos toxe=1.022656773e-09
+altermod nmos ndep=7.598523100e+18
+altermod nmos u0=3.280156572e-02
+altermod nmos xj=5.424217872e-09
+alter m1 w=5.870568809e-08
+alter vd dc=3.663594558e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.482085755e-01
+alter vb dc=0.000000000e+00
+option temp=88.402703
+op
+let idx = 116
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.115975688e-01
+altermod nmos toxe=1.013983436e-09
+altermod nmos ndep=6.703525668e+18
+altermod nmos u0=3.074273552e-02
+altermod nmos xj=5.037264001e-09
+alter m1 w=9.758318555e-08
+alter vd dc=8.583845845e-02
+alter vg dc=0.000000000e+00
+alter vs dc=5.420881921e-01
+alter vb dc=0.000000000e+00
+option temp=-13.153353
+op
+let idx = 117
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.619315945e-01
+altermod nmos toxe=8.721429557e-10
+altermod nmos ndep=6.792182838e+18
+altermod nmos u0=2.942717618e-02
+altermod nmos xj=4.955800381e-09
+alter m1 w=6.630709194e-08
+alter vd dc=2.820173986e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.820336873e-01
+alter vb dc=0.000000000e+00
+option temp=118.340372
+op
+let idx = 118
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.083432476e-01
+altermod nmos toxe=9.393097883e-10
+altermod nmos ndep=6.865158813e+18
+altermod nmos u0=2.976557398e-02
+altermod nmos xj=4.501579900e-09
+alter m1 w=7.881824697e-08
+alter vd dc=5.709089450e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.255155479e-01
+alter vb dc=0.000000000e+00
+option temp=103.052436
+op
+let idx = 119
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.985904099e-01
+altermod nmos toxe=9.603401539e-10
+altermod nmos ndep=6.560458448e+18
+altermod nmos u0=2.760129141e-02
+altermod nmos xj=5.462577023e-09
+alter m1 w=5.122276336e-08
+alter vd dc=7.144758623e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.495151392e-01
+alter vb dc=0.000000000e+00
+option temp=110.494980
+op
+let idx = 120
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.383594580e-01
+altermod nmos toxe=8.722169758e-10
+altermod nmos ndep=6.552450082e+18
+altermod nmos u0=3.250800998e-02
+altermod nmos xj=4.503228511e-09
+alter m1 w=6.128933326e-08
+alter vd dc=1.494493326e-03
+alter vg dc=0.000000000e+00
+alter vs dc=3.504229567e-01
+alter vb dc=0.000000000e+00
+option temp=117.751781
+op
+let idx = 121
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.897021471e-01
+altermod nmos toxe=9.144480617e-10
+altermod nmos ndep=7.628692244e+18
+altermod nmos u0=2.899265153e-02
+altermod nmos xj=4.779166911e-09
+alter m1 w=3.545978941e-08
+alter vd dc=8.519435655e-03
+alter vg dc=0.000000000e+00
+alter vs dc=9.088023714e-01
+alter vb dc=0.000000000e+00
+option temp=-20.551747
+op
+let idx = 122
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.020839016e-01
+altermod nmos toxe=8.570379564e-10
+altermod nmos ndep=6.421867133e+18
+altermod nmos u0=3.144575303e-02
+altermod nmos xj=4.695835226e-09
+alter m1 w=1.108584996e-07
+alter vd dc=4.446165053e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.959601586e-01
+alter vb dc=0.000000000e+00
+option temp=43.732309
+op
+let idx = 123
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.624995619e-01
+altermod nmos toxe=9.774003498e-10
+altermod nmos ndep=6.655391126e+18
+altermod nmos u0=2.933354000e-02
+altermod nmos xj=5.494336444e-09
+alter m1 w=9.925390536e-08
+alter vd dc=3.666547766e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.303581721e-01
+alter vb dc=0.000000000e+00
+option temp=-37.954563
+op
+let idx = 124
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.117734516e-01
+altermod nmos toxe=1.027897396e-09
+altermod nmos ndep=7.470998595e+18
+altermod nmos u0=2.940964079e-02
+altermod nmos xj=5.353161555e-09
+alter m1 w=9.434027539e-08
+alter vd dc=4.955377210e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.061864247e-01
+alter vb dc=0.000000000e+00
+option temp=68.722678
+op
+let idx = 125
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.801315119e-01
+altermod nmos toxe=9.680850045e-10
+altermod nmos ndep=7.209208119e+18
+altermod nmos u0=2.885685236e-02
+altermod nmos xj=5.478971029e-09
+alter m1 w=9.516010106e-08
+alter vd dc=9.118855367e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.876176175e-01
+alter vb dc=0.000000000e+00
+option temp=118.658675
+op
+let idx = 126
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.360257858e-01
+altermod nmos toxe=8.830182000e-10
+altermod nmos ndep=6.819152727e+18
+altermod nmos u0=2.757389754e-02
+altermod nmos xj=4.695965678e-09
+alter m1 w=3.945211084e-08
+alter vd dc=2.676053504e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.474702861e-01
+alter vb dc=0.000000000e+00
+option temp=81.999660
+op
+let idx = 127
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.647610489e-01
+altermod nmos toxe=8.645652617e-10
+altermod nmos ndep=6.920058029e+18
+altermod nmos u0=3.042130501e-02
+altermod nmos xj=4.946478367e-09
+alter m1 w=7.131139125e-08
+alter vd dc=1.734144668e-02
+alter vg dc=0.000000000e+00
+alter vs dc=2.193530714e-01
+alter vb dc=0.000000000e+00
+option temp=-38.012535
+op
+let idx = 128
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.974292685e-01
+altermod nmos toxe=1.034070472e-09
+altermod nmos ndep=7.595413318e+18
+altermod nmos u0=3.010106543e-02
+altermod nmos xj=5.390979447e-09
+alter m1 w=5.207534007e-08
+alter vd dc=2.670379835e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.026640705e-01
+alter vb dc=0.000000000e+00
+option temp=-11.920417
+op
+let idx = 129
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.119309650e-01
+altermod nmos toxe=9.617402815e-10
+altermod nmos ndep=7.540688262e+18
+altermod nmos u0=2.840404176e-02
+altermod nmos xj=5.265691001e-09
+alter m1 w=4.679736288e-08
+alter vd dc=5.331150624e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.154445909e-01
+alter vb dc=0.000000000e+00
+option temp=-37.721177
+op
+let idx = 130
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.594288238e-01
+altermod nmos toxe=9.379210125e-10
+altermod nmos ndep=6.592512127e+18
+altermod nmos u0=2.785427116e-02
+altermod nmos xj=5.129958814e-09
+alter m1 w=6.394370644e-08
+alter vd dc=3.861406414e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.403216244e-01
+alter vb dc=0.000000000e+00
+option temp=95.182518
+op
+let idx = 131
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.534826506e-01
+altermod nmos toxe=9.483055914e-10
+altermod nmos ndep=7.254660586e+18
+altermod nmos u0=3.102259081e-02
+altermod nmos xj=4.832740194e-09
+alter m1 w=8.895114162e-08
+alter vd dc=5.536484997e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.991144358e-02
+alter vb dc=0.000000000e+00
+option temp=18.962692
+op
+let idx = 132
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.268595622e-01
+altermod nmos toxe=9.845167827e-10
+altermod nmos ndep=7.323498732e+18
+altermod nmos u0=3.120369499e-02
+altermod nmos xj=5.184468024e-09
+alter m1 w=1.051757999e-07
+alter vd dc=6.828651799e-02
+alter vg dc=0.000000000e+00
+alter vs dc=7.539924500e-01
+alter vb dc=0.000000000e+00
+option temp=92.142611
+op
+let idx = 133
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.459433572e-01
+altermod nmos toxe=9.406630541e-10
+altermod nmos ndep=6.968274604e+18
+altermod nmos u0=3.172883983e-02
+altermod nmos xj=5.129249117e-09
+alter m1 w=2.413338282e-08
+alter vd dc=1.129380837e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.638867940e-01
+alter vb dc=0.000000000e+00
+option temp=80.258198
+op
+let idx = 134
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.948121037e-01
+altermod nmos toxe=9.943971741e-10
+altermod nmos ndep=7.344195685e+18
+altermod nmos u0=3.009692161e-02
+altermod nmos xj=5.103237210e-09
+alter m1 w=4.382381236e-08
+alter vd dc=8.260162724e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.977122721e-01
+alter vb dc=0.000000000e+00
+option temp=96.893197
+op
+let idx = 135
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.866354292e-01
+altermod nmos toxe=9.542489391e-10
+altermod nmos ndep=7.186260226e+18
+altermod nmos u0=2.975387680e-02
+altermod nmos xj=4.623596598e-09
+alter m1 w=1.057376509e-07
+alter vd dc=9.214265140e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.168873887e-01
+alter vb dc=0.000000000e+00
+option temp=82.474116
+op
+let idx = 136
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.798173215e-01
+altermod nmos toxe=9.262421988e-10
+altermod nmos ndep=6.616828792e+18
+altermod nmos u0=3.187945508e-02
+altermod nmos xj=5.067712948e-09
+alter m1 w=6.889714898e-08
+alter vd dc=7.244793213e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.571565096e-01
+alter vb dc=0.000000000e+00
+option temp=37.290640
+op
+let idx = 137
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.135323030e-01
+altermod nmos toxe=8.733025919e-10
+altermod nmos ndep=7.684655164e+18
+altermod nmos u0=3.118600296e-02
+altermod nmos xj=4.769437739e-09
+alter m1 w=1.074127392e-07
+alter vd dc=4.598152879e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.250664989e-01
+alter vb dc=0.000000000e+00
+option temp=121.360209
+op
+let idx = 138
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.440181137e-01
+altermod nmos toxe=9.177263448e-10
+altermod nmos ndep=6.985051933e+18
+altermod nmos u0=2.717535237e-02
+altermod nmos xj=5.445999446e-09
+alter m1 w=6.432633997e-08
+alter vd dc=9.072880749e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.341797486e-01
+alter vb dc=0.000000000e+00
+option temp=-8.350510
+op
+let idx = 139
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.047364888e-01
+altermod nmos toxe=8.570424318e-10
+altermod nmos ndep=6.995531230e+18
+altermod nmos u0=2.957786022e-02
+altermod nmos xj=5.311426033e-09
+alter m1 w=7.695951886e-08
+alter vd dc=1.352579216e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.513366796e-01
+alter vb dc=0.000000000e+00
+option temp=6.261192
+op
+let idx = 140
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.575386619e-01
+altermod nmos toxe=9.921518973e-10
+altermod nmos ndep=7.583636140e+18
+altermod nmos u0=2.933666842e-02
+altermod nmos xj=5.228964200e-09
+alter m1 w=6.098132367e-08
+alter vd dc=4.997801039e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.747959148e-02
+alter vb dc=0.000000000e+00
+option temp=27.253868
+op
+let idx = 141
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.555745478e-01
+altermod nmos toxe=9.056183843e-10
+altermod nmos ndep=6.758415033e+18
+altermod nmos u0=3.026466116e-02
+altermod nmos xj=4.600530658e-09
+alter m1 w=1.063861348e-07
+alter vd dc=1.516732423e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.021961265e-01
+alter vb dc=0.000000000e+00
+option temp=-0.222572
+op
+let idx = 142
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.637622433e-01
+altermod nmos toxe=9.375635224e-10
+altermod nmos ndep=6.978418570e+18
+altermod nmos u0=2.906804324e-02
+altermod nmos xj=5.408441311e-09
+alter m1 w=6.411754027e-08
+alter vd dc=5.007514080e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.269967898e-01
+alter vb dc=0.000000000e+00
+option temp=97.065218
+op
+let idx = 143
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.600917166e-01
+altermod nmos toxe=8.593783573e-10
+altermod nmos ndep=7.392913359e+18
+altermod nmos u0=2.790505482e-02
+altermod nmos xj=4.844522177e-09
+alter m1 w=7.988154034e-08
+alter vd dc=4.940498252e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.983575083e-01
+alter vb dc=0.000000000e+00
+option temp=80.806622
+op
+let idx = 144
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.398079996e-01
+altermod nmos toxe=8.855274098e-10
+altermod nmos ndep=7.437595601e+18
+altermod nmos u0=2.820966511e-02
+altermod nmos xj=5.425499059e-09
+alter m1 w=4.763184830e-08
+alter vd dc=6.306137816e-02
+alter vg dc=0.000000000e+00
+alter vs dc=2.007613254e-01
+alter vb dc=0.000000000e+00
+option temp=-34.992218
+op
+let idx = 145
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.913000188e-01
+altermod nmos toxe=1.018623770e-09
+altermod nmos ndep=6.990239817e+18
+altermod nmos u0=3.247068441e-02
+altermod nmos xj=4.782737236e-09
+alter m1 w=1.032343982e-07
+alter vd dc=6.381801705e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.493015009e-01
+alter vb dc=0.000000000e+00
+option temp=104.253303
+op
+let idx = 146
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.142382674e-01
+altermod nmos toxe=9.376155116e-10
+altermod nmos ndep=7.041872928e+18
+altermod nmos u0=2.728076876e-02
+altermod nmos xj=4.587090539e-09
+alter m1 w=7.904923391e-08
+alter vd dc=4.012088850e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.844908388e-01
+alter vb dc=0.000000000e+00
+option temp=22.302776
+op
+let idx = 147
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.378114687e-01
+altermod nmos toxe=1.001398499e-09
+altermod nmos ndep=7.674498286e+18
+altermod nmos u0=3.089281596e-02
+altermod nmos xj=4.501346397e-09
+alter m1 w=1.054718034e-07
+alter vd dc=7.801477570e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.848836782e-01
+alter vb dc=0.000000000e+00
+option temp=-28.689829
+op
+let idx = 148
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.680003461e-01
+altermod nmos toxe=1.021404141e-09
+altermod nmos ndep=7.621686640e+18
+altermod nmos u0=3.295450679e-02
+altermod nmos xj=5.299161979e-09
+alter m1 w=9.842099416e-08
+alter vd dc=2.402304718e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.906536901e-01
+alter vb dc=0.000000000e+00
+option temp=119.379971
+op
+let idx = 149
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.051383754e-01
+altermod nmos toxe=9.637305964e-10
+altermod nmos ndep=6.884481489e+18
+altermod nmos u0=3.102111055e-02
+altermod nmos xj=5.302696642e-09
+alter m1 w=1.122730412e-07
+alter vd dc=7.802753444e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.041154067e-01
+alter vb dc=0.000000000e+00
+option temp=0.025081
+op
+let idx = 150
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.645541356e-01
+altermod nmos toxe=9.962070713e-10
+altermod nmos ndep=7.675584228e+18
+altermod nmos u0=3.287632569e-02
+altermod nmos xj=4.685651220e-09
+alter m1 w=3.444585804e-08
+alter vd dc=6.325445068e-02
+alter vg dc=0.000000000e+00
+alter vs dc=7.429272888e-01
+alter vb dc=0.000000000e+00
+option temp=-19.638016
+op
+let idx = 151
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.323215658e-01
+altermod nmos toxe=8.970851226e-10
+altermod nmos ndep=6.368504379e+18
+altermod nmos u0=3.067104938e-02
+altermod nmos xj=4.917379043e-09
+alter m1 w=1.277279725e-07
+alter vd dc=8.865618930e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.675303655e-01
+alter vb dc=0.000000000e+00
+option temp=104.460943
+op
+let idx = 152
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.182745686e-01
+altermod nmos toxe=8.936557282e-10
+altermod nmos ndep=7.013069510e+18
+altermod nmos u0=3.103505800e-02
+altermod nmos xj=4.538965248e-09
+alter m1 w=7.624631336e-08
+alter vd dc=4.323410866e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.297896912e-01
+alter vb dc=0.000000000e+00
+option temp=113.574307
+op
+let idx = 153
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.828059351e-01
+altermod nmos toxe=1.000408394e-09
+altermod nmos ndep=7.570181408e+18
+altermod nmos u0=3.253711798e-02
+altermod nmos xj=5.459550604e-09
+alter m1 w=7.404415434e-08
+alter vd dc=8.217368884e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.600826640e-01
+alter vb dc=0.000000000e+00
+option temp=52.018130
+op
+let idx = 154
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.779372989e-01
+altermod nmos toxe=9.430628973e-10
+altermod nmos ndep=6.885570689e+18
+altermod nmos u0=2.710779444e-02
+altermod nmos xj=4.882613629e-09
+alter m1 w=3.449429958e-08
+alter vd dc=7.001953938e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.894875149e-01
+alter vb dc=0.000000000e+00
+option temp=56.472553
+op
+let idx = 155
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.815513143e-01
+altermod nmos toxe=1.030670971e-09
+altermod nmos ndep=7.069731264e+18
+altermod nmos u0=2.831762950e-02
+altermod nmos xj=4.813828287e-09
+alter m1 w=1.276373366e-07
+alter vd dc=4.262125203e-02
+alter vg dc=0.000000000e+00
+alter vs dc=3.876270182e-01
+alter vb dc=0.000000000e+00
+option temp=28.299401
+op
+let idx = 156
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.615307602e-01
+altermod nmos toxe=9.930926484e-10
+altermod nmos ndep=7.105748606e+18
+altermod nmos u0=3.159874127e-02
+altermod nmos xj=5.439778668e-09
+alter m1 w=4.370337371e-08
+alter vd dc=7.084729214e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.077247819e-01
+alter vb dc=0.000000000e+00
+option temp=26.286482
+op
+let idx = 157
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.900213581e-01
+altermod nmos toxe=9.717701093e-10
+altermod nmos ndep=7.084786581e+18
+altermod nmos u0=3.140240425e-02
+altermod nmos xj=5.255932792e-09
+alter m1 w=9.728800504e-08
+alter vd dc=7.424988417e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.355870555e-01
+alter vb dc=0.000000000e+00
+option temp=3.021132
+op
+let idx = 158
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.424775779e-01
+altermod nmos toxe=8.811616661e-10
+altermod nmos ndep=7.460326741e+18
+altermod nmos u0=2.972175068e-02
+altermod nmos xj=4.875822818e-09
+alter m1 w=4.868462545e-08
+alter vd dc=6.365568594e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.161316696e-01
+alter vb dc=0.000000000e+00
+option temp=16.607585
+op
+let idx = 159
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.111137696e-01
+altermod nmos toxe=1.010025819e-09
+altermod nmos ndep=7.220045852e+18
+altermod nmos u0=3.103711550e-02
+altermod nmos xj=5.055430060e-09
+alter m1 w=4.226536210e-08
+alter vd dc=6.029013398e-02
+alter vg dc=0.000000000e+00
+alter vs dc=7.876106590e-02
+alter vb dc=0.000000000e+00
+option temp=-39.584091
+op
+let idx = 160
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.006237976e-01
+altermod nmos toxe=9.191465733e-10
+altermod nmos ndep=7.193658254e+18
+altermod nmos u0=3.257218864e-02
+altermod nmos xj=4.674120892e-09
+alter m1 w=1.827845419e-08
+alter vd dc=3.560583666e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.287285363e-01
+alter vb dc=0.000000000e+00
+option temp=89.016589
+op
+let idx = 161
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.877288646e-01
+altermod nmos toxe=9.756238073e-10
+altermod nmos ndep=7.196389604e+18
+altermod nmos u0=3.239680429e-02
+altermod nmos xj=4.951045444e-09
+alter m1 w=5.019956223e-08
+alter vd dc=3.454707261e-03
+alter vg dc=0.000000000e+00
+alter vs dc=7.023017063e-01
+alter vb dc=0.000000000e+00
+option temp=34.013354
+op
+let idx = 162
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.964861542e-01
+altermod nmos toxe=1.009024543e-09
+altermod nmos ndep=6.699009667e+18
+altermod nmos u0=3.227045349e-02
+altermod nmos xj=5.299176882e-09
+alter m1 w=1.090707168e-07
+alter vd dc=3.191923145e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.422263518e-01
+alter vb dc=0.000000000e+00
+option temp=21.252238
+op
+let idx = 163
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.950542871e-01
+altermod nmos toxe=9.650006153e-10
+altermod nmos ndep=7.261494695e+18
+altermod nmos u0=2.877392102e-02
+altermod nmos xj=4.527133440e-09
+alter m1 w=6.358645048e-08
+alter vd dc=3.267118965e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.175111817e-01
+alter vb dc=0.000000000e+00
+option temp=47.291197
+op
+let idx = 164
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.916623710e-01
+altermod nmos toxe=9.823454786e-10
+altermod nmos ndep=6.891264647e+18
+altermod nmos u0=3.281398244e-02
+altermod nmos xj=4.614668570e-09
+alter m1 w=1.025327214e-07
+alter vd dc=7.028683479e-02
+alter vg dc=0.000000000e+00
+alter vs dc=7.248645101e-01
+alter vb dc=0.000000000e+00
+option temp=52.699543
+op
+let idx = 165
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.939724772e-01
+altermod nmos toxe=9.268697862e-10
+altermod nmos ndep=6.484174982e+18
+altermod nmos u0=3.174907177e-02
+altermod nmos xj=4.713251628e-09
+alter m1 w=9.846655113e-08
+alter vd dc=4.056971498e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.235143024e-01
+alter vb dc=0.000000000e+00
+option temp=56.043196
+op
+let idx = 166
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.832813924e-01
+altermod nmos toxe=9.680819507e-10
+altermod nmos ndep=7.670926608e+18
+altermod nmos u0=3.045291802e-02
+altermod nmos xj=5.488949649e-09
+alter m1 w=7.980658304e-08
+alter vd dc=1.611841904e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.474533954e-01
+alter vb dc=0.000000000e+00
+option temp=20.610597
+op
+let idx = 167
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.753574709e-01
+altermod nmos toxe=9.618051859e-10
+altermod nmos ndep=6.498702748e+18
+altermod nmos u0=2.700226996e-02
+altermod nmos xj=4.722415174e-09
+alter m1 w=9.471482841e-08
+alter vd dc=3.407473346e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.889090379e-01
+alter vb dc=0.000000000e+00
+option temp=87.828907
+op
+let idx = 168
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.177509944e-01
+altermod nmos toxe=9.470273993e-10
+altermod nmos ndep=6.979405431e+18
+altermod nmos u0=2.813635577e-02
+altermod nmos xj=4.646750019e-09
+alter m1 w=3.208931131e-08
+alter vd dc=2.852764895e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.197939033e-01
+alter vb dc=0.000000000e+00
+option temp=81.809828
+op
+let idx = 169
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.531120249e-01
+altermod nmos toxe=8.926950697e-10
+altermod nmos ndep=7.304119099e+18
+altermod nmos u0=2.909008479e-02
+altermod nmos xj=5.145034948e-09
+alter m1 w=4.358435945e-08
+alter vd dc=1.015415681e+00
+alter vg dc=0.000000000e+00
+alter vs dc=5.886821274e-01
+alter vb dc=0.000000000e+00
+option temp=32.260069
+op
+let idx = 170
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.768036109e-01
+altermod nmos toxe=9.887068778e-10
+altermod nmos ndep=7.126005979e+18
+altermod nmos u0=2.765541992e-02
+altermod nmos xj=5.198611539e-09
+alter m1 w=4.066893511e-08
+alter vd dc=7.752582492e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.241554752e-01
+alter vb dc=0.000000000e+00
+option temp=65.181079
+op
+let idx = 171
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.579068759e-01
+altermod nmos toxe=9.501121696e-10
+altermod nmos ndep=7.595431966e+18
+altermod nmos u0=2.705535859e-02
+altermod nmos xj=4.596961748e-09
+alter m1 w=3.760785754e-08
+alter vd dc=9.934617403e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.689783030e-01
+alter vb dc=0.000000000e+00
+option temp=-0.369828
+op
+let idx = 172
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.360749270e-01
+altermod nmos toxe=9.589973107e-10
+altermod nmos ndep=7.550165260e+18
+altermod nmos u0=3.136782818e-02
+altermod nmos xj=5.346647431e-09
+alter m1 w=1.073783126e-07
+alter vd dc=2.995146474e-03
+alter vg dc=0.000000000e+00
+alter vs dc=1.904465952e-01
+alter vb dc=0.000000000e+00
+option temp=31.608248
+op
+let idx = 173
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.341055354e-01
+altermod nmos toxe=9.226924040e-10
+altermod nmos ndep=7.063314828e+18
+altermod nmos u0=2.712900752e-02
+altermod nmos xj=5.316720142e-09
+alter m1 w=7.097169324e-08
+alter vd dc=1.081390053e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.241162073e-01
+alter vb dc=0.000000000e+00
+option temp=38.807123
+op
+let idx = 174
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.121594254e-01
+altermod nmos toxe=9.238188981e-10
+altermod nmos ndep=7.359766640e+18
+altermod nmos u0=3.036889450e-02
+altermod nmos xj=5.410790083e-09
+alter m1 w=7.306803714e-08
+alter vd dc=2.181909301e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.632113454e-01
+alter vb dc=0.000000000e+00
+option temp=-3.486968
+op
+let idx = 175
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.640195591e-01
+altermod nmos toxe=8.847363227e-10
+altermod nmos ndep=6.567299146e+18
+altermod nmos u0=2.979688565e-02
+altermod nmos xj=4.907982792e-09
+alter m1 w=6.423861881e-08
+alter vd dc=9.675594655e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.878702754e-01
+alter vb dc=0.000000000e+00
+option temp=50.645476
+op
+let idx = 176
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.717517919e-01
+altermod nmos toxe=8.722123459e-10
+altermod nmos ndep=7.066434212e+18
+altermod nmos u0=2.977698111e-02
+altermod nmos xj=5.236121707e-09
+alter m1 w=9.055246578e-08
+alter vd dc=4.909963060e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.485024479e-01
+alter vb dc=0.000000000e+00
+option temp=-15.636491
+op
+let idx = 177
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.702886541e-01
+altermod nmos toxe=8.785012510e-10
+altermod nmos ndep=6.487585562e+18
+altermod nmos u0=3.039516005e-02
+altermod nmos xj=5.402787796e-09
+alter m1 w=5.692711357e-08
+alter vd dc=5.566819366e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.227756719e-01
+alter vb dc=0.000000000e+00
+option temp=112.312214
+op
+let idx = 178
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.611222362e-01
+altermod nmos toxe=9.934271928e-10
+altermod nmos ndep=7.438922483e+18
+altermod nmos u0=3.297829932e-02
+altermod nmos xj=4.657009059e-09
+alter m1 w=1.187395389e-07
+alter vd dc=2.544490851e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.958593063e-01
+alter vb dc=0.000000000e+00
+option temp=111.228245
+op
+let idx = 179
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.347518329e-01
+altermod nmos toxe=8.768726775e-10
+altermod nmos ndep=7.643173909e+18
+altermod nmos u0=3.295136840e-02
+altermod nmos xj=4.914930778e-09
+alter m1 w=3.896117309e-08
+alter vd dc=8.726879345e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.999287113e-02
+alter vb dc=0.000000000e+00
+option temp=43.423789
+op
+let idx = 180
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.462440917e-01
+altermod nmos toxe=8.597899484e-10
+altermod nmos ndep=7.355643274e+18
+altermod nmos u0=3.201887245e-02
+altermod nmos xj=4.828225514e-09
+alter m1 w=7.592896033e-08
+alter vd dc=8.875538222e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.137535140e-01
+alter vb dc=0.000000000e+00
+option temp=114.823910
+op
+let idx = 181
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.399483634e-01
+altermod nmos toxe=9.518215605e-10
+altermod nmos ndep=6.594203662e+18
+altermod nmos u0=3.254061856e-02
+altermod nmos xj=5.010439273e-09
+alter m1 w=8.216642332e-08
+alter vd dc=2.048464900e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.065340394e-01
+alter vb dc=0.000000000e+00
+option temp=18.728568
+op
+let idx = 182
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.098998323e-01
+altermod nmos toxe=8.832237104e-10
+altermod nmos ndep=7.394640453e+18
+altermod nmos u0=2.817025674e-02
+altermod nmos xj=4.508256173e-09
+alter m1 w=3.533525940e-08
+alter vd dc=4.397875960e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.281389497e-01
+alter vb dc=0.000000000e+00
+option temp=34.355765
+op
+let idx = 183
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.695011946e-01
+altermod nmos toxe=9.593479178e-10
+altermod nmos ndep=6.370927660e+18
+altermod nmos u0=3.246722880e-02
+altermod nmos xj=4.982141268e-09
+alter m1 w=1.988437023e-08
+alter vd dc=2.862824829e-03
+alter vg dc=0.000000000e+00
+alter vs dc=8.354570130e-01
+alter vb dc=0.000000000e+00
+option temp=8.483818
+op
+let idx = 184
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.665593043e-01
+altermod nmos toxe=8.966293560e-10
+altermod nmos ndep=7.471349475e+18
+altermod nmos u0=3.280205192e-02
+altermod nmos xj=4.623225510e-09
+alter m1 w=1.226924296e-07
+alter vd dc=6.941245066e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.607267408e-01
+alter vb dc=0.000000000e+00
+option temp=123.432214
+op
+let idx = 185
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.460638291e-01
+altermod nmos toxe=9.393967633e-10
+altermod nmos ndep=7.679781248e+18
+altermod nmos u0=2.952596723e-02
+altermod nmos xj=5.238451811e-09
+alter m1 w=2.896850176e-08
+alter vd dc=4.686575265e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.879585770e-01
+alter vb dc=0.000000000e+00
+option temp=60.598090
+op
+let idx = 186
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.721061891e-01
+altermod nmos toxe=9.344955947e-10
+altermod nmos ndep=6.697126672e+18
+altermod nmos u0=2.712544615e-02
+altermod nmos xj=5.145783936e-09
+alter m1 w=1.077116570e-07
+alter vd dc=4.802133760e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.098389556e-01
+alter vb dc=0.000000000e+00
+option temp=6.644033
+op
+let idx = 187
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.037806715e-01
+altermod nmos toxe=9.848753864e-10
+altermod nmos ndep=6.876390360e+18
+altermod nmos u0=3.147461367e-02
+altermod nmos xj=5.488095562e-09
+alter m1 w=2.467554061e-08
+alter vd dc=1.018138561e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.607980583e-01
+alter vb dc=0.000000000e+00
+option temp=101.748521
+op
+let idx = 188
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.929796268e-01
+altermod nmos toxe=9.061071060e-10
+altermod nmos ndep=6.524538789e+18
+altermod nmos u0=2.821779561e-02
+altermod nmos xj=4.784102540e-09
+alter m1 w=1.054256072e-07
+alter vd dc=7.854065843e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.226094674e-01
+alter vb dc=0.000000000e+00
+option temp=35.554616
+op
+let idx = 189
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.054788978e-01
+altermod nmos toxe=9.410061093e-10
+altermod nmos ndep=6.983618128e+18
+altermod nmos u0=3.149329698e-02
+altermod nmos xj=5.327836352e-09
+alter m1 w=1.274754211e-07
+alter vd dc=1.429742518e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.774267194e-01
+alter vb dc=0.000000000e+00
+option temp=120.104143
+op
+let idx = 190
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.466344016e-01
+altermod nmos toxe=9.451521311e-10
+altermod nmos ndep=7.387321498e+18
+altermod nmos u0=3.192029056e-02
+altermod nmos xj=4.789724776e-09
+alter m1 w=3.872398335e-08
+alter vd dc=1.606550964e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.482018702e-01
+alter vb dc=0.000000000e+00
+option temp=-7.530367
+op
+let idx = 191
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.709821776e-01
+altermod nmos toxe=8.687835213e-10
+altermod nmos ndep=6.451313599e+18
+altermod nmos u0=2.714271267e-02
+altermod nmos xj=4.542990399e-09
+alter m1 w=9.196519812e-08
+alter vd dc=9.328250710e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.843189691e-01
+alter vb dc=0.000000000e+00
+option temp=54.734120
+op
+let idx = 192
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.451646971e-01
+altermod nmos toxe=1.018592987e-09
+altermod nmos ndep=7.105075895e+18
+altermod nmos u0=3.161032869e-02
+altermod nmos xj=5.120040286e-09
+alter m1 w=7.540475345e-08
+alter vd dc=8.740869129e-02
+alter vg dc=0.000000000e+00
+alter vs dc=4.423981273e-01
+alter vb dc=0.000000000e+00
+option temp=-15.761577
+op
+let idx = 193
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.406460071e-01
+altermod nmos toxe=9.430194285e-10
+altermod nmos ndep=7.087857905e+18
+altermod nmos u0=2.931403425e-02
+altermod nmos xj=4.872632050e-09
+alter m1 w=1.131460302e-07
+alter vd dc=3.485632486e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.322164862e-01
+alter vb dc=0.000000000e+00
+option temp=108.567291
+op
+let idx = 194
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.137131908e-01
+altermod nmos toxe=9.859239597e-10
+altermod nmos ndep=7.346626376e+18
+altermod nmos u0=2.706682741e-02
+altermod nmos xj=4.601137800e-09
+alter m1 w=1.176760507e-07
+alter vd dc=4.675361385e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.036595338e+00
+alter vb dc=0.000000000e+00
+option temp=80.847629
+op
+let idx = 195
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.912720774e-01
+altermod nmos toxe=8.642079123e-10
+altermod nmos ndep=6.411705010e+18
+altermod nmos u0=2.910028342e-02
+altermod nmos xj=5.345081145e-09
+alter m1 w=4.593489420e-08
+alter vd dc=6.608768651e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.508434191e-01
+alter vb dc=0.000000000e+00
+option temp=11.404181
+op
+let idx = 196
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.535419842e-01
+altermod nmos toxe=8.773020531e-10
+altermod nmos ndep=7.573601895e+18
+altermod nmos u0=2.745947023e-02
+altermod nmos xj=5.001924941e-09
+alter m1 w=5.334267097e-08
+alter vd dc=4.783708458e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.135265416e-01
+alter vb dc=0.000000000e+00
+option temp=4.290479
+op
+let idx = 197
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.753972473e-01
+altermod nmos toxe=1.032900141e-09
+altermod nmos ndep=6.450136240e+18
+altermod nmos u0=2.884804392e-02
+altermod nmos xj=4.548106113e-09
+alter m1 w=8.443952826e-08
+alter vd dc=1.393753967e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.305386039e-01
+alter vb dc=0.000000000e+00
+option temp=-11.465326
+op
+let idx = 198
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.516350002e-01
+altermod nmos toxe=8.565002890e-10
+altermod nmos ndep=7.111599530e+18
+altermod nmos u0=2.924881056e-02
+altermod nmos xj=5.393825485e-09
+alter m1 w=1.155346927e-07
+alter vd dc=8.240322832e-02
+alter vg dc=0.000000000e+00
+alter vs dc=6.260313224e-01
+alter vb dc=0.000000000e+00
+option temp=62.880647
+op
+let idx = 199
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.478070345e-01
+altermod nmos toxe=9.527053596e-10
+altermod nmos ndep=7.079622415e+18
+altermod nmos u0=2.944090929e-02
+altermod nmos xj=4.626201758e-09
+alter m1 w=7.432636478e-08
+alter vd dc=4.906260048e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.893456432e-01
+alter vb dc=0.000000000e+00
+option temp=69.980513
+op
+let idx = 200
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.052563596e-01
+altermod nmos toxe=9.480358791e-10
+altermod nmos ndep=6.421695877e+18
+altermod nmos u0=3.002214755e-02
+altermod nmos xj=4.502033053e-09
+alter m1 w=1.267250568e-07
+alter vd dc=6.873010562e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.389849460e-01
+alter vb dc=0.000000000e+00
+option temp=119.832188
+op
+let idx = 201
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.202222331e-01
+altermod nmos toxe=1.042247416e-09
+altermod nmos ndep=6.390426258e+18
+altermod nmos u0=3.279699332e-02
+altermod nmos xj=4.548220230e-09
+alter m1 w=3.804339224e-08
+alter vd dc=4.574209609e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.075373941e-01
+alter vb dc=0.000000000e+00
+option temp=-35.084350
+op
+let idx = 202
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.653938351e-01
+altermod nmos toxe=9.378576727e-10
+altermod nmos ndep=6.842326373e+18
+altermod nmos u0=2.982953461e-02
+altermod nmos xj=5.367839492e-09
+alter m1 w=7.496388398e-08
+alter vd dc=8.182790324e-02
+alter vg dc=0.000000000e+00
+alter vs dc=2.671655931e-02
+alter vb dc=0.000000000e+00
+option temp=24.903239
+op
+let idx = 203
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.323522635e-01
+altermod nmos toxe=8.952675441e-10
+altermod nmos ndep=7.071155728e+18
+altermod nmos u0=3.038869601e-02
+altermod nmos xj=4.689671185e-09
+alter m1 w=1.162643204e-07
+alter vd dc=7.852418914e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.355093907e-01
+alter vb dc=0.000000000e+00
+option temp=41.271101
+op
+let idx = 204
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.684850771e-01
+altermod nmos toxe=9.876393706e-10
+altermod nmos ndep=7.251582316e+18
+altermod nmos u0=3.005889534e-02
+altermod nmos xj=4.940424895e-09
+alter m1 w=1.166241889e-07
+alter vd dc=7.400581807e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.706075298e-01
+alter vb dc=0.000000000e+00
+option temp=-1.990574
+op
+let idx = 205
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.224457466e-01
+altermod nmos toxe=9.625901362e-10
+altermod nmos ndep=7.048677170e+18
+altermod nmos u0=2.808658008e-02
+altermod nmos xj=5.248825828e-09
+alter m1 w=1.733111531e-08
+alter vd dc=7.538387364e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.960591270e-01
+alter vb dc=0.000000000e+00
+option temp=33.237024
+op
+let idx = 206
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.637937932e-01
+altermod nmos toxe=8.782539797e-10
+altermod nmos ndep=6.746426254e+18
+altermod nmos u0=2.753156704e-02
+altermod nmos xj=4.648308343e-09
+alter m1 w=8.698381521e-08
+alter vd dc=8.066687997e-02
+alter vg dc=0.000000000e+00
+alter vs dc=6.966611406e-01
+alter vb dc=0.000000000e+00
+option temp=-4.949618
+op
+let idx = 207
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.479518030e-01
+altermod nmos toxe=8.725935719e-10
+altermod nmos ndep=6.953853939e+18
+altermod nmos u0=3.199609168e-02
+altermod nmos xj=4.730116430e-09
+alter m1 w=1.738380466e-08
+alter vd dc=1.074767197e+00
+alter vg dc=0.000000000e+00
+alter vs dc=1.052446884e+00
+alter vb dc=0.000000000e+00
+option temp=102.698759
+op
+let idx = 208
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.390927371e-01
+altermod nmos toxe=9.814392948e-10
+altermod nmos ndep=6.425535135e+18
+altermod nmos u0=2.824492357e-02
+altermod nmos xj=5.011629479e-09
+alter m1 w=5.166128844e-08
+alter vd dc=3.074238551e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.249184973e-01
+alter vb dc=0.000000000e+00
+option temp=76.990445
+op
+let idx = 209
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.557502069e-01
+altermod nmos toxe=1.003580300e-09
+altermod nmos ndep=6.308349360e+18
+altermod nmos u0=3.215751115e-02
+altermod nmos xj=4.740819280e-09
+alter m1 w=4.799309472e-08
+alter vd dc=9.695471802e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.725953598e-01
+alter vb dc=0.000000000e+00
+option temp=41.232957
+op
+let idx = 210
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.834198764e-01
+altermod nmos toxe=1.031336318e-09
+altermod nmos ndep=6.372581541e+18
+altermod nmos u0=3.269359421e-02
+altermod nmos xj=5.116423498e-09
+alter m1 w=6.256383094e-08
+alter vd dc=7.408644487e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.732139555e-01
+alter vb dc=0.000000000e+00
+option temp=49.425907
+op
+let idx = 211
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.837063727e-01
+altermod nmos toxe=8.760562285e-10
+altermod nmos ndep=7.389242924e+18
+altermod nmos u0=2.714397299e-02
+altermod nmos xj=5.470920319e-09
+alter m1 w=1.088024382e-07
+alter vd dc=6.176443768e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.037437461e-01
+alter vb dc=0.000000000e+00
+option temp=33.301694
+op
+let idx = 212
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.833814032e-01
+altermod nmos toxe=8.886900819e-10
+altermod nmos ndep=7.199963687e+18
+altermod nmos u0=3.027618124e-02
+altermod nmos xj=4.666343218e-09
+alter m1 w=9.987580590e-08
+alter vd dc=7.741975571e-01
+alter vg dc=0.000000000e+00
+alter vs dc=9.222689309e-01
+alter vb dc=0.000000000e+00
+option temp=-5.159838
+op
+let idx = 213
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.953900782e-01
+altermod nmos toxe=9.514217274e-10
+altermod nmos ndep=6.963258808e+18
+altermod nmos u0=2.897558599e-02
+altermod nmos xj=4.536419810e-09
+alter m1 w=4.394795124e-08
+alter vd dc=7.736850877e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.323548651e-01
+alter vb dc=0.000000000e+00
+option temp=105.768589
+op
+let idx = 214
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.410101953e-01
+altermod nmos toxe=1.034515187e-09
+altermod nmos ndep=6.693043761e+18
+altermod nmos u0=2.886207424e-02
+altermod nmos xj=4.921633230e-09
+alter m1 w=9.431369998e-08
+alter vd dc=6.410878698e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.229063492e-01
+alter vb dc=0.000000000e+00
+option temp=60.780117
+op
+let idx = 215
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.701746780e-01
+altermod nmos toxe=1.039908702e-09
+altermod nmos ndep=7.620692760e+18
+altermod nmos u0=2.939263841e-02
+altermod nmos xj=4.818504387e-09
+alter m1 w=6.128597229e-08
+alter vd dc=3.684261317e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.068205445e-01
+alter vb dc=0.000000000e+00
+option temp=9.770676
+op
+let idx = 216
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.339369375e-01
+altermod nmos toxe=9.419804193e-10
+altermod nmos ndep=7.464953033e+18
+altermod nmos u0=2.947941767e-02
+altermod nmos xj=4.530820065e-09
+alter m1 w=5.699328993e-08
+alter vd dc=1.071910626e+00
+alter vg dc=0.000000000e+00
+alter vs dc=8.010972641e-01
+alter vb dc=0.000000000e+00
+option temp=5.902538
+op
+let idx = 217
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.466222110e-01
+altermod nmos toxe=1.024741097e-09
+altermod nmos ndep=7.439860716e+18
+altermod nmos u0=3.196966294e-02
+altermod nmos xj=5.457912081e-09
+alter m1 w=1.085630390e-07
+alter vd dc=7.110143127e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.418564496e-01
+alter vb dc=0.000000000e+00
+option temp=102.829699
+op
+let idx = 218
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.910003897e-01
+altermod nmos toxe=1.015179158e-09
+altermod nmos ndep=7.139440617e+18
+altermod nmos u0=2.863709969e-02
+altermod nmos xj=4.737948862e-09
+alter m1 w=5.234155117e-08
+alter vd dc=2.246879404e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.781138000e-01
+alter vb dc=0.000000000e+00
+option temp=-25.274974
+op
+let idx = 219
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.347557725e-01
+altermod nmos toxe=9.069359636e-10
+altermod nmos ndep=7.214408309e+18
+altermod nmos u0=3.220064954e-02
+altermod nmos xj=4.598216736e-09
+alter m1 w=2.641766979e-08
+alter vd dc=5.524167839e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.608759336e-01
+alter vb dc=0.000000000e+00
+option temp=22.437406
+op
+let idx = 220
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.178149795e-01
+altermod nmos toxe=8.935851838e-10
+altermod nmos ndep=7.668157512e+18
+altermod nmos u0=3.275321275e-02
+altermod nmos xj=4.652735752e-09
+alter m1 w=3.165143265e-08
+alter vd dc=1.009403563e+00
+alter vg dc=0.000000000e+00
+alter vs dc=5.407316056e-01
+alter vb dc=0.000000000e+00
+option temp=-7.728567
+op
+let idx = 221
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.655260643e-01
+altermod nmos toxe=1.014572016e-09
+altermod nmos ndep=7.672643365e+18
+altermod nmos u0=3.243078190e-02
+altermod nmos xj=5.290263941e-09
+alter m1 w=8.230378499e-08
+alter vd dc=9.324771664e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.218911474e-01
+alter vb dc=0.000000000e+00
+option temp=-30.596156
+op
+let idx = 222
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.661957366e-01
+altermod nmos toxe=8.802920551e-10
+altermod nmos ndep=7.069560752e+18
+altermod nmos u0=2.865712711e-02
+altermod nmos xj=5.101166239e-09
+alter m1 w=2.624332846e-08
+alter vd dc=6.933676896e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.481736103e-01
+alter vb dc=0.000000000e+00
+option temp=49.014640
+op
+let idx = 223
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.169903638e-01
+altermod nmos toxe=9.500804818e-10
+altermod nmos ndep=6.310278114e+18
+altermod nmos u0=2.771872906e-02
+altermod nmos xj=5.307441100e-09
+alter m1 w=3.421302122e-08
+alter vd dc=8.766252230e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.054591643e-01
+alter vb dc=0.000000000e+00
+option temp=82.858952
+op
+let idx = 224
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.859486565e-01
+altermod nmos toxe=8.739488500e-10
+altermod nmos ndep=6.918132378e+18
+altermod nmos u0=3.192670920e-02
+altermod nmos xj=5.488436654e-09
+alter m1 w=1.144633814e-07
+alter vd dc=2.674237641e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.744923466e-01
+alter vb dc=0.000000000e+00
+option temp=121.344006
+op
+let idx = 225
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.710367421e-01
+altermod nmos toxe=8.661413450e-10
+altermod nmos ndep=6.917471835e+18
+altermod nmos u0=2.855991709e-02
+altermod nmos xj=4.995503049e-09
+alter m1 w=4.684560093e-08
+alter vd dc=9.073694433e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.871609439e-01
+alter vb dc=0.000000000e+00
+option temp=83.033715
+op
+let idx = 226
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.178453790e-01
+altermod nmos toxe=9.214951701e-10
+altermod nmos ndep=7.272821183e+18
+altermod nmos u0=3.126657269e-02
+altermod nmos xj=5.387252424e-09
+alter m1 w=5.013470400e-08
+alter vd dc=1.149254740e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.210523789e-01
+alter vb dc=0.000000000e+00
+option temp=17.654045
+op
+let idx = 227
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.069420197e-01
+altermod nmos toxe=1.023404059e-09
+altermod nmos ndep=7.558132295e+18
+altermod nmos u0=2.869838272e-02
+altermod nmos xj=4.801233622e-09
+alter m1 w=6.682892030e-08
+alter vd dc=3.170672094e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.593833934e-01
+alter vb dc=0.000000000e+00
+option temp=-30.014132
+op
+let idx = 228
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.587470422e-01
+altermod nmos toxe=8.628833721e-10
+altermod nmos ndep=6.742022082e+18
+altermod nmos u0=2.713647491e-02
+altermod nmos xj=4.782969048e-09
+alter m1 w=9.743603416e-08
+alter vd dc=5.251950716e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.471147357e-02
+alter vb dc=0.000000000e+00
+option temp=106.002017
+op
+let idx = 229
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.845604382e-01
+altermod nmos toxe=8.851191974e-10
+altermod nmos ndep=7.164556784e+18
+altermod nmos u0=2.839914589e-02
+altermod nmos xj=5.229284886e-09
+alter m1 w=1.110616756e-07
+alter vd dc=4.885892244e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.714123357e-01
+alter vb dc=0.000000000e+00
+option temp=-20.803414
+op
+let idx = 230
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.089057848e-01
+altermod nmos toxe=1.033243349e-09
+altermod nmos ndep=6.522472898e+18
+altermod nmos u0=3.272349487e-02
+altermod nmos xj=5.140179658e-09
+alter m1 w=3.286462207e-08
+alter vd dc=1.502305737e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.019637892e-01
+alter vb dc=0.000000000e+00
+option temp=-15.624835
+op
+let idx = 231
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.025483370e-01
+altermod nmos toxe=1.001216349e-09
+altermod nmos ndep=6.846993683e+18
+altermod nmos u0=2.816724438e-02
+altermod nmos xj=4.557147985e-09
+alter m1 w=1.001374696e-07
+alter vd dc=4.709654105e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.007747579e+00
+alter vb dc=0.000000000e+00
+option temp=8.802353
+op
+let idx = 232
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.025793194e-01
+altermod nmos toxe=1.005371996e-09
+altermod nmos ndep=7.291111051e+18
+altermod nmos u0=3.088152884e-02
+altermod nmos xj=5.108589563e-09
+alter m1 w=1.184192146e-07
+alter vd dc=2.145641006e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.959347803e-01
+alter vb dc=0.000000000e+00
+option temp=77.870148
+op
+let idx = 233
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.043446557e-01
+altermod nmos toxe=9.707835902e-10
+altermod nmos ndep=7.555639397e+18
+altermod nmos u0=2.700719443e-02
+altermod nmos xj=5.318429636e-09
+alter m1 w=3.749863957e-08
+alter vd dc=6.318007528e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.997301311e-01
+alter vb dc=0.000000000e+00
+option temp=120.833762
+op
+let idx = 234
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.763825911e-01
+altermod nmos toxe=9.004602050e-10
+altermod nmos ndep=7.348019459e+18
+altermod nmos u0=3.079282913e-02
+altermod nmos xj=5.109745736e-09
+alter m1 w=1.145371995e-07
+alter vd dc=6.682006152e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.494112325e-01
+alter vb dc=0.000000000e+00
+option temp=4.781849
+op
+let idx = 235
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.425154312e-01
+altermod nmos toxe=1.001648587e-09
+altermod nmos ndep=6.389719271e+18
+altermod nmos u0=2.898832550e-02
+altermod nmos xj=4.785215445e-09
+alter m1 w=5.581909725e-08
+alter vd dc=1.032256437e-02
+alter vg dc=0.000000000e+00
+alter vs dc=2.603307568e-01
+alter vb dc=0.000000000e+00
+option temp=31.408086
+op
+let idx = 236
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.604803250e-01
+altermod nmos toxe=9.781430757e-10
+altermod nmos ndep=7.127774681e+18
+altermod nmos u0=3.154316482e-02
+altermod nmos xj=4.637204905e-09
+alter m1 w=8.001307837e-08
+alter vd dc=1.010036495e+00
+alter vg dc=0.000000000e+00
+alter vs dc=5.047381059e-01
+alter vb dc=0.000000000e+00
+option temp=107.711804
+op
+let idx = 237
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.726256832e-01
+altermod nmos toxe=1.016669221e-09
+altermod nmos ndep=6.903032605e+18
+altermod nmos u0=3.144543253e-02
+altermod nmos xj=5.090525178e-09
+alter m1 w=2.032248532e-08
+alter vd dc=1.088045419e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.365424996e-01
+alter vb dc=0.000000000e+00
+option temp=-19.354729
+op
+let idx = 238
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.516088503e-01
+altermod nmos toxe=9.074490737e-10
+altermod nmos ndep=7.694523684e+18
+altermod nmos u0=3.091359300e-02
+altermod nmos xj=5.461529726e-09
+alter m1 w=1.809255424e-08
+alter vd dc=1.100471412e-01
+alter vg dc=0.000000000e+00
+alter vs dc=3.110810060e-01
+alter vb dc=0.000000000e+00
+option temp=-5.019759
+op
+let idx = 239
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.697590474e-01
+altermod nmos toxe=8.762009128e-10
+altermod nmos ndep=6.455439616e+18
+altermod nmos u0=3.263698071e-02
+altermod nmos xj=4.778389630e-09
+alter m1 w=1.716984902e-08
+alter vd dc=2.177828543e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.133455441e-01
+alter vb dc=0.000000000e+00
+option temp=36.549294
+op
+let idx = 240
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.453839932e-01
+altermod nmos toxe=8.887039443e-10
+altermod nmos ndep=7.489322200e+18
+altermod nmos u0=2.774616272e-02
+altermod nmos xj=5.032632283e-09
+alter m1 w=6.298916356e-08
+alter vd dc=9.759285314e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.076234099e-02
+alter vb dc=0.000000000e+00
+option temp=53.262289
+op
+let idx = 241
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=5.251540111e-01
+altermod nmos toxe=8.570815490e-10
+altermod nmos ndep=7.501382920e+18
+altermod nmos u0=3.040960763e-02
+altermod nmos xj=5.218084689e-09
+alter m1 w=8.521863094e-08
+alter vd dc=7.704588481e-01
+alter vg dc=0.000000000e+00
+alter vs dc=7.068313859e-01
+alter vb dc=0.000000000e+00
+option temp=8.908350
+op
+let idx = 242
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.485907436e-01
+altermod nmos toxe=9.129368323e-10
+altermod nmos ndep=6.564280209e+18
+altermod nmos u0=2.991458169e-02
+altermod nmos xj=4.630624136e-09
+alter m1 w=4.749460914e-08
+alter vd dc=6.620922990e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.307811802e-01
+alter vb dc=0.000000000e+00
+option temp=51.901424
+op
+let idx = 243
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.982300420e-01
+altermod nmos toxe=1.001620614e-09
+altermod nmos ndep=7.461656640e+18
+altermod nmos u0=2.763023138e-02
+altermod nmos xj=4.764898181e-09
+alter m1 w=7.452375443e-08
+alter vd dc=5.983827942e-01
+alter vg dc=0.000000000e+00
+alter vs dc=6.319008651e-01
+alter vb dc=0.000000000e+00
+option temp=39.818678
+op
+let idx = 244
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.359839420e-01
+altermod nmos toxe=9.492065573e-10
+altermod nmos ndep=7.392540976e+18
+altermod nmos u0=2.924605386e-02
+altermod nmos xj=4.761421381e-09
+alter m1 w=8.903963183e-08
+alter vd dc=2.751148367e-01
+alter vg dc=0.000000000e+00
+alter vs dc=8.466749139e-01
+alter vb dc=0.000000000e+00
+option temp=-6.719040
+op
+let idx = 245
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.832431939e-01
+altermod nmos toxe=8.886343547e-10
+altermod nmos ndep=6.320430670e+18
+altermod nmos u0=2.914294278e-02
+altermod nmos xj=5.377073078e-09
+alter m1 w=5.888673605e-08
+alter vd dc=6.988577311e-01
+alter vg dc=0.000000000e+00
+alter vs dc=1.316343651e-01
+alter vb dc=0.000000000e+00
+option temp=23.512954
+op
+let idx = 246
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.797158840e-01
+altermod nmos toxe=9.688179667e-10
+altermod nmos ndep=7.256317227e+18
+altermod nmos u0=2.974300300e-02
+altermod nmos xj=5.079655075e-09
+alter m1 w=2.316929303e-08
+alter vd dc=5.291923328e-01
+alter vg dc=0.000000000e+00
+alter vs dc=5.076737379e-01
+alter vb dc=0.000000000e+00
+option temp=-4.578259
+op
+let idx = 247
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.487710825e-01
+altermod nmos toxe=9.160934926e-10
+altermod nmos ndep=7.647595939e+18
+altermod nmos u0=3.069115401e-02
+altermod nmos xj=5.003624457e-09
+alter m1 w=1.232378659e-07
+alter vd dc=8.568591758e-01
+alter vg dc=0.000000000e+00
+alter vs dc=2.873590448e-01
+alter vb dc=0.000000000e+00
+option temp=65.015305
+op
+let idx = 248
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+altermod nmos vth0=4.904610297e-01
+altermod nmos toxe=8.655233260e-10
+altermod nmos ndep=7.480447790e+18
+altermod nmos u0=2.790482600e-02
+altermod nmos xj=4.898401686e-09
+alter m1 w=2.982903787e-08
+alter vd dc=7.456874244e-01
+alter vg dc=0.000000000e+00
+alter vs dc=4.431293457e-01
+alter vb dc=0.000000000e+00
+option temp=116.128120
+op
+let idx = 249
+wrdata C:/Users/udhav/DVD-Project/work/comp_nmos_off_0.out idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[id] @m1[igs] @m1[igd] @m1[igcs] @m1[igcd] @m1[igb] @m1[igidl] @m1[igisl] @m1[isub] @m1[ibd] @m1[ibs]
+destroy all
+.endc
+.end

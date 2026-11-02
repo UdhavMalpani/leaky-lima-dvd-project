@@ -1,0 +1,42 @@
+C:\Users\udhav\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:606: ConvergenceWarning: lbfgs failed to converge after 5000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=5000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+  self.n_iter_ = _check_optimize_result("lbfgs", opt_res, self.max_iter)
+    case current  direct_med_pct  direct_p95_pct  bipole_med_pct  bipole_p95_pct
+ nmos_on      id           6.422          29.512           0.908           4.144
+ nmos_on      ig           1.080           5.492           0.376           1.498
+ nmos_on      is           6.903          30.394           0.908           4.130
+ nmos_on      ib           1.054           4.330           0.608           2.071
+nmos_off      id           2.907          18.821           0.283           3.836
+nmos_off      ig           0.312           1.338           0.151           0.542
+nmos_off      is           3.060          19.262           0.271           3.964
+nmos_off      ib           0.300           6.719           0.290           1.936
+ pmos_on      id           5.975          25.543           0.868           3.731
+ pmos_on      ig           1.172           4.438           0.644           2.210
+ pmos_on      is           5.896          27.999           0.868           3.726
+ pmos_on      ib           1.573           6.291           0.575           1.954
+pmos_off      id           2.813          13.802           0.638           3.705
+pmos_off      ig           1.605           7.487           0.328           1.659
+pmos_off      is           3.818          20.633           0.959           4.118
+pmos_off      ib           0.604          10.340           0.472           2.291
+n_train           500   1000  2000  4000  7000
+case     current                              
+nmos_off ib       7.47  2.31  0.74  0.39  0.29
+         id       1.12  0.54  0.43  0.32  0.28
+         ig       0.54  0.27  0.23  0.17  0.15
+         is       1.18  0.54  0.42  0.32  0.27
+nmos_on  ib       2.69  0.86  0.70  0.57  0.61
+         id       4.87  1.85  1.19  0.89  0.91
+         ig       2.01  0.73  0.55  0.42  0.38
+         is       4.87  1.85  1.19  0.89  0.91
+pmos_off ib       8.20  2.09  0.84  0.62  0.47
+         id       5.20  1.57  0.89  0.64  0.64
+         ig       0.77  0.50  0.39  0.46  0.33
+         is       7.16  2.70  1.61  0.98  0.96
+pmos_on  ib       2.94  1.04  0.76  0.67  0.58
+         id       4.87  1.65  1.04  0.92  0.87
+         ig       2.88  1.02  0.80  0.72  0.64
+         is       4.87  1.65  1.04  0.92  0.87

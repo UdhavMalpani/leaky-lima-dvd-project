@@ -1,0 +1,33 @@
+* t_NAND2
+.include C:/Users/udhav/DVD-Project/models/16nm_HP.pm
+.options gmin=1e-18 abstol=1e-18 reltol=1e-6 vntol=1e-9
+Vdd vdd 0 0
+Va a 0 0
+Vb b 0 0
+Mnand20_MP_A out a vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
+Mnand20_MP_B out b vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
+Mnand20_MN_A out a nand20_x 0 nmos W=3.200000000e-08 L=1.600000000e-08
+Mnand20_MN_B nand20_x b 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+.control
+set appendwrite
+set wr_vecnames=0
+altermod nmos vth0=5.215371780e-01
+altermod nmos toxe=9.985499582e-10
+altermod nmos ndep=6.519336689e+18
+altermod nmos u0=3.226724201e-02
+altermod nmos xj=5.211889201e-09
+altermod pmos vth0=-4.083145917e-01
+altermod pmos toxe=1.002586532e-09
+altermod pmos ndep=5.561048076e+18
+altermod pmos u0=5.991104260e-03
+altermod pmos xj=4.779770184e-09
+alter vdd dc=1.079442760e+00
+alter va dc=0.000000000e+00
+alter vb dc=0.000000000e+00
+option temp=68.574303
+op
+let idx = 0
+wrdata C:/Users/udhav/DVD-Project/work/t_NAND2_1.out idx i(Vdd) i(Va) i(Vb) v(nand20_x) v(out)
+destroy all
+.endc
+.end

@@ -1,0 +1,18 @@
+* sweep
+.include C:/Users/udhav/DVD-Project/models/16nm_HP.pm
+.options gmin=1e-18 abstol=1e-18 reltol=1e-6 vntol=1e-9
+M1 d g s b nmos W=3.200000000e-08 L=1.600000000e-08
+Vd d 0 1.0
+Vg g 0 0
+Vs s 0 0
+Vb b 0 0
+.control
+set appendwrite
+set wr_vecnames=0
+option temp=27.0
+op
+let idx = 0
+wrdata C:/Users/udhav/DVD-Project/work/sweep_0.out idx i(Vd) i(Vg) i(Vs) i(Vb)
+destroy all
+.endc
+.end
