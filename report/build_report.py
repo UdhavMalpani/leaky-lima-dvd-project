@@ -252,6 +252,7 @@ def build():
 <h1>ML-Driven PVT-Aware Leakage Estimation</h1>
 <p class="sub">Team 1 &ldquo;Leaky Lima&rdquo; &middot; {config.TECH.replace('_', ' ')} PTM &middot;
 VDD<sub>nom</sub> = {config.VDD_NOM:.1f} V &middot; 3-bit carry-lookahead adder</p>
+<p class="sub">Shriya Kansal &middot; Udhav Malpani &middot; Samyak Soni &middot; Satvik Srivastava</p>
 </header>
 <div class="abstract"><b>Summary.</b>
 Four neural-network transistor models (NMOS/PMOS &times; ON/OFF) predict all four terminal
