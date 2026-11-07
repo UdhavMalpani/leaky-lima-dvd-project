@@ -149,6 +149,7 @@ Mnor20_MP_A nor20_y a vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Mnor20_MP_B out b nor20_y vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Mnor20_MN_A out a 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
 Mnor20_MN_B out b 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+.nodeset v(out)=1
 .control
 op
 print i(Vdd) i(Va) i(Vb)

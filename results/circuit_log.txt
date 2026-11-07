@@ -1,7 +1,9 @@
-SPICE: 25600 full-adder simulations in 7628s, 0 failed
+SPICE: 25600 full-adder simulations in 112s, 0 failed
+levels-aware ML: 402s; gate-output voltages vs SPICE circuit: median |dV| 0.044 mV, max 2.90 mV
                                                     comparison  spice_median  ml_median  bias_pct  med_err_pct  p95_err_pct  max_err_pct     n
-                  hierarchical ML (gate sum)  vs SPICE circuit     3.162e-05  3.057e-05    -2.691        2.854        11.32        22.74 25600
+                  hierarchical ML (gate sum)  vs SPICE circuit     3.162e-05  3.066e-05    -2.556        2.591        10.41         21.2 25600
 SPICE gate sum             vs SPICE circuit  (hierarchy error)     3.162e-05  3.067e-05     -2.64         2.64        10.04        20.79 25600
-      hierarchical ML (gate sum)  vs SPICE gate sum (ML error)     3.067e-05  3.057e-05   0.01425        1.259        3.703        5.855 25600
-                  flat ML on circuit voltages vs SPICE circuit     3.162e-05   3.16e-05  0.005023        1.212        3.544        5.772 25600
-hierarchical ML time for all 25600 predictions: 8.24s
+      hierarchical ML (gate sum)  vs SPICE gate sum (ML error)     3.067e-05  3.066e-05    0.1764       0.6822        2.513        4.948 25600
+                  flat ML on circuit voltages vs SPICE circuit     3.162e-05  3.163e-05    0.1362       0.6774        2.463        4.851 25600
+    levels-aware ML hierarchy   vs SPICE circuit  (SPICE-free)     3.162e-05  3.166e-05    0.2807       0.6643        2.183         3.52 25600
+hierarchical ML time for all 25600 predictions: 1.74s

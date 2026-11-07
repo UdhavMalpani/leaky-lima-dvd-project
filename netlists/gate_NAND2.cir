@@ -149,6 +149,7 @@ Mnand20_MP_A out a vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Mnand20_MP_B out b vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Mnand20_MN_A out a nand20_x 0 nmos W=3.200000000e-08 L=1.600000000e-08
 Mnand20_MN_B nand20_x b 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+.nodeset v(out)=1
 .control
 op
 print i(Vdd) i(Va) i(Vb)

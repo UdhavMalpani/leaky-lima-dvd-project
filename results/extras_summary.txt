@@ -1,0 +1,63 @@
+
+== 1. Minimum-leakage vector (CLA, mean over 200 corners)
+     method  spearman  ml_mlv spice_mlv  regret_pct  corner_regret_median_pct  corner_regret_max_pct  corners_exact
+ml_gate_sum    0.9699 1001000   1001000         0.0                       0.0                 0.4013           0.95
+  ml_levels    1.0000 1001000   1001000         0.0                       0.0                 0.1792           0.99
+max/min vector leakage (SPICE): 1.22x; MLV 1001000 = 3.450e-05 A, worst 1110001 = 4.220e-05 A
+
+== 2. Leakage mechanisms (nominal process, VDD_NOM)
+T= -40.0 C  mean share over 18 cases: channel 90.8%, tunnelling 9.2%, junction 0.0%
+T=  20.0 C  mean share over 18 cases: channel 93.3%, tunnelling 6.7%, junction 0.0%
+T= 125.0 C  mean share over 18 cases: channel 96.7%, tunnelling 3.3%, junction 0.0%
+
+== 5. Ensemble spread as an uncertainty estimate (gates, ML-solved voltages)
+5 members; Spearman(spread, |error|) = 0.168
+                 spread_med  err_med  err_p95
+spread quintile                              
+0                     0.561    0.597    1.804
+1                     0.909    0.591    1.943
+2                     1.207    0.610    2.047
+3                     1.606    0.930    2.692
+4                     2.336    0.795    2.929
+
+== 3. Sensitivity of CLA leakage (levels-aware ML, mean over 128 vectors)
+(63s) nominal CLA leakage 2.697e-05 A
+          case  leak  ratio_to_nominal
+      VDD -10%   0.0             0.366
+pmos vth0 +10%   0.0             0.440
+     T = -40 C   0.0             0.627
+pmos ndep +10%   0.0             0.732
+nmos vth0 +10%   0.0             0.890
+  pmos u0 -10%   0.0             0.928
+  pmos xj +10%   0.0             0.929
+nmos ndep +10%   0.0             0.960
+pmos toxe +10%   0.0             0.965
+  nmos u0 -10%   0.0             0.987
+nmos toxe +10%   0.0             0.991
+  nmos xj +10%   0.0             0.992
+  nmos xj -10%   0.0             1.007
+nmos toxe -10%   0.0             1.011
+  nmos u0 +10%   0.0             1.013
+pmos toxe -10%   0.0             1.038
+nmos ndep -10%   0.0             1.061
+  pmos u0 +10%   0.0             1.073
+  pmos xj -10%   0.0             1.096
+nmos vth0 -10%   0.0             1.292
+pmos ndep -10%   0.0             1.414
+     T = 125 C   0.0             1.594
+pmos vth0 -10%   0.0             2.183
+      VDD +10%   0.0             2.613
+
+== 6. Cost per evaluation
+                                     method  seconds  cpu_seconds  evaluations  ms_per_cpu_eval
+      SPICE, full CLA (ngspice, wall clock)  111.879     1230.667        25600           48.073
+ML, flat (204 devices, given node voltages)  108.984      108.984        25600            4.257
+device evaluations per second (ML flat): 4.79e+04
+
+== 4. Monte-Carlo: 5000 new corners, levels-aware ML
+10000 CLA evaluations in 592s
+ vector    n    median       p01       p99  p99_over_median  lognorm_sigma  spice200_median  spice200_p99  ks_pvalue_vs_spice200
+1001000 5000 2.826e-05 3.823e-06 0.0001239            4.383         0.7881        2.946e-05     0.0001101                 0.9297
+1110001 5000 3.503e-05 4.941e-06 0.0001466            4.186         0.7712        3.641e-05     0.0001332                 0.8907
+
+done in 783s

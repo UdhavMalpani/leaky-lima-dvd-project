@@ -7,6 +7,10 @@ same 200 random corners:
   2. ML prediction: take the SPICE node voltages (internal nodes + output),
      build each transistor's (Vd, Vg, Vs, Vb), pick the right model from
      its gate logic value (ON/OFF), predict, and sum the device powers.
+  2b. Extension (SPICE-free): solve the internal node and output voltages
+     with the ML models themselves (KCL at every node, leakml/solve.py),
+     record them next to the SPICE voltages (ml_x, ml_out, ...), and
+     compute the leakage from them (ml_solved_leak).
   3. Compare.
 
 Outputs
@@ -24,7 +28,7 @@ import numpy as np
 import pandas as pd
 
 import config
-from leakml import circuits, evaluate
+from leakml import circuits, evaluate, solve
 
 
 def load_models():
@@ -46,6 +50,26 @@ def friendly(col):
     if col in ("g_nd", "g_nr"):
         return {"g_nd": "nand_out", "g_nr": "nor_out"}[col]
     return col
+
+
+def ml_solved(gate, inputs, cells, fets, corners, models):
+    """SPICE-free variant: solve the internal node voltages with the ML models
+    (KCL, leakml/solve.py), then compute leakage from those voltages."""
+    vdd, n = corners.vdd.to_numpy(), len(corners)
+    nodes = circuits.internal_nodes(fets, inputs)
+    frames = []
+    for vec in circuits.input_vectors(len(inputs)):
+        guess, logic = solve.logic_guess(cells, inputs, vec, nodes, vdd)
+        fixed = {"vdd": vdd, "0": np.zeros(n), **{i: b * vdd for i, b in zip(inputs, vec)}}
+        P = solve.Problem(fets, fixed, nodes, corners, {k: np.full(n, v) for k, v in logic.items()}, models)
+        V, info = solve.solve(P, guess)
+        sims = pd.DataFrame({"vector": "".join(map(str, vec)), "corner": corners.index,
+                             **{nd: V[nd] for nd in nodes}})
+        ml, _ = evaluate.ml_leakage(fets, inputs, sims, corners, models, cells)
+        sims["ml_solved_leak"] = ml.ml_leak.to_numpy()
+        sims["solver_iterations"] = info["iterations"]
+        frames.append(sims)
+    return pd.concat(frames, ignore_index=True)
 
 
 def parity(df, path, title):
@@ -74,19 +98,30 @@ def main():
         t0 = time.time()
         inputs, cells, fets = gate_structure(gate)
         vectors = circuits.input_vectors(len(inputs))
-        sims = evaluate.run_spice(f"gate_{gate}", fets, inputs, vectors, corners)
+        sims = evaluate.run_spice(f"gate_{gate}", fets, inputs, vectors, corners, cells)
         ml, _ = evaluate.ml_leakage(fets, inputs, sims, corners, models, cells)
         evaluate.write_netlist(config.NETLIST_DIR / f"gate_{gate}.cir",
                                f"{gate} static CMOS gate ({config.TECH})",
-                               fets, inputs, vectors[0], corners.iloc[0])
+                               fets, inputs, vectors[0], corners.iloc[0], cells)
         s = sims.rename(columns={c: friendly(c) for c in sims.columns})
         s["ml_leak"], s["ml_ivdd"] = ml.ml_leak.to_numpy(), ml.ml_ivdd.to_numpy()
+        # SPICE-free extension: ML-solved node voltages and the leakage they give
+        ms = ml_solved(gate, inputs, cells, fets, corners, models)
+        assert (ms.vector.to_numpy() == s.vector.to_numpy()).all() and (ms.corner.to_numpy() == s.corner.to_numpy()).all()
+        for nd in circuits.internal_nodes(fets, inputs):
+            s[f"ml_{friendly(nd)}"] = ms[nd].to_numpy()
+        s["ml_solved_leak"] = ms.ml_solved_leak.to_numpy()
         s.insert(0, "gate", gate)
         samples.append(s)
         for vec, g in s.groupby("vector", sort=False):
             row = dict(gate=gate, inputs=vec, **evaluate.summarize(g.spice_leak, g.ml_leak))
             iv = evaluate.summarize(g.spice_ivdd, g.ml_ivdd)
             row["ivdd_med_err_pct"], row["ivdd_p95_err_pct"] = iv["med_err_pct"], iv["p95_err_pct"]
+            fr = evaluate.summarize(g.spice_leak, g.ml_solved_leak)
+            row["solved_med_err_pct"], row["solved_p95_err_pct"] = fr["med_err_pct"], fr["p95_err_pct"]
+            dv = [np.abs(g[f"ml_{c}"] - g[c]).max() for c in ("out", "x", "y", "nand_out", "nor_out")
+                  if f"ml_{c}" in g and g[c].notna().any()]
+            row["max_node_dv_mV"] = 1e3 * max(dv)
             rows.append(row)
         print(f"{gate:6s}: {len(sims)} sims, {time.time()-t0:.1f}s")
 
@@ -100,6 +135,10 @@ def main():
     print(f"\nALL {len(samples)} gate simulations: median |err| {overall['med_err_pct']:.3f}%, "
           f"p95 {overall['p95_err_pct']:.3f}%, mean accuracy "
           f"{100 - np.mean(np.abs(samples.ml_leak/samples.spice_leak - 1))*100:.3f}%")
+    solved = evaluate.summarize(samples.spice_leak, samples.ml_solved_leak)
+    print(f"SPICE-free (ML-solved node voltages): median |err| {solved['med_err_pct']:.3f}%, "
+          f"p95 {solved['p95_err_pct']:.3f}%, mean accuracy "
+          f"{100 - np.mean(np.abs(samples.ml_solved_leak/samples.spice_leak - 1))*100:.3f}%")
     parity(samples, config.FIG_DIR / "gate_parity.png",
            f"Gate leakage, {len(samples)} simulations (18 cases x 200 corners)")
 

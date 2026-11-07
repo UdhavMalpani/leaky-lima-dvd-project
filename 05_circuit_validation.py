@@ -16,6 +16,12 @@ Two extra reference points split the total error into its causes:
   * ml_flat : transistor models applied to the full circuit using the
         circuit's own SPICE node voltages (no gate-level assumption).
 
+Extension (SPICE-free, levels-aware hierarchy):
+  * ml_levels : gates solved in topological order with the ML KCL solver,
+        each gate's inputs set to the ML-predicted output voltages of its
+        drivers instead of ideal 0 / VDD (leakml/solve.py).  No SPICE voltage
+        is used anywhere.
+
 Outputs
   results/circuit_samples.csv, results/circuit_results.csv (per vector)
   results/circuit_summary.csv, figures/circuit_parity.png, netlists/cla3.cir
@@ -28,7 +34,7 @@ import numpy as np
 import pandas as pd
 
 import config
-from leakml import circuits, evaluate
+from leakml import circuits, evaluate, solve
 
 
 def main():
@@ -45,20 +51,20 @@ def main():
     vectors = circuits.input_vectors(len(inputs))
 
     # The SPICE reference does not depend on the ML models, so it is cached
-    # (delete work/cla3_spice.pkl to force a re-run, e.g. after changing corners).
-    cache = config.WORK_DIR / "cla3_spice.pkl"
+    # (delete cache/cla3_spice.pkl to force a re-run, e.g. after changing corners).
+    cache = config.CACHE_DIR / "cla3_spice.pkl"
     t0 = time.time()
     if cache.exists():
         sims, spice_s = pd.read_pickle(cache)
     else:
-        sims = evaluate.run_spice("cla3", fets, inputs, vectors, corners)
+        sims = evaluate.run_spice("cla3", fets, inputs, vectors, corners, cells)
         spice_s = time.time() - t0
         pd.to_pickle((sims, spice_s), cache)
     print(f"SPICE: {len(sims)} full-adder simulations in {spice_s:.0f}s, "
           f"{sims.spice_leak.isna().sum()} failed")
     evaluate.write_netlist(config.NETLIST_DIR / "cla3.cir",
                            f"3-bit carry-lookahead adder, {len(gates)} gates, {len(fets)} transistors",
-                           fets, inputs, vectors[0], corners.iloc[0])
+                           fets, inputs, vectors[0], corners.iloc[0], cells)
 
     # ---- hierarchical ML: sum of gate-level predictions ----------------
     t0 = time.time()
@@ -80,13 +86,30 @@ def main():
     # ---- flat ML on the circuit's own node voltages ---------------------
     flat, _ = evaluate.ml_leakage(fets, inputs, sims, corners, models, cells)
 
+    # ---- levels-aware hierarchy (SPICE-free) -----------------------------
+    t0 = time.time()
+    ml_lev, V_ml, _, lev_stats = solve.levels_aware_hierarchy(gates, inputs, sims[["vector", "corner"]],
+                                                    corners, models)
+    t_lev = time.time() - t0
+    lev_stats.to_csv(config.RESULTS_DIR / "circuit_levels_solver_stats.csv", index=False)
+    assert lev_stats.unconverged.sum() == 0, "levels-aware solver did not converge"
+    gate_outs = [g[2] for g in gates]
+    dv = np.column_stack([V_ml[o] - sims[o].to_numpy() for o in gate_outs])
+    print(f"levels-aware ML: {t_lev:.0f}s; gate-output voltages vs SPICE circuit: "
+          f"median |dV| {1e3*np.median(np.abs(dv)):.3f} mV, max {1e3*np.abs(dv).max():.2f} mV")
+
     out = sims[["vector", "corner", "spice_leak", "spice_ivdd"]].copy()
     out["ml_gate_sum"], out["spice_gate_sum"], out["ml_flat"] = ml_sum, sp_sum, flat.ml_leak.to_numpy()
+    out["ml_levels"] = ml_lev
     out.to_csv(config.RESULTS_DIR / "circuit_samples.csv", index=False)
 
     rows = []
     for vec, g in out.groupby("vector", sort=False):
-        rows.append(dict(inputs=vec, **evaluate.summarize(g.spice_leak, g.ml_gate_sum)))
+        row = dict(inputs=vec, **evaluate.summarize(g.spice_leak, g.ml_gate_sum))
+        lv = evaluate.summarize(g.spice_leak, g.ml_levels)
+        row["levels_bias_pct"], row["levels_med_err_pct"], row["levels_p95_err_pct"] = (
+            lv["bias_pct"], lv["med_err_pct"], lv["p95_err_pct"])
+        rows.append(row)
     pd.DataFrame(rows).to_csv(config.RESULTS_DIR / "circuit_results.csv", index=False)
 
     summary = pd.DataFrame([
@@ -98,6 +121,8 @@ def main():
              **evaluate.summarize(out.spice_gate_sum, out.ml_gate_sum)),
         dict(comparison="flat ML on circuit voltages vs SPICE circuit",
              **evaluate.summarize(out.spice_leak, out.ml_flat)),
+        dict(comparison="levels-aware ML hierarchy   vs SPICE circuit  (SPICE-free)",
+             **evaluate.summarize(out.spice_leak, out.ml_levels)),
     ])
     summary.to_csv(config.RESULTS_DIR / "circuit_summary.csv", index=False)
     pd.set_option("display.width", 220)
@@ -105,7 +130,8 @@ def main():
     print(f"hierarchical ML time for all {len(out)} predictions: {t_ml:.2f}s")
 
     fig, ax = plt.subplots(figsize=(5.6, 5.2))
-    ax.loglog(out.spice_leak, out.ml_gate_sum, ".", ms=2, alpha=0.4, label="hierarchical ML")
+    ax.loglog(out.spice_leak, out.ml_gate_sum, ".", ms=2, alpha=0.4, label="hierarchical ML (brief)")
+    ax.loglog(out.spice_leak, out.ml_levels, ".", ms=2, alpha=0.25, label="levels-aware ML (extension)")
     lo, hi = out.spice_leak.min(), out.spice_leak.max()
     ax.plot([lo, hi], [lo, hi], "k--", lw=0.8)
     for f in (1.01, 1.05):

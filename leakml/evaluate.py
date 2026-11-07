@@ -55,18 +55,39 @@ def corner_cmds(corner, vec, inputs):
     return cmds
 
 
-def run_spice(name, fets, inputs, vectors, corners):
+def nodeset_line(cells, inputs, vec, nodes):
+    """`.nodeset` putting every logic node at its ideal level (nominal VDD).
+
+    Without it ngspice can converge to a spurious operating point: at one
+    corner (INV, A=1, 112 C, 1.09 V) the PTM/BSIM4 card has a narrow kink in
+    the output I-V near 22 mV that traps the default Newton start, giving
+    1.85 uA instead of the true 3.58 uA (KCL residual at the true root is
+    ~0, checked by forcing the output voltage).  Starting from logic levels
+    removes it; every other one of the 3,600 gate points is unchanged."""
+    logic = circuits.evaluate_logic(cells, dict(zip(inputs, vec)))
+    guess = [f"v({n})={logic[n] * config.VDD_NOM:g}" for n in nodes if n in logic]
+    return [f".nodeset {' '.join(guess)}"] if guess else []
+
+
+def run_spice(name, fets, inputs, vectors, corners, cells=None):
     """Simulate every (input vector, corner).  Returns a DataFrame with one
     row per simulation: vector, corner, node voltages, source currents and
-    the SPICE leakage."""
+    the SPICE leakage.  With `cells`, each vector starts from a logic-level
+    initial guess (see nodeset_line)."""
     nodes = circuits.internal_nodes(fets, inputs)
     outputs = ["i(Vdd)"] + [f"i(V{i})" for i in inputs] + [f"v({n})" for n in nodes]
-    runs, meta = [], []
-    for vec in vectors:
-        for k, c in corners.iterrows():
-            runs.append(corner_cmds(c, vec, inputs))
-            meta.append((vec, k))
-    res = spice.run_batch(name, netlist_body(fets, inputs), runs, outputs, tag=name)
+    body = netlist_body(fets, inputs)
+    parts, meta = [], []
+    groups = [(vec,) for vec in vectors] if cells is not None else [tuple(vectors)]
+    for grp in groups:
+        runs = []
+        for vec in grp:
+            for k, c in corners.iterrows():
+                runs.append(corner_cmds(c, vec, inputs))
+                meta.append((vec, k))
+        b = body + (nodeset_line(cells, inputs, grp[0], nodes) if cells is not None else [])
+        parts.append(spice.run_batch(name, b, runs, outputs, tag=name))
+    res = np.vstack(parts)
     df = pd.DataFrame(res, columns=["I_vdd"] + [f"I_{i}" for i in inputs] + nodes)
     df.insert(0, "vector", ["".join(map(str, v)) for v, _ in meta])
     df.insert(1, "corner", [k for _, k in meta])
@@ -81,7 +102,7 @@ def run_spice(name, fets, inputs, vectors, corners):
     return df
 
 
-def write_netlist(path, title, fets, inputs, vec, corner):
+def write_netlist(path, title, fets, inputs, vec, corner, cells=None):
     """Standalone netlist for one vector at one corner (deliverable 2)."""
     vdd = corner["vdd"]
     models = []
@@ -94,6 +115,8 @@ def write_netlist(path, title, fets, inputs, vec, corner):
     for j, (i, bit) in enumerate(zip(inputs, vec)):
         body[1 + j] = f"V{i} {i} 0 {spice.fmt(bit * vdd)}"
     nodes = circuits.internal_nodes(fets, inputs)
+    if cells is not None:
+        body += nodeset_line(cells, inputs, vec, nodes)
     path.write_text("\n".join([
         f"* {title}", f"* inputs {''.join(inputs)} = {''.join(map(str, vec))}, "
         f"VDD = {vdd:.4f} V, T = {corner['temp']:.2f} C",

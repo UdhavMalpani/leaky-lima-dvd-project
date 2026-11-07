@@ -2,3 +2,6 @@ work/
 __pycache__/
 *.pyc
 guide/guide.html
+.venv/
+.DS_Store
+.pytest_cache/

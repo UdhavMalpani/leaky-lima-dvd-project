@@ -146,6 +146,7 @@ Vdd vdd 0 1.025019093e+00
 Va a 0 0.000000000e+00
 Minv0_MP out a vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Minv0_MN out a 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+.nodeset v(out)=1
 .control
 op
 print i(Vdd) i(Va)

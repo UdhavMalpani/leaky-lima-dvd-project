@@ -8,8 +8,9 @@ the best, and only then touch TEST once to report the final numbers.
 Both datasets are split this way: the 10k uniform deliverable set and the 5k
 rail-focused supplement.  Training uses uniform-train + rail-train.  The
 comparison table reports the uniform validation set (the brief's
-distribution); model selection averages the uniform and rail validation
-scores, because the rails are where the gates actually operate.
+distribution); model selection averages the uniform, rail and
+deployment-check (01b) validation scores, because the rails and the gate
+widths are where the gates actually operate.
 
 Outputs
   results/model_comparison.csv      every learner x case, validation metrics
@@ -42,8 +43,13 @@ GRID = {
     "poly_ridge":    [dict(degree=3), dict(degree=4)],
     "random_forest": [dict(n_estimators=300)],
     "lightgbm":      [dict(num_leaves=31), dict(num_leaves=63)],
-    "mlp":           [dict(hidden=(64, 64, 64)), dict(hidden=(128, 128, 128))],
+    "mlp":           [dict(hidden=(64, 64, 64), n_seeds=5), dict(hidden=(128, 128, 128), n_seeds=5)],
 }
+# Every TransistorModel uses the physics-structured setup of leakml/models.py:
+# per-mechanism width scaling (BSIM4 Weff clamp for the OFF channel) and the
+# Arrhenius-type features (1/VT, Vth0/VT).  The MLP is a 5-seed ensemble
+# (3 seeds left the gate result 0.07 points apart between ngspice 44.2 and
+# 45.2 data, whose only difference is solver noise below 1e-8; 5 seeds: 0.02).
 
 
 def load(case, suffix=""):
@@ -98,7 +104,7 @@ def parity_plot(case, df, pred, path):
 
 
 def main():
-    data, splits, rail, rsplits = {}, {}, {}, {}
+    data, splits, rail, rsplits, deploy, dsplits = {}, {}, {}, {}, {}, {}
     for case in config.CASES:
         df, bip = load(case)
         tr, va, te = split_indices(len(df))
@@ -107,6 +113,9 @@ def main():
         np.savez(config.RESULTS_DIR / f"split_{case}.npz", train=tr, val=va, test=te)
         rdf, rbip = load(case, "_rail")
         rail[case] = (rdf, rbip)
+        deploy[case] = load(case, "_deploy")
+        # deployment-check set: half validation, half test, never trained on
+        dsplits[case] = split_indices(len(deploy[case][0]), frac=(0.0, 0.5, 0.5))
         rsplits[case] = split_indices(len(rdf))
         np.savez(config.RESULTS_DIR / f"split_{case}_rail.npz", train=rsplits[case][0],
                  val=rsplits[case][1], test=rsplits[case][2])
@@ -141,9 +150,10 @@ def main():
         df = data[case][0].iloc[splits[case][1]]
         met, _ = evaluate(m, df)
         rmet, _ = evaluate(m, rail[case][0].iloc[rsplits[case][1]])
+        dmet, _ = evaluate(m, deploy[case][0].iloc[dsplits[case][1]])
         row = dict(case=case, model=kind, hparams=key,
-                   score=(score(met) + score(rmet)) / 2,
-                   uniform_score=score(met), rail_score=score(rmet),
+                   score=(score(met) + score(rmet) + score(dmet)) / 3,
+                   uniform_score=score(met), rail_score=score(rmet), deploy_score=score(dmet),
                    train_s=round(m.train_seconds, 1))
         for c in CURRENTS:
             row[f"{c}_r2"] = met[c]["r2"]
@@ -173,9 +183,13 @@ def main():
             row[f"{c}_med%"] = 100 * met[c]["med"]
             row[f"{c}_p95%"] = 100 * met[c]["p95"]
             row[f"{c}_eval_frac"] = met[c]["frac_eval"]
+        dmet, _ = evaluate(m, deploy[case][0].iloc[dsplits[case][2]])
         for c in CURRENTS:
             row[f"rail_{c}_med%"] = 100 * rmet[c]["med"]
             row[f"rail_{c}_p95%"] = 100 * rmet[c]["p95"]
+        for c in CURRENTS:
+            row[f"deploy_{c}_med%"] = 100 * dmet[c]["med"]
+            row[f"deploy_{c}_p95%"] = 100 * dmet[c]["p95"]
         test_rows.append(row)
     test = pd.DataFrame(test_rows)
     test.to_csv(config.RESULTS_DIR / "chosen_models_test.csv", index=False)

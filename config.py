@@ -4,7 +4,9 @@ Single source of truth for the whole project.
 Every script imports from here, so changing the technology node, VDD or
 seed in this one file regenerates everything consistently.
 """
+import os
 import re
+import shutil
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
@@ -24,12 +26,18 @@ NETLIST_DIR = ROOT / "netlists"
 FIG_DIR = ROOT / "figures"
 RESULTS_DIR = ROOT / "results"
 SAVED_MODELS_DIR = ROOT / "saved_models"
-WORK_DIR = ROOT / "work"          # scratch netlists / raw ngspice output
-for _d in (DATA_DIR, NETLIST_DIR, FIG_DIR, RESULTS_DIR, SAVED_MODELS_DIR, WORK_DIR):
+WORK_DIR = ROOT / "work"          # scratch netlists / raw ngspice output (not tracked)
+CACHE_DIR = ROOT / "cache"        # expensive SPICE references, tracked so nobody re-runs them
+for _d in (DATA_DIR, NETLIST_DIR, FIG_DIR, RESULTS_DIR, SAVED_MODELS_DIR, WORK_DIR, CACHE_DIR):
     _d.mkdir(exist_ok=True)
 
-NGSPICE = r"C:\NG Spice\Spice64\bin\ngspice_con.exe"
-N_WORKERS = 12            # parallel ngspice processes
+# ngspice executable: $NGSPICE if set, else whatever is on PATH, else the
+# Windows default install location used on the original development machine.
+NGSPICE = (os.environ.get("NGSPICE")
+           or shutil.which("ngspice_con") or shutil.which("ngspice")
+           or r"C:\NG Spice\Spice64\bin\ngspice_con.exe")
+# parallel ngspice processes ($N_WORKERS overrides; default = all cores)
+N_WORKERS = int(os.environ.get("N_WORKERS", os.cpu_count() or 4))
 
 # ---------------------------------------------------------------------------
 # Device geometry

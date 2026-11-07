@@ -1,0 +1,3 @@
+method,seconds,cpu_seconds,evaluations,ms_per_cpu_eval
+"SPICE, full CLA (ngspice, wall clock)",111.87878513336182,1230.66663646698,25600,48.072915486991405
+"ML, flat (204 devices, given node voltages)",108.98445296287537,108.98445296287537,25600,4.257205193862319

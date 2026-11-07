@@ -151,6 +151,7 @@ Mnor20_MN_A g_nr a 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
 Mnor20_MN_B g_nr b 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
 Minv1_MP out g_nr vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Minv1_MN out g_nr 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+.nodeset v(g_nr)=1 v(out)=0
 .control
 op
 print i(Vdd) i(Va) i(Vb)

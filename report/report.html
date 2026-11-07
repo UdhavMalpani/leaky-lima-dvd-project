@@ -1,0 +1,338 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Leaky Lima Report</title><style>
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+body { font-family: "Charter", "Georgia", serif; font-size: 10.2pt; line-height: 1.42; color: #111; background: #fff; max-width: 190mm; margin: auto; }
+header { text-align: center; margin-bottom: 8px; }
+.course { font-variant: small-caps; letter-spacing: .05em; margin: 0; color: #444; }
+h1 { font-size: 19pt; margin: 4px 0 4px; }
+.sub { margin: 0 0 6px; color: #333; }
+.abstract { border-left: 3px solid #2a5d9f; background: #f3f6fa; padding: 8px 12px; margin: 10px 0 14px; }
+h2 { font-size: 13.5pt; border-bottom: 1px solid #999; padding-bottom: 2px; margin-top: 20px; break-after: avoid; }
+h3 { font-size: 11pt; margin: 14px 0 4px; break-after: avoid; }
+p { margin: 5px 0; text-align: justify; }
+ul { margin: 4px 0 6px; padding-left: 20px; }
+li { margin: 2px 0; }
+code { font-family: "Menlo", monospace; font-size: 8.4pt; background: #f2f2f2; padding: 0 2px; }
+table { border-collapse: collapse; margin: 8px auto; font-size: 8.6pt; break-inside: avoid; }
+table.small { font-size: 7.4pt; }
+caption { caption-side: top; text-align: left; font-size: 8.6pt; padding-bottom: 3px; }
+th, td { border-bottom: 1px solid #ddd; padding: 2px 5px; text-align: left; vertical-align: top; }
+thead th { border-bottom: 1.5px solid #333; border-top: 1.5px solid #333; }
+td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+tr.best td { font-weight: bold; }
+figure { margin: 8px auto; break-inside: avoid; text-align: center; }
+figure img { width: 100%; }
+figcaption { font-size: 8.4pt; text-align: left; margin-top: 2px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; }
+.grid2 figure { width: 100% !important; }
+</style></head><body>
+<header>
+<p class="course">Digital VLSI Design &mdash; Course Project</p>
+<h1>ML-Driven PVT-Aware Leakage Estimation</h1>
+<p class="sub">Team 1 &ldquo;Leaky Lima&rdquo; &middot; 16nm HP PTM &middot;
+VDD<sub>nom</sub> = 1.0 V &middot; 3-bit carry-lookahead adder</p>
+</header>
+<div class="abstract"><b>Summary.</b>
+Four neural-network transistor models (NMOS/PMOS &times; ON/OFF) predict all four terminal
+currents of a 16&nbsp;nm FET under process, voltage and temperature variation. Composed into
+logic gates, they reproduce 3,600 SPICE gate simulations with a
+<b>mean accuracy of 99.10&nbsp;%</b> (median error 0.69&nbsp;%, 95th percentile
+2.60&nbsp;%). Solving the internal node voltages with the same models instead of
+taking them from SPICE gives 99.12&nbsp;%.
+On the 204-transistor CLA (25,600 SPICE simulations) the hierarchical sum asked for in the brief
+reaches 96.41&nbsp;%. Its error is almost entirely due to the hierarchy itself
+(isolated gates with ideal 0/VDD inputs), not the ML: the same sum of <i>SPICE</i> gate leakages is off by
+-2.64&nbsp;%. A levels-aware hierarchy, which feeds each gate the ML-predicted output voltage
+of its driver, removes this bias and reaches <b>99.21&nbsp;% mean accuracy</b> on the CLA
+(median error 0.66&nbsp;%), with no SPICE voltage used anywhere.
+</div>
+
+
+<h2>1&nbsp; Setup</h2>
+<table class=""><thead><tr><th class="">Item</th><th class="">Value</th></tr></thead><tbody><tr><td class="">Model file</td><td class="">16nm_HP.pm (PTM, BSIM4 level 54)</td></tr><tr><td class="">Nominal VDD</td><td class="">1.0 V (sampled &plusmn;10 %: 0.90&ndash;1.10 V)</td></tr><tr><td class="">Channel length</td><td class="">L = 16 nm; W = 1&ndash;8 &times; L = 16&ndash;128 nm</td></tr><tr><td class="">Gate sizing</td><td class="">W<sub>n</sub> = 2L = 32 nm, W<sub>p</sub> = 4L = 64 nm (interior of the training range)</td></tr><tr><td class="">Test circuit</td><td class="">3-bit carry-lookahead adder: 42 library gates, 204 transistors, 7 inputs (128 vectors)</td></tr><tr><td class="">Simulator</td><td class="">ngspice-45.2 : Circuit level simulation program</td></tr><tr><td class="">Software</td><td class="">Python 3.14.8, scikit-learn 1.9.0, LightGBM 4.7.0, numpy 2.5.4, pandas 3.1.1</td></tr><tr><td class="">Platform</td><td class="">macOS-27.0.1-arm64-arm-64bit-Mach-O, 11 cores</td></tr><tr><td class="">SPICE options</td><td class=""><code>.options gmin=1e-18 abstol=1e-18 reltol=1e-6 vntol=1e-9</code> in every netlist</td></tr></tbody></table>
+<p><b>Leakage definition.</b> Gate and circuit leakage are the total static power divided by VDD,
+P<sub>static</sub>/VDD = &Sigma; V<sub>k</sub>I<sub>k</sub>/VDD over the supply <i>and</i> the input sources.
+The input sources matter because gate-tunnelling current into an input pin is real leakage that a driving gate
+must supply. The plain supply current I(VDD) is also recorded (<code>*_ivdd</code> columns) and gives the same conclusions.
+Terminal currents are positive <i>into</i> the device, so I<sub>d</sub>+I<sub>g</sub>+I<sub>s</sub>+I<sub>b</sub> = 0.</p>
+<p><b>Accuracy metric.</b> Mean accuracy = 100 % &minus; mean |ML/SPICE &minus; 1|.
+Medians, 95th percentiles and the worst case are reported alongside it.</p>
+
+
+<h2>2&nbsp; Data generation</h2>
+<h3>2.1 Sampling</h3>
+<p>For each of the four cases, 10,000 samples are drawn with every parameter independent. VDD is drawn first,
+uniform within &plusmn;10 % of nominal. V<sub>d</sub> and V<sub>s</sub> are uniform in [0, VDD], W is uniform in [1, 8]&times;L
+and T is uniform in [&minus;40, 125]&nbsp;&deg;C. The five process parameters (vth0, toxe, ndep, u0, xj) are each uniform within &plusmn;10 % of
+the model-card nominal, separately for NMOS and PMOS. V<sub>g</sub> and V<sub>b</sub> are fixed by the case (ON: V<sub>g</sub> = VDD for
+NMOS / 0 for PMOS; OFF: the opposite; body at the device's own rail). All draws use fixed seeds
+(<code>SEED_DATA = 2026</code>), and these 10,000-row files are deliverable 1.</p>
+<p>A uniform draw almost never puts a terminal on a rail: 3 in 10,000 samples are within 2 % of both rails.
+Inside a gate, however, the leaking transistor always has its source on a rail and its drain at the output (&asymp; 0 or VDD).
+We therefore add a <b>rail-focused supplement</b> of 5,000 samples per case. In it, V<sub>d</sub> and V<sub>s</sub> are exactly 0 or VDD
+one third of the time and otherwise follow an arcsine law that is dense near both rails. In half of these samples V<sub>g</sub> is moved up to
+10 % of VDD off its ideal level, because a gate driven by another gate sees a logic 0 a few tens of mV above ground.
+A third set of 2,000 samples per case at the gate widths and rail voltages (the <i>deployment check</i>) is used only for validation and test.
+No gate or circuit simulation is ever used for training or model selection.</p>
+<h3>2.2 Netlists</h3>
+<p>The single-FET netlist (one per case in <code>netlists/single_*.cir</code>) has one transistor and a separate voltage source on every
+terminal, so all four terminal currents are read directly through their sources. For speed, one ngspice process runs a whole batch of
+samples, changing the process parameters with <code>altermod</code> and the width, voltages and temperature with <code>alter</code> between
+<code>op</code> analyses. A self-check re-simulates samples as fresh standalone netlists and confirms the batch loop reproduces them. Besides the
+terminal currents, the BSIM4 internal current components (I<sub>ds</sub>, I<sub>gs</sub>, I<sub>gd</sub>, I<sub>gcs</sub>, I<sub>gcd</sub>, I<sub>gb</sub>,
+GIDL/GISL, I<sub>sub</sub>, junction currents) are recorded. They are regrouped into six physical <b>bipoles</b> (ds, gs, gd, gb, db, sb), which
+rebuild the four terminal currents exactly. Gate and circuit netlists are generated from the <i>same</i> transistor list that the ML side uses,
+so SPICE and ML cannot disagree about topology. Each starts from a logic-level <code>.nodeset</code>; the reason is given in &sect;6.</p>
+<h3>2.3 Splits</h3>
+<p>Each 10,000-row dataset is split 70/15/15 (7,000 train / 1,500 validation / 1,500 test) with <code>SEED_SPLIT = 42</code>.
+The rail supplement is split the same way and its training part is added to the training data. The test parts are touched once, after model
+selection. Split indices are saved in <code>results/split_*.npz</code>.</p>
+<h3>2.4 Data check</h3>
+<table class=""><caption>Table 1. Kirchhoff check, |I<sub>d</sub>+I<sub>g</sub>+I<sub>s</sub>+I<sub>b</sub>| for each case (10,000 samples).</caption><thead><tr><th class="">Case</th><th class="n">samples</th><th class="n">median |&Sigma;I| (A)</th><th class="n">max |&Sigma;I| (A)</th><th class="n">median |&Sigma;I|/max|I|</th><th class="n">p95 |&Sigma;I|/max|I|</th></tr></thead><tbody><tr><td class="">NMOS ON</td><td class="n">10000</td><td class="n">1.76&times;10<sup>-14</sup></td><td class="n">9.88&times;10<sup>-13</sup></td><td class="n">9.78&times;10<sup>-10</sup></td><td class="n">4.34&times;10<sup>-8</sup></td></tr><tr><td class="">NMOS OFF</td><td class="n">10000</td><td class="n">5.62&times;10<sup>-20</sup></td><td class="n">4.27&times;10<sup>-15</sup></td><td class="n">8.93&times;10<sup>-10</sup></td><td class="n">3.71&times;10<sup>-9</sup></td></tr><tr><td class="">PMOS ON</td><td class="n">10000</td><td class="n">7.60&times;10<sup>-15</sup></td><td class="n">9.86&times;10<sup>-13</sup></td><td class="n">8.63&times;10<sup>-10</sup></td><td class="n">1.49&times;10<sup>-8</sup></td></tr><tr><td class="">PMOS OFF</td><td class="n">10000</td><td class="n">9.81&times;10<sup>-17</sup></td><td class="n">8.38&times;10<sup>-15</sup></td><td class="n">2.09&times;10<sup>-4</sup></td><td class="n">2.04&times;10<sup>-2</sup></td></tr></tbody></table>
+<p>KCL closes to 10<sup>&minus;9</sup> of the largest terminal current in the median for every case. The largest relative residuals
+(PMOS OFF, up to 14.5&nbsp;%) occur only where every terminal current is around
+10<sup>&minus;15</sup>&nbsp;A. That is the simulator's absolute tolerance (abstol = 10<sup>&minus;18</sup>&nbsp;A amplified by the solver's
+convergence check), not a physical violation: the absolute residual never exceeds 9.88&times;10<sup>-13</sup>&nbsp;A.</p>
+<figure style="width:100%"><img src="../figures/data_check_trends.png"><figcaption><b>Figure 1.</b> Trend checks. OFF current rises 2.19&times; from 25 to 125&nbsp;&deg;C (sub-threshold current &prop; exp(&minus;V<sub>th</sub>/nV<sub>T</sub>), and V<sub>th</sub> falls with T). It falls to 0.31&times; with +10&nbsp;% vth0 (exponential in V<sub>th</sub>). Gate current falls to 0.23&times; with +10&nbsp;% toxe (direct tunnelling is exponential in oxide thickness). All three trends match the physics.</figcaption></figure>
+
+
+<h2>3&nbsp; Models</h2>
+<h3>3.1 What is learned</h3>
+<p>Predicting the four terminal currents directly is hard: they span about 12 decades, change sign, and I<sub>s</sub> is often the
+difference of two much larger opposite currents. We use the structure of the device instead. Each of the six bipoles is a passive
+two-terminal element whose current always flows from its higher to its lower terminal. The model therefore learns its
+<b>conductance</b> G = I/V, as log G per unit width, and rebuilds the terminal currents with KCL:
+I<sub>d</sub> = I<sub>ds</sub> &minus; I<sub>gd</sub> + I<sub>db</sub>, and so on. This guarantees exact KCL, the correct sign of every current,
+and I = 0 at V = 0. Five sub-models per case share the inputs: channel (ds), gate-to-diffusion tunnelling (gs and gd, one model
+evaluated twice), gate-to-body, drain-junction and source-junction.</p>
+<p><b>Features</b> (per sub-model): VDD, T [K], log(W<sub>eff</sub>/L), &Delta;V<sub>g</sub>/V<sub>T</sub> (offset of the gate from its
+ideal level), the five process parameters relative to nominal, the two terminal voltages of the bipole, V/V<sub>T</sub>, log|V|, and
+three Arrhenius-type inputs 1/V<sub>T</sub>, V<sub>th0</sub>/V<sub>T</sub> and (VDD&minus;V<sub>th0</sub>)/V<sub>T</sub>, since
+sub-threshold current goes as exp(&minus;V<sub>th</sub>/nV<sub>T</sub>). The <b>width normalisation</b> follows BSIM4 for each mechanism.
+A width sweep in SPICE showed:</p>
+<ul>
+<li>The OFF channel scales with the <i>clamped</i> effective width. Below 20&nbsp;nm BSIM4 replaces W<sub>eff</sub> by
+2&middot;10<sup>&minus;8</sup>(4&middot;10<sup>&minus;8</sup>&minus;W<sub>eff</sub>)/(6&middot;10<sup>&minus;8</sup>&minus;2W<sub>eff</sub>), so a 1L device
+conducts as if it were 14&nbsp;nm wide, not 6&nbsp;nm.</li>
+<li>The ON channel scales with the drawn W.</li>
+<li>Tunnelling scales with W&minus;2&middot;wint.</li>
+<li>Junctions do not depend on W in this card.</li>
+</ul>
+<p>Without the clamp the models carried a +2&nbsp;% bias into every gate.</p>
+<h3>3.2 Model families and hyper-parameters</h3>
+<ul>
+<li><b>Polynomial + ridge</b>: standardised features, polynomial degree 3 or 4, ridge strength chosen by internal CV over 10<sup>&minus;8</sup>&ndash;1.</li>
+<li><b>Random forest</b>: 300 trees, max_features 0.6, fully grown.</li>
+<li><b>LightGBM</b>: 4,000 trees, learning rate 0.02, 31 or 63 leaves, row and column subsampling 0.8/0.9.</li>
+<li><b>MLP</b>: 3 hidden layers of 64 or 128 tanh units, L-BFGS, L2 = 10<sup>&minus;6</sup>, up to 5,000 iterations, standardised inputs
+and target. Five networks with different seeds are averaged in log-G space (a geometric mean of the conductances), which removes most of
+L-BFGS's run-to-run noise.</li>
+</ul>
+<p>All families use the same bipole targets and features. Selection uses the mean of the median-relative-error scores on three validation
+sets: uniform, rail-focused and deployment check. The table below is the brief's uniform validation set.</p>
+<table class="small"><caption>Table 2. Model comparison on the uniform validation set (1,500 samples per case). Errors are relative, on currents above 10<sup>&minus;14</sup>&nbsp;A; R&sup2; is computed on asinh(I/1&nbsp;fA), which weights every decade equally. Bold = selected.</caption><thead><tr><th class="">Case</th><th class="">Model</th><th class="n">hyper-params</th><th class="n">id R&sup2;</th><th class="n">id med %</th><th class="n">id p95 %</th><th class="n">ig R&sup2;</th><th class="n">ig med %</th><th class="n">ig p95 %</th><th class="n">is R&sup2;</th><th class="n">is med %</th><th class="n">is p95 %</th><th class="n">ib R&sup2;</th><th class="n">ib med %</th><th class="n">ib p95 %</th></tr></thead><tbody><tr class="best"><td class="">NMOS OFF</td><td class="">MLP</td><td class="n">3&times;64, 5 seeds</td><td class="n">1.0000</td><td class="n">0.18</td><td class="n">2.30</td><td class="n">1.0000</td><td class="n">0.09</td><td class="n">0.31</td><td class="n">1.0000</td><td class="n">0.18</td><td class="n">2.07</td><td class="n">0.9999</td><td class="n">0.14</td><td class="n">1.02</td></tr><tr><td class="">NMOS OFF</td><td class="">LightGBM</td><td class="n">leaves=31</td><td class="n">0.9942</td><td class="n">1.61</td><td class="n">20.26</td><td class="n">1.0000</td><td class="n">0.75</td><td class="n">2.27</td><td class="n">0.9967</td><td class="n">1.52</td><td class="n">19.22</td><td class="n">0.9982</td><td class="n">0.57</td><td class="n">10.02</td></tr><tr><td class="">NMOS OFF</td><td class="">Polynomial + ridge</td><td class="n">degree=3</td><td class="n">1.0000</td><td class="n">0.13</td><td class="n">1.77</td><td class="n">1.0000</td><td class="n">0.08</td><td class="n">0.20</td><td class="n">0.9910</td><td class="n">0.15</td><td class="n">2.06</td><td class="n">0.7564</td><td class="n">11.19</td><td class="n">61.61</td></tr><tr><td class="">NMOS OFF</td><td class="">Random forest</td><td class="n">trees=300</td><td class="n">0.9867</td><td class="n">2.06</td><td class="n">49.92</td><td class="n">0.9999</td><td class="n">0.84</td><td class="n">3.47</td><td class="n">0.9912</td><td class="n">2.23</td><td class="n">48.49</td><td class="n">0.9931</td><td class="n">0.57</td><td class="n">23.72</td></tr><tr class="best"><td class="">NMOS ON</td><td class="">MLP</td><td class="n">3&times;64, 5 seeds</td><td class="n">1.0000</td><td class="n">0.79</td><td class="n">3.73</td><td class="n">1.0000</td><td class="n">0.25</td><td class="n">1.17</td><td class="n">1.0000</td><td class="n">0.79</td><td class="n">3.73</td><td class="n">1.0000</td><td class="n">0.39</td><td class="n">1.46</td></tr><tr><td class="">NMOS ON</td><td class="">LightGBM</td><td class="n">leaves=31</td><td class="n">1.0000</td><td class="n">2.48</td><td class="n">28.12</td><td class="n">0.9995</td><td class="n">3.71</td><td class="n">12.09</td><td class="n">1.0000</td><td class="n">2.49</td><td class="n">27.94</td><td class="n">0.9987</td><td class="n">6.73</td><td class="n">24.70</td></tr><tr><td class="">NMOS ON</td><td class="">Polynomial + ridge</td><td class="n">degree=4</td><td class="n">0.9999</td><td class="n">7.34</td><td class="n">26.28</td><td class="n">0.9958</td><td class="n">10.34</td><td class="n">33.03</td><td class="n">1.0000</td><td class="n">7.33</td><td class="n">26.22</td><td class="n">0.9981</td><td class="n">8.93</td><td class="n">25.31</td></tr><tr><td class="">NMOS ON</td><td class="">Random forest</td><td class="n">trees=300</td><td class="n">0.9998</td><td class="n">6.07</td><td class="n">56.88</td><td class="n">0.9964</td><td class="n">8.90</td><td class="n">30.95</td><td class="n">0.9999</td><td class="n">6.07</td><td class="n">56.26</td><td class="n">0.9894</td><td class="n">18.56</td><td class="n">67.03</td></tr><tr class="best"><td class="">PMOS OFF</td><td class="">MLP</td><td class="n">3&times;64, 5 seeds</td><td class="n">1.0000</td><td class="n">0.28</td><td class="n">2.09</td><td class="n">0.9936</td><td class="n">0.28</td><td class="n">1.49</td><td class="n">1.0000</td><td class="n">0.51</td><td class="n">2.33</td><td class="n">0.9999</td><td class="n">0.34</td><td class="n">1.33</td></tr><tr><td class="">PMOS OFF</td><td class="">LightGBM</td><td class="n">leaves=31</td><td class="n">0.9990</td><td class="n">6.01</td><td class="n">42.80</td><td class="n">0.9935</td><td class="n">1.17</td><td class="n">3.69</td><td class="n">0.9979</td><td class="n">10.03</td><td class="n">46.77</td><td class="n">0.9962</td><td class="n">1.07</td><td class="n">12.40</td></tr><tr><td class="">PMOS OFF</td><td class="">Polynomial + ridge</td><td class="n">degree=3</td><td class="n">0.9998</td><td class="n">1.79</td><td class="n">18.36</td><td class="n">0.9936</td><td class="n">0.22</td><td class="n">1.55</td><td class="n">0.9977</td><td class="n">1.26</td><td class="n">25.22</td><td class="n">0.9689</td><td class="n">11.31</td><td class="n">60.79</td></tr><tr><td class="">PMOS OFF</td><td class="">Random forest</td><td class="n">trees=300</td><td class="n">0.9946</td><td class="n">17.34</td><td class="n">139.94</td><td class="n">0.9934</td><td class="n">1.51</td><td class="n">5.40</td><td class="n">0.9954</td><td class="n">28.46</td><td class="n">171.13</td><td class="n">0.9879</td><td class="n">1.65</td><td class="n">25.27</td></tr><tr class="best"><td class="">PMOS ON</td><td class="">MLP</td><td class="n">3&times;64, 5 seeds</td><td class="n">1.0000</td><td class="n">0.64</td><td class="n">2.82</td><td class="n">1.0000</td><td class="n">0.43</td><td class="n">1.53</td><td class="n">1.0000</td><td class="n">0.64</td><td class="n">2.81</td><td class="n">1.0000</td><td class="n">0.39</td><td class="n">1.33</td></tr><tr><td class="">PMOS ON</td><td class="">LightGBM</td><td class="n">leaves=31</td><td class="n">1.0000</td><td class="n">2.44</td><td class="n">20.01</td><td class="n">0.9991</td><td class="n">7.23</td><td class="n">22.43</td><td class="n">1.0000</td><td class="n">2.44</td><td class="n">19.96</td><td class="n">0.9991</td><td class="n">6.36</td><td class="n">20.70</td></tr><tr><td class="">PMOS ON</td><td class="">Polynomial + ridge</td><td class="n">degree=4</td><td class="n">1.0000</td><td class="n">6.96</td><td class="n">23.12</td><td class="n">0.9969</td><td class="n">8.96</td><td class="n">27.97</td><td class="n">0.9998</td><td class="n">6.96</td><td class="n">23.22</td><td class="n">0.9982</td><td class="n">8.98</td><td class="n">27.36</td></tr><tr><td class="">PMOS ON</td><td class="">Random forest</td><td class="n">trees=300</td><td class="n">0.9999</td><td class="n">6.62</td><td class="n">40.84</td><td class="n">0.9934</td><td class="n">18.36</td><td class="n">65.26</td><td class="n">0.9999</td><td class="n">6.62</td><td class="n">40.81</td><td class="n">0.9937</td><td class="n">16.32</td><td class="n">59.30</td></tr></tbody></table>
+<figure style="width:100%"><img src="fig/model_comparison.png"><figcaption><b>Figure 2.</b> Validation median error by model family (log scale). The dotted line is 1&nbsp;%.</figcaption></figure>
+<p><b>Choice.</b> The MLP wins every case, usually by 5&ndash;20&times; in median error and more in the 95th percentile. Log-conductance is a
+smooth function of the inputs, a sum of exponents with gentle non-linearities, which a tanh network represents with few parameters. Trees
+fit it in piecewise-constant steps, which gives the heavy p95 tails in Table 2. A degree-3/4 polynomial is accurate where it is flexible
+enough (NMOS OFF I<sub>d</sub>) but fails on mechanisms with sharper bias dependence, for example the junction/GIDL current in I<sub>b</sub>.
+Of the two MLP sizes, the 64-unit network was selected for every case.</p>
+<h3>3.3 Test-set performance of the chosen models</h3>
+<table class=""><caption>Table 3. Chosen models on the held-out test set (1,500 uniform samples per case).</caption><thead><tr><th class="">Case</th><th class="n">Model</th><th class="n">id med %</th><th class="n">ig med %</th><th class="n">is med %</th><th class="n">ib med %</th><th class="n">id p95 %</th><th class="n">ig p95 %</th><th class="n">is p95 %</th><th class="n">ib p95 %</th></tr></thead><tbody><tr><td class="">NMOS ON</td><td class="n">MLP</td><td class="n">0.69</td><td class="n">0.24</td><td class="n">0.69</td><td class="n">0.37</td><td class="n">3.92</td><td class="n">1.07</td><td class="n">3.87</td><td class="n">1.38</td></tr><tr><td class="">NMOS OFF</td><td class="n">MLP</td><td class="n">0.17</td><td class="n">0.10</td><td class="n">0.18</td><td class="n">0.14</td><td class="n">2.23</td><td class="n">0.31</td><td class="n">2.02</td><td class="n">1.06</td></tr><tr><td class="">PMOS ON</td><td class="n">MLP</td><td class="n">0.59</td><td class="n">0.41</td><td class="n">0.59</td><td class="n">0.38</td><td class="n">2.90</td><td class="n">1.60</td><td class="n">2.90</td><td class="n">1.39</td></tr><tr><td class="">PMOS OFF</td><td class="n">MLP</td><td class="n">0.32</td><td class="n">0.30</td><td class="n">0.53</td><td class="n">0.33</td><td class="n">2.00</td><td class="n">1.70</td><td class="n">2.26</td><td class="n">1.45</td></tr></tbody></table>
+<table class=""><caption>Table 4. The same models on the deployment-check test set (1,000 samples per case at the gate widths and rail voltages).</caption><thead><tr><th class="">Case</th><th class="n">id med %</th><th class="n">ig med %</th><th class="n">is med %</th><th class="n">ib med %</th><th class="n">id p95 %</th><th class="n">ig p95 %</th><th class="n">is p95 %</th><th class="n">ib p95 %</th></tr></thead><tbody><tr><td class="">NMOS ON</td><td class="n">1.60</td><td class="n">0.73</td><td class="n">1.59</td><td class="n">0.38</td><td class="n">7.25</td><td class="n">1.77</td><td class="n">7.16</td><td class="n">1.25</td></tr><tr><td class="">NMOS OFF</td><td class="n">0.83</td><td class="n">0.12</td><td class="n">0.83</td><td class="n">2.57</td><td class="n">2.66</td><td class="n">0.47</td><td class="n">2.71</td><td class="n">15.23</td></tr><tr><td class="">PMOS ON</td><td class="n">0.78</td><td class="n">0.38</td><td class="n">0.78</td><td class="n">0.39</td><td class="n">4.08</td><td class="n">1.52</td><td class="n">4.02</td><td class="n">1.52</td></tr><tr><td class="">PMOS OFF</td><td class="n">0.86</td><td class="n">0.38</td><td class="n">0.86</td><td class="n">2.93</td><td class="n">3.10</td><td class="n">1.71</td><td class="n">3.10</td><td class="n">14.29</td></tr></tbody></table>
+<p>On the test set the median error is below 1&nbsp;% for every current and case. On the deployment-check set the
+leakage-carrying currents (I<sub>d</sub>, I<sub>s</sub>) stay below 1&nbsp;% in the median. The larger OFF-state I<sub>b</sub> errors there are on
+body currents of about 10<sup>&minus;14</sup>&nbsp;A, six to seven decades below the channel current, so they do not affect gate leakage. The PMOS-OFF I<sub>g</sub> and I<sub>s</sub> rows evaluate fewer
+samples (see the <code>eval_frac</code> columns of <code>chosen_models_test.csv</code>), because those currents are often below the
+10<sup>&minus;14</sup>&nbsp;A floor.</p>
+<figure style="width:100%"><img src="../figures/pred_vs_spice_nmos_on.png"><figcaption><b>Figure 3.</b> Predicted vs SPICE, NMOS ON, test set (Id, Ig, Is, Ib).</figcaption></figure>
+<figure style="width:100%"><img src="../figures/pred_vs_spice_nmos_off.png"><figcaption><b>Figure 4.</b> Predicted vs SPICE, NMOS OFF, test set.</figcaption></figure>
+<figure style="width:100%"><img src="../figures/pred_vs_spice_pmos_on.png"><figcaption><b>Figure 5.</b> Predicted vs SPICE, PMOS ON, test set.</figcaption></figure>
+<figure style="width:100%"><img src="../figures/pred_vs_spice_pmos_off.png"><figcaption><b>Figure 6.</b> Predicted vs SPICE, PMOS OFF, test set. The spread in I<sub>g</sub> is at 10<sup>&minus;16</sup>&ndash;10<sup>&minus;15</sup> A, below the evaluation floor.</figcaption></figure>
+<h3>3.4 Does the structure matter? Ablation and data size</h3>
+<p>The ablation trains the same MLP (same size, same rows, same ensemble) to predict each terminal current directly, on an asinh scale.
+It is 24.6&times; worse in median error (median over the 16 currents). The learning curve retrains the chosen recipe on 500
+to 7000 uniform samples (plus half as many rail samples). The median error reaches within 25&nbsp;% of the full-size model at
+NMOS ON n&nbsp;=&nbsp;2000, NMOS OFF n&nbsp;=&nbsp;4000, PMOS ON n&nbsp;=&nbsp;2000, PMOS OFF n&nbsp;=&nbsp;4000. This answers the brief's question of the smallest
+sufficient dataset: a few thousand SPICE samples per case.</p>
+<table class="small"><caption>Table 5. Ablation: direct terminal-current MLP vs the bipole model (validation set).</caption><thead><tr><th class="">Case</th><th class="n">current</th><th class="n">direct med %</th><th class="n">direct p95 %</th><th class="n">bipole med %</th><th class="n">bipole p95 %</th></tr></thead><tbody><tr><td class="">NMOS ON</td><td class="n">id</td><td class="n">5.54</td><td class="n">37.04</td><td class="n">0.79</td><td class="n">3.73</td></tr><tr><td class="">NMOS ON</td><td class="n">ig</td><td class="n">8.05</td><td class="n">48.10</td><td class="n">0.25</td><td class="n">1.17</td></tr><tr><td class="">NMOS ON</td><td class="n">is</td><td class="n">5.09</td><td class="n">32.94</td><td class="n">0.79</td><td class="n">3.73</td></tr><tr><td class="">NMOS ON</td><td class="n">ib</td><td class="n">9.63</td><td class="n">42.91</td><td class="n">0.39</td><td class="n">1.46</td></tr><tr><td class="">NMOS OFF</td><td class="n">id</td><td class="n">6.32</td><td class="n">91.95</td><td class="n">0.18</td><td class="n">2.30</td></tr><tr><td class="">NMOS OFF</td><td class="n">ig</td><td class="n">3.05</td><td class="n">13.89</td><td class="n">0.09</td><td class="n">0.31</td></tr><tr><td class="">NMOS OFF</td><td class="n">is</td><td class="n">6.41</td><td class="n">97.44</td><td class="n">0.18</td><td class="n">2.07</td></tr><tr><td class="">NMOS OFF</td><td class="n">ib</td><td class="n">0.50</td><td class="n">9.92</td><td class="n">0.14</td><td class="n">1.02</td></tr><tr><td class="">PMOS ON</td><td class="n">id</td><td class="n">5.78</td><td class="n">30.71</td><td class="n">0.64</td><td class="n">2.82</td></tr><tr><td class="">PMOS ON</td><td class="n">ig</td><td class="n">10.56</td><td class="n">44.60</td><td class="n">0.43</td><td class="n">1.53</td></tr><tr><td class="">PMOS ON</td><td class="n">is</td><td class="n">6.13</td><td class="n">31.71</td><td class="n">0.64</td><td class="n">2.81</td></tr><tr><td class="">PMOS ON</td><td class="n">ib</td><td class="n">9.73</td><td class="n">38.08</td><td class="n">0.39</td><td class="n">1.33</td></tr><tr><td class="">PMOS OFF</td><td class="n">id</td><td class="n">9.02</td><td class="n">76.19</td><td class="n">0.28</td><td class="n">2.09</td></tr><tr><td class="">PMOS OFF</td><td class="n">ig</td><td class="n">6.19</td><td class="n">23.03</td><td class="n">0.28</td><td class="n">1.49</td></tr><tr><td class="">PMOS OFF</td><td class="n">is</td><td class="n">12.41</td><td class="n">88.13</td><td class="n">0.51</td><td class="n">2.33</td></tr><tr><td class="">PMOS OFF</td><td class="n">ib</td><td class="n">0.81</td><td class="n">11.70</td><td class="n">0.34</td><td class="n">1.33</td></tr></tbody></table>
+<figure style="width:100%"><img src="fig/learning_curve.png"><figcaption><b>Figure 7.</b> Learning curve: validation median (solid) and 95th-percentile (dashed) error vs the number of uniform training samples.</figcaption></figure>
+<table class="small"><caption>Table 6. Learning curve, validation median error (%).</caption><thead><tr><th class="">Case</th><th class="n">current</th><th class="n">n = 500</th><th class="n">n = 1000</th><th class="n">n = 2000</th><th class="n">n = 4000</th><th class="n">n = 7000</th></tr></thead><tbody><tr><td class="">NMOS OFF</td><td class="n">ib</td><td class="n">6.24</td><td class="n">1.13</td><td class="n">0.30</td><td class="n">0.18</td><td class="n">0.14</td></tr><tr><td class="">NMOS OFF</td><td class="n">id</td><td class="n">0.55</td><td class="n">0.28</td><td class="n">0.21</td><td class="n">0.19</td><td class="n">0.18</td></tr><tr><td class="">NMOS OFF</td><td class="n">ig</td><td class="n">0.27</td><td class="n">0.15</td><td class="n">0.12</td><td class="n">0.10</td><td class="n">0.09</td></tr><tr><td class="">NMOS OFF</td><td class="n">is</td><td class="n">0.57</td><td class="n">0.30</td><td class="n">0.21</td><td class="n">0.19</td><td class="n">0.18</td></tr><tr><td class="">NMOS ON</td><td class="n">ib</td><td class="n">1.76</td><td class="n">0.73</td><td class="n">0.49</td><td class="n">0.36</td><td class="n">0.39</td></tr><tr><td class="">NMOS ON</td><td class="n">id</td><td class="n">3.03</td><td class="n">1.19</td><td class="n">0.86</td><td class="n">0.72</td><td class="n">0.79</td></tr><tr><td class="">NMOS ON</td><td class="n">ig</td><td class="n">1.42</td><td class="n">0.57</td><td class="n">0.34</td><td class="n">0.28</td><td class="n">0.25</td></tr><tr><td class="">NMOS ON</td><td class="n">is</td><td class="n">3.03</td><td class="n">1.19</td><td class="n">0.86</td><td class="n">0.72</td><td class="n">0.79</td></tr><tr><td class="">PMOS OFF</td><td class="n">ib</td><td class="n">7.35</td><td class="n">1.37</td><td class="n">0.57</td><td class="n">0.39</td><td class="n">0.34</td></tr><tr><td class="">PMOS OFF</td><td class="n">id</td><td class="n">3.05</td><td class="n">0.84</td><td class="n">0.47</td><td class="n">0.32</td><td class="n">0.28</td></tr><tr><td class="">PMOS OFF</td><td class="n">ig</td><td class="n">0.54</td><td class="n">0.37</td><td class="n">0.32</td><td class="n">0.27</td><td class="n">0.28</td></tr><tr><td class="">PMOS OFF</td><td class="n">is</td><td class="n">4.45</td><td class="n">1.68</td><td class="n">0.88</td><td class="n">0.57</td><td class="n">0.51</td></tr><tr><td class="">PMOS ON</td><td class="n">ib</td><td class="n">2.07</td><td class="n">0.82</td><td class="n">0.46</td><td class="n">0.46</td><td class="n">0.39</td></tr><tr><td class="">PMOS ON</td><td class="n">id</td><td class="n">2.61</td><td class="n">1.10</td><td class="n">0.77</td><td class="n">0.67</td><td class="n">0.64</td></tr><tr><td class="">PMOS ON</td><td class="n">ig</td><td class="n">2.00</td><td class="n">0.82</td><td class="n">0.49</td><td class="n">0.50</td><td class="n">0.43</td></tr><tr><td class="">PMOS ON</td><td class="n">is</td><td class="n">2.61</td><td class="n">1.10</td><td class="n">0.77</td><td class="n">0.67</td><td class="n">0.64</td></tr></tbody></table>
+
+
+<h2>4&nbsp; Gate results</h2>
+<p>Each of the 18 gate/input cases is simulated at the same 200 random corners. A corner is one draw of VDD, T and process: one draw for all
+NMOS and one for all PMOS. Following the brief, the ML leakage uses the SPICE-recorded internal and output voltages to set each transistor's
+terminal voltages, then sums V&middot;I over the predicted bipole currents. As an extension (&sect;7.1), the internal and output node voltages
+are also solved from the ML models alone. Both sets of node voltages are recorded in <code>results/gate_samples.csv</code>.</p>
+<table class="small"><caption>Table 7. Gate results, 200 corners per case. Over all 3,600 simulations: mean accuracy 99.10 %, median error 0.69 %, p95 2.60 %, max 5.73 %. ML-solved: 99.12 %, 0.68 %, 2.42 %, 4.89 %.</caption><thead><tr><th class="">Gate</th><th class="n">inputs</th><th class="n">SPICE median (A)</th><th class="n">ML median (A)</th><th class="n">bias %</th><th class="n">median err %</th><th class="n">p95 err %</th><th class="n">max err %</th><th class="n">ML-solved med %</th><th class="n">ML-solved p95 %</th><th class="n">max |&Delta;V| node (mV)</th></tr></thead><tbody><tr><td class="">INV</td><td class="n">0</td><td class="n">1.61&times;10<sup>-7</sup></td><td class="n">1.61&times;10<sup>-7</sup></td><td class="n">-0.11</td><td class="n">0.70</td><td class="n">2.43</td><td class="n">4.97</td><td class="n">0.66</td><td class="n">2.40</td><td class="n">0.18</td></tr><tr><td class="">INV</td><td class="n">1</td><td class="n">8.08&times;10<sup>-7</sup></td><td class="n">8.15&times;10<sup>-7</sup></td><td class="n">+0.46</td><td class="n">0.79</td><td class="n">3.06</td><td class="n">5.73</td><td class="n">0.79</td><td class="n">2.90</td><td class="n">1.60</td></tr><tr><td class="">NAND2</td><td class="n">00</td><td class="n">7.92&times;10<sup>-10</sup></td><td class="n">7.91&times;10<sup>-10</sup></td><td class="n">-0.23</td><td class="n">0.34</td><td class="n">1.17</td><td class="n">1.74</td><td class="n">0.43</td><td class="n">1.43</td><td class="n">1.26</td></tr><tr><td class="">NAND2</td><td class="n">01</td><td class="n">1.57&times;10<sup>-7</sup></td><td class="n">1.55&times;10<sup>-7</sup></td><td class="n">-0.19</td><td class="n">0.65</td><td class="n">2.30</td><td class="n">4.51</td><td class="n">0.66</td><td class="n">2.25</td><td class="n">0.43</td></tr><tr><td class="">NAND2</td><td class="n">10</td><td class="n">1.72&times;10<sup>-8</sup></td><td class="n">1.74&times;10<sup>-8</sup></td><td class="n">+0.79</td><td class="n">0.86</td><td class="n">2.82</td><td class="n">4.19</td><td class="n">0.82</td><td class="n">2.60</td><td class="n">1.60</td></tr><tr><td class="">NAND2</td><td class="n">11</td><td class="n">1.34&times;10<sup>-6</sup></td><td class="n">1.35&times;10<sup>-6</sup></td><td class="n">+0.18</td><td class="n">0.88</td><td class="n">2.71</td><td class="n">4.25</td><td class="n">0.81</td><td class="n">2.13</td><td class="n">2.47</td></tr><tr><td class="">NOR2</td><td class="n">00</td><td class="n">3.18&times;10<sup>-7</sup></td><td class="n">3.13&times;10<sup>-7</sup></td><td class="n">-0.11</td><td class="n">0.65</td><td class="n">2.35</td><td class="n">4.72</td><td class="n">0.69</td><td class="n">2.29</td><td class="n">0.54</td></tr><tr><td class="">NOR2</td><td class="n">01</td><td class="n">6.48&times;10<sup>-7</sup></td><td class="n">6.60&times;10<sup>-7</sup></td><td class="n">+0.11</td><td class="n">0.88</td><td class="n">3.04</td><td class="n">5.18</td><td class="n">0.64</td><td class="n">2.51</td><td class="n">1.29</td></tr><tr><td class="">NOR2</td><td class="n">10</td><td class="n">4.92&times;10<sup>-8</sup></td><td class="n">4.96&times;10<sup>-8</sup></td><td class="n">+0.14</td><td class="n">0.63</td><td class="n">2.34</td><td class="n">2.97</td><td class="n">0.63</td><td class="n">2.44</td><td class="n">1.75</td></tr><tr><td class="">NOR2</td><td class="n">11</td><td class="n">9.47&times;10<sup>-10</sup></td><td class="n">9.58&times;10<sup>-10</sup></td><td class="n">+0.31</td><td class="n">0.62</td><td class="n">1.87</td><td class="n">2.44</td><td class="n">0.96</td><td class="n">2.44</td><td class="n">1.79</td></tr><tr><td class="">AND2</td><td class="n">00</td><td class="n">8.08&times;10<sup>-7</sup></td><td class="n">8.16&times;10<sup>-7</sup></td><td class="n">+0.46</td><td class="n">0.79</td><td class="n">3.06</td><td class="n">5.73</td><td class="n">0.79</td><td class="n">2.90</td><td class="n">1.60</td></tr><tr><td class="">AND2</td><td class="n">01</td><td class="n">1.04&times;10<sup>-6</sup></td><td class="n">1.04&times;10<sup>-6</sup></td><td class="n">+0.22</td><td class="n">0.66</td><td class="n">2.57</td><td class="n">5.40</td><td class="n">0.66</td><td class="n">2.41</td><td class="n">1.67</td></tr><tr><td class="">AND2</td><td class="n">10</td><td class="n">8.25&times;10<sup>-7</sup></td><td class="n">8.34&times;10<sup>-7</sup></td><td class="n">+0.44</td><td class="n">0.75</td><td class="n">3.01</td><td class="n">5.71</td><td class="n">0.77</td><td class="n">2.84</td><td class="n">1.62</td></tr><tr><td class="">AND2</td><td class="n">11</td><td class="n">1.70&times;10<sup>-6</sup></td><td class="n">1.71&times;10<sup>-6</sup></td><td class="n">+0.27</td><td class="n">0.76</td><td class="n">2.30</td><td class="n">3.87</td><td class="n">0.71</td><td class="n">2.00</td><td class="n">2.47</td></tr><tr><td class="">OR2</td><td class="n">00</td><td class="n">1.22&times;10<sup>-6</sup></td><td class="n">1.23&times;10<sup>-6</sup></td><td class="n">-0.01</td><td class="n">0.59</td><td class="n">2.32</td><td class="n">5.08</td><td class="n">0.58</td><td class="n">2.16</td><td class="n">1.57</td></tr><tr><td class="">OR2</td><td class="n">01</td><td class="n">8.83&times;10<sup>-7</sup></td><td class="n">8.83&times;10<sup>-7</sup></td><td class="n">+0.11</td><td class="n">0.75</td><td class="n">2.46</td><td class="n">4.75</td><td class="n">0.60</td><td class="n">2.28</td><td class="n">1.29</td></tr><tr><td class="">OR2</td><td class="n">10</td><td class="n">2.18&times;10<sup>-7</sup></td><td class="n">2.18&times;10<sup>-7</sup></td><td class="n">+0.00</td><td class="n">0.61</td><td class="n">2.19</td><td class="n">4.42</td><td class="n">0.58</td><td class="n">2.14</td><td class="n">1.75</td></tr><tr><td class="">OR2</td><td class="n">11</td><td class="n">1.62&times;10<sup>-7</sup></td><td class="n">1.62&times;10<sup>-7</sup></td><td class="n">-0.10</td><td class="n">0.70</td><td class="n">2.42</td><td class="n">4.97</td><td class="n">0.66</td><td class="n">2.40</td><td class="n">1.79</td></tr></tbody></table>
+<figure style="width:62%"><img src="../figures/gate_parity.png"><figcaption><b>Figure 8.</b> Gate parity plot, all 3,600 simulations (log axes; dotted lines at &plusmn;1 % and &plusmn;5 %).</figcaption></figure>
+<figure style="width:100%"><img src="fig/gate_error_vs_corner.png"><figcaption><b>Figure 9.</b> Signed gate error vs temperature, VDD and PMOS vth0, in deciles of each variable (median and 5&ndash;95 % band).</figcaption></figure>
+<p><b>Most and least accurate.</b> Mean accuracy per gate:
+INV 99.01 %, NAND2 99.15 %, NOR2 99.11 %, AND2 99.03 %, OR2 99.14 %. The most accurate case is
+NAND2 00 (p95 1.17 %). Its leakage is set by a two-transistor OFF stack, whose current is
+small and dominated by a single, well-sampled mechanism. The least accurate is INV 1
+(p95 3.06 %). The cases with the largest tails (INV&nbsp;1, AND2&nbsp;00/01/10, whose output inverter sees a 1, and
+NOR2&nbsp;01, OR2&nbsp;00) all leak through a single OFF PMOS with V<sub>sd</sub> &asymp; VDD. That makes the PMOS-OFF channel model the
+accuracy bottleneck at gate level, consistent with it having the highest test p95 in Table 3. The stack effect is visible in the SPICE
+medians: NAND2&nbsp;00 and NOR2&nbsp;11 leak about 200&times; less than an inverter, because the internal node rises (falls) and reverse-biases
+the upper OFF device. The models reproduce this without being told: the ML-solved internal node voltages agree with SPICE to within
+2.47 mV (median 0.051 mV).</p>
+
+
+<h2>5&nbsp; Test-circuit results: 3-bit CLA</h2>
+<p>The adder is built only from library gates. The propagate signals p<sub>i</sub> = a<sub>i</sub>&oplus;b<sub>i</sub> use 4-NAND2 XORs and the
+generate signals g<sub>i</sub> = a<sub>i</sub>b<sub>i</sub> use AND2. Each carry is computed directly from g, p and c<sub>0</sub>
+(c<sub>3</sub> = g<sub>2</sub>+p<sub>2</sub>g<sub>1</sub>+p<sub>2</sub>p<sub>1</sub>g<sub>0</sub>+p<sub>2</sub>p<sub>1</sub>p<sub>0</sub>c<sub>0</sub>
+from AND2/OR2 trees), and s<sub>i</sub> = p<sub>i</sub>&oplus;c<sub>i</sub>. That gives 42 gates and 204 transistors; a unit test checks that
+it adds correctly for all 128 inputs. SPICE simulates the full netlist for all 128 vectors at the same 200 corners (25,600 operating points,
+112&nbsp;s on 11 cores). For the hierarchical ML prediction (the brief's method), logic values are
+propagated, each gate's Part-B ML leakage is looked up for its input combination and corner, and the 42 values are summed.</p>
+<table class="small"><caption>Table 8. CLA metrics over 128 vectors &times; 200 corners = 25,600 points. Rows 2&ndash;4 split the error into its causes; row 5 is our extension (&sect;7.2).</caption><thead><tr><th class="">Comparison</th><th class="n">SPICE median (A)</th><th class="n">ML median (A)</th><th class="n">bias %</th><th class="n">median err %</th><th class="n">p95 err %</th><th class="n">max err %</th><th class="n">mean acc %</th></tr></thead><tbody><tr><td class="">hierarchical ML (gate sum) vs SPICE circuit</td><td class="n">3.16&times;10<sup>-5</sup></td><td class="n">3.07&times;10<sup>-5</sup></td><td class="n">-2.56</td><td class="n">2.59</td><td class="n">10.41</td><td class="n">21.20</td><td class="n">96.41</td></tr><tr><td class="">SPICE gate sum vs SPICE circuit (hierarchy error)</td><td class="n">3.16&times;10<sup>-5</sup></td><td class="n">3.07&times;10<sup>-5</sup></td><td class="n">-2.64</td><td class="n">2.64</td><td class="n">10.04</td><td class="n">20.79</td><td class="n">96.42</td></tr><tr><td class="">hierarchical ML (gate sum) vs SPICE gate sum (ML error)</td><td class="n">3.07&times;10<sup>-5</sup></td><td class="n">3.07&times;10<sup>-5</sup></td><td class="n">+0.18</td><td class="n">0.68</td><td class="n">2.51</td><td class="n">4.95</td><td class="n">99.13</td></tr><tr><td class="">flat ML on circuit voltages vs SPICE circuit</td><td class="n">3.16&times;10<sup>-5</sup></td><td class="n">3.16&times;10<sup>-5</sup></td><td class="n">+0.14</td><td class="n">0.68</td><td class="n">2.46</td><td class="n">4.85</td><td class="n">99.14</td></tr><tr><td class="">levels-aware ML hierarchy vs SPICE circuit (SPICE-free)</td><td class="n">3.16&times;10<sup>-5</sup></td><td class="n">3.17&times;10<sup>-5</sup></td><td class="n">+0.28</td><td class="n">0.66</td><td class="n">2.18</td><td class="n">3.52</td><td class="n">99.21</td></tr></tbody></table>
+<div class="grid2">
+<figure style="width:100%"><img src="../figures/circuit_parity.png"><figcaption><b>Figure 10.</b> CLA parity plot (log axes): hierarchical ML (the brief) and levels-aware ML vs the SPICE circuit.</figcaption></figure>
+<figure style="width:100%"><img src="fig/cla_error_vs_temp.png"><figcaption><b>Figure 11.</b> Median signed CLA error vs temperature for each method.</figcaption></figure>
+</div>
+<p><b>Compared with the gates.</b> The hierarchical estimate reaches 96.41 % mean accuracy (median error
+2.59 %, bias -2.56 %), clearly below the gate level, as the brief anticipates. The extra reference points show
+where the error comes from:</p>
+<ul>
+<li><b>ML error alone</b> (ML gate sum vs SPICE gate sum): median 0.68 %, mean accuracy 99.13 %. This is the gate-level
+accuracy again; gate errors partly cancel in the sum.</li>
+<li><b>Hierarchy error alone</b> (SPICE gate sum vs SPICE circuit): bias -2.64 %, p95 10.04 %. The isolated-gate
+assumption is wrong in a systematic way, independent of the ML.</li>
+<li><b>Flat ML</b> (all 204 transistors at the circuit's own SPICE voltages): median 0.68 %. The transistor models are just as good
+inside the large circuit.</li>
+</ul>
+<p>The hierarchy error grows with temperature, from about -1.1 % below 0&nbsp;&deg;C
+to -4.7 % above 80&nbsp;&deg;C. In a real chain a logic 0 sits tens of mV above
+ground (Figure&nbsp;12) and a logic 1 below VDD, and the shift grows with leakage, so with temperature. The next gate's OFF transistor sees
+that offset on its gate, and sub-threshold current is exponential in it, so the real circuit leaks more than the ideal-input sum. Loading
+(tunnelling current drawn by fan-out pins) is a much smaller effect: the levels-aware hierarchy below ignores it and still removes the bias.
+Per vector, the median error ranges from 1.40 % (inputs 0001111) to 3.71 %
+(inputs 0110111); <code>results/circuit_results.csv</code> lists all 128.</p>
+<figure style="width:70%"><img src="fig/level_shift.png"><figcaption><b>Figure 12.</b> How far isolated-gate outputs sit from the rails in SPICE (median per temperature decile, log scale).</figcaption></figure>
+
+
+<h2>6&nbsp; Error analysis</h2>
+<p><b>Where.</b> At gate level the error depends mainly on temperature and supply. Below 0&nbsp;&deg;C the median |error| is
+1.03 % (p95 3.18 %), against 0.57 % (p95 2.05 %) above 40&nbsp;&deg;C.
+Above 1.05&nbsp;V the p95 is 3.17 %, against 2.04 % below 0.95&nbsp;V. The worst points all come from a few
+cold, high-VDD corners (Table&nbsp;9) and from the cases that leak through one OFF PMOS (&sect;4). Process parameters have weak correlation with the
+error (|r| &lt; 0.1 for every parameter), so the models capture the process dependence well.</p>
+<table class="small"><caption>Table 9. The eight largest gate errors.</caption><thead><tr><th class="">Gate</th><th class="n">inputs</th><th class="n">corner</th><th class="n">T (&deg;C)</th><th class="n">VDD (V)</th><th class="n">NMOS vth0</th><th class="n">PMOS vth0</th><th class="n">error %</th></tr></thead><tbody><tr><td class="">INV</td><td class="n">1</td><td class="n">76</td><td class="n">-24.0</td><td class="n">1.089</td><td class="n">0.497</td><td class="n">-0.428</td><td class="n">+5.73</td></tr><tr><td class="">AND2</td><td class="n">00</td><td class="n">76</td><td class="n">-24.0</td><td class="n">1.089</td><td class="n">0.497</td><td class="n">-0.428</td><td class="n">+5.73</td></tr><tr><td class="">AND2</td><td class="n">10</td><td class="n">76</td><td class="n">-24.0</td><td class="n">1.089</td><td class="n">0.497</td><td class="n">-0.428</td><td class="n">+5.71</td></tr><tr><td class="">AND2</td><td class="n">01</td><td class="n">76</td><td class="n">-24.0</td><td class="n">1.089</td><td class="n">0.497</td><td class="n">-0.428</td><td class="n">+5.40</td></tr><tr><td class="">NOR2</td><td class="n">01</td><td class="n">76</td><td class="n">-24.0</td><td class="n">1.089</td><td class="n">0.497</td><td class="n">-0.428</td><td class="n">+5.18</td></tr><tr><td class="">OR2</td><td class="n">00</td><td class="n">76</td><td class="n">-24.0</td><td class="n">1.089</td><td class="n">0.497</td><td class="n">-0.428</td><td class="n">+5.08</td></tr><tr><td class="">INV</td><td class="n">0</td><td class="n">184</td><td class="n">-1.0</td><td class="n">1.083</td><td class="n">0.435</td><td class="n">-0.420</td><td class="n">+4.97</td></tr><tr><td class="">OR2</td><td class="n">11</td><td class="n">184</td><td class="n">-1.0</td><td class="n">1.083</td><td class="n">0.435</td><td class="n">-0.420</td><td class="n">+4.97</td></tr></tbody></table>
+<p><b>Why.</b> (1) Cold OFF currents are the smallest in the dataset, and log G changes fastest with V<sub>th</sub>/V<sub>T</sub> there. The same
+error in log G is a larger relative current error, and cold, high-VDD corners are corners of the 12-dimensional input box where uniform data is
+thinnest. (2) At high VDD, drain-induced barrier lowering and GIDL make the OFF current depend more steeply on V<sub>ds</sub> exactly where the
+gate operates (V<sub>ds</sub> = VDD). (3) The PMOS-OFF channel is the weakest of the four models, because its leakage depends on several
+competing mechanisms of similar size.</p>
+<p><b>A SPICE artefact found along the way.</b> Before the fix, the worst "error" was +126 % on INV A=1 at corner 198 (112&nbsp;&deg;C, 1.088&nbsp;V).
+The ML was right: ngspice had converged to a spurious operating point. Sweeping V(out) with a forcing source shows a single true KCL root at
+42&nbsp;mV (3.58&nbsp;&micro;A). The default Newton start gets stuck at a narrow kink of the model near 22&nbsp;mV. Starting every gate and circuit
+simulation from a logic-level <code>.nodeset</code> removes it. Only this one of the 3,600 gate points moved by more than 0.1 %, and no CLA point did.</p>
+<p><b>Circuit level.</b> The CLA error of the brief's method is dominated by the ideal-level assumption (&sect;5), with a -2.64 % bias
+that grows with temperature. With the levels corrected, the remaining CLA error (0.66 % median) equals the gate-level ML error.</p>
+
+
+<h2>7&nbsp; Extensions</h2>
+<h3>7.1 SPICE-free node voltages</h3>
+<p>The ML models can predict the operating point as well as the leakage. At DC, the ML-predicted terminal currents into every internal node sum
+to zero. <code>leakml/solve.py</code> solves this KCL system for all unknown nodes at once: damped Newton, finite-difference Jacobian, each step
+limited to 50&nbsp;mV as SPICE does. It is vectorised over corners and iterates only on rows that have not converged. The initial guess puts logic
+nodes at their rails and stack nodes at the rail of their ON neighbour. Every gate case converges, with the KCL residual below 10<sup>&minus;12</sup>&nbsp;A.
+The solved node voltages are within 2.47 mV of SPICE, and the leakage computed from them is as accurate as with SPICE voltages
+(99.12 % vs 99.10 %).</p>
+<h3>7.2 Levels-aware hierarchy</h3>
+<p>The same solver fixes the CLA hierarchy. Gates are visited in topological order, and each one is solved with its inputs set to the
+<i>ML-predicted output voltages</i> of its drivers instead of ideal 0/VDD. Rows that share a corner and input voltages are solved once. Over 42
+gates the solver needs at most 12 iterations and leaves 0 rows unconverged. The predicted
+gate-output voltages match the full SPICE circuit to 0.044 mV in the median
+(2.90 mV max). The CLA leakage improves to <b>99.21 % mean accuracy</b>, with median
+error 0.66 %, p95 2.18 %, max 3.52 % and bias +0.28 %. That beats even the flat ML on SPICE
+voltages (99.14 %) and uses no SPICE input at all: the full chain from the model card to circuit leakage runs on four ML models.</p>
+
+<h3>7.3 Minimum-leakage standby vector</h3>
+<p>In standby, a block can be parked at the input vector that leaks least. The CLA's 128 vectors differ by
+1.22&times; in mean leakage. Ranked by ML, the vectors
+follow SPICE with Spearman &rho; = 1.000 (levels-aware) and 0.970
+(ideal-level hierarchy). Both pick the same minimum-leakage vector as SPICE (1001000). Choosing the best vector separately in
+each corner, the levels-aware ML finds the exact SPICE optimum in 99 % of corners and is never more than
+0.18 % above it.</p>
+<figure style="width:100%"><img src="../figures/extras_mlv.png"><figcaption><b>Figure 13.</b> Mean CLA leakage of the 128 input vectors, sorted by SPICE.</figcaption></figure>
+
+<h3>7.4 Leakage by mechanism</h3>
+<p>SPICE reports only total currents, but the bipole models split leakage into physical mechanisms. Averaged over the 18 gate cases at nominal
+process and VDD:</p>
+<ul>
+<li>Channel (sub-threshold) leakage is 90.8 % at &minus;40&nbsp;&deg;C, 93.3 % at
+20&nbsp;&deg;C and 96.7 % at 125&nbsp;&deg;C.</li>
+<li>Gate tunnelling makes up the rest: 9.2 % when cold, falling to 3.3 % when hot.
+It is almost temperature-independent while sub-threshold current grows exponentially.</li>
+<li>Junction leakage and GIDL are below 0.016 % everywhere in this card.</li>
+</ul>
+<p>Gate tunnelling matters most in the stacked cases, where the stack has suppressed sub-threshold leakage: it is
+63 % of NAND2&nbsp;00 and
+55 % of NOR2&nbsp;11 near room temperature.</p>
+<figure style="width:100%"><img src="../figures/extras_mechanisms.png"><figcaption><b>Figure 14.</b> Left: mechanism currents vs temperature for three gate cases. Right: share of each mechanism per gate case near room temperature.</figcaption></figure>
+
+<h3>7.5 Sensitivity</h3>
+<p>Each PVT parameter is moved one at a time (process and VDD &plusmn;10 %, T to &minus;40 / 125&nbsp;&deg;C) and the levels-aware CLA leakage is
+averaged over all 128 vectors. The largest effects are VDD -10% (0.37&times;), VDD +10% (2.61&times;), pmos vth0 +10% (0.44&times;), pmos vth0 -10% (2.18&times;).
+Supply voltage has the largest effect, through drain-induced barrier lowering: a higher V<sub>ds</sub> lowers the
+OFF device's threshold. Next come PMOS vth0 and temperature, as the sub-threshold law exp(&minus;V<sub>th</sub>/nV<sub>T</sub>) predicts. PMOS
+parameters matter more than NMOS ones because the PMOS devices are twice as wide and carry most of the CLA leakage. Oxide thickness, mobility
+and junction depth change the leakage by less than 10&nbsp;%.</p>
+<figure style="width:75%"><img src="../figures/extras_sensitivity.png"><figcaption><b>Figure 15.</b> One-at-a-time sensitivity of the CLA leakage (log scale).</figcaption></figure>
+
+<h3>7.6 Monte-Carlo leakage distribution</h3>
+<p>Once trained, the models make large statistical studies cheap. The levels-aware CLA leakage is evaluated at 5,000 new random corners
+for the minimum- and maximum-leakage vectors. For vector 1001000, the median is 2.83&times;10<sup>-5</sup>&nbsp;A and the 99th percentile 4.38&times; the median (lognormal &sigma; = 0.79; the 200 SPICE corners give median 2.95&times;10<sup>-5</sup>&nbsp;A, KS p = 0.93). For vector 1110001, the median is 3.50&times;10<sup>-5</sup>&nbsp;A and the 99th percentile 4.19&times; the median (lognormal &sigma; = 0.77; the 200 SPICE corners give median 3.64&times;10<sup>-5</sup>&nbsp;A, KS p = 0.89). The distribution is strongly right-skewed: worst-case design must budget for
+several times the median leakage.</p>
+<figure style="width:100%"><img src="../figures/extras_montecarlo.png"><figcaption><b>Figure 16.</b> CLA leakage over new random corners (ML) vs the 200 SPICE corners.</figcaption></figure>
+
+<h3>7.7 Uncertainty from the ensemble</h3>
+<p>Each of the five ensemble members gives its own gate leakage, and their spread is a free error bar. The spread correlates only weakly with the real
+error (Spearman &rho; = 0.17). The 20 % of points with the smallest spread have median error 0.60 %, and the 20 % with the largest have
+0.79 %. The members disagree where data is thin, but most of the remaining error is shared by all members, a systematic bias of the training
+distribution. An ensemble cannot detect such a bias; only more data where the gates operate can remove it.</p>
+<figure style="width:60%"><img src="../figures/extras_uncertainty.png"><figcaption><b>Figure 17.</b> Ensemble spread vs actual error, all 3,600 gate simulations.</figcaption></figure>
+
+<h3>7.8 Cost</h3>
+<p>SPICE needs 48.07 ms of CPU time per CLA operating point. ML inference on the same 204 transistors, given the node voltages, needs
+4.257 ms, 11&times; less. The brief's hierarchical lookup costs 1.7&nbsp;s for all 25,600 points once the gate tables
+exist. The SPICE-free levels-aware solve of all 25,600 points takes 402&nbsp;s on one core, about
+3&times; less CPU time than SPICE. Most of that time goes into the finite-difference Jacobian, which needs many model
+calls per Newton step; an analytic Jacobian of the MLPs would remove most of it.</p>
+
+<h3>7.9 A second, unseen circuit: 8-bit parity checker</h3>
+<p>To check that nothing was tuned to the CLA, the brief's other test circuit was built from the same library: a balanced tree of seven 4-NAND2
+XORs (28 gates, 112 transistors). It was simulated in SPICE for all 256 vectors at the same 200 corners (51,200 points), with no retraining
+or other change. The brief's hierarchy reaches 94.80 % mean accuracy (bias -4.04 %). The levels-aware ML hierarchy
+reaches <b>99.24 %</b> (median error 0.65 %, p95 1.96 %), confirming the CLA conclusions on a different
+circuit.</p>
+<table class="small"><caption>Table 10. 8-bit parity checker, 256 vectors &times; 200 corners.</caption><thead><tr><th class="">Comparison</th><th class="n">bias %</th><th class="n">median err %</th><th class="n">p95 err %</th><th class="n">max err %</th><th class="n">mean acc %</th></tr></thead><tbody><tr><td class="">hierarchical ML (gate sum) vs SPICE circuit</td><td class="n">-4.04</td><td class="n">4.04</td><td class="n">14.29</td><td class="n">26.30</td><td class="n">94.80</td></tr><tr><td class="">SPICE gate sum vs SPICE circuit (hierarchy error)</td><td class="n">-4.08</td><td class="n">4.08</td><td class="n">13.82</td><td class="n">25.94</td><td class="n">94.74</td></tr><tr><td class="">hierarchical ML vs SPICE gate sum (ML error)</td><td class="n">+0.14</td><td class="n">0.71</td><td class="n">2.35</td><td class="n">4.15</td><td class="n">99.12</td></tr><tr><td class="">levels-aware ML hierarchy vs SPICE circuit (SPICE-free)</td><td class="n">+0.31</td><td class="n">0.65</td><td class="n">1.96</td><td class="n">3.11</td><td class="n">99.24</td></tr></tbody></table>
+<figure style="width:55%"><img src="../figures/parity_parity.png"><figcaption><b>Figure 18.</b> Parity checker: ML vs SPICE circuit leakage (log axes).</figcaption></figure>
+
+
+<h2>8&nbsp; Limitations and improvements</h2>
+<ul>
+<li><b>Training distribution.</b> The 10,000 uniform samples rarely land where gates operate (terminals on the rails, cold and high-VDD
+corners). The rail supplement fixed most of this. The remaining tail is in cold, high-VDD, single-OFF-PMOS conditions. Adaptive sampling,
+adding SPICE points where the ensemble disagrees most, would target it directly.</li>
+<li><b>Ideal-level hierarchy.</b> As specified in the brief, the hierarchy is biased by -2.64 % on this circuit whatever the
+ML: even exact SPICE gate leakages give only 96.42 % mean accuracy. The levels-aware hierarchy (&sect;7.2) removes this limit. Loading between gates is still ignored, which is acceptable here
+because gate tunnelling is a small share of leakage at 16&nbsp;nm HP (&sect;7.4). It would matter more for thin-oxide LP cards.</li>
+<li><b>Solver speed.</b> The levels-aware solve uses finite-difference Jacobians. An analytic Jacobian, or a small learned gate-output model,
+would make it as fast as the lookup.</li>
+<li><b>Scope.</b> The models cover W = 1&ndash;8 L, &plusmn;10 % process and &minus;40 to 125&nbsp;&deg;C. Outside that box they extrapolate. One process draw is
+shared by all devices of a type (no within-die mismatch), as specified. Mismatch would need per-transistor draws, which the models already support.</li>
+<li><b>Simulator noise.</b> Data regenerated with ngspice 44.2 and 45.2 differs only below about 10<sup>&minus;12</sup>&nbsp;A. L-BFGS amplifies this into
+&plusmn;0.02 points of gate accuracy with 5 seeds (&plusmn;0.07 with 3). Training itself is bit-reproducible on identical data.</li>
+</ul>
+
+<h2>9&nbsp; Reproducibility and deliverables</h2>
+<p>All scripts run in order (<code>./run_all.sh --full</code>) from the model file with fixed seeds. The fast path (<code>./run_all.sh</code>) reuses
+the stored data, the saved models and the cached CLA SPICE reference, and reruns validation in minutes. <code>pytest</code> checks 26 invariants:
+KCL of the saved models, passivity of the bipoles, netlist/ML topology identity, truth tables, that the CLA adds correctly, the BSIM4 width clamp,
+solver convergence, and that the parity checker computes parity.</p>
+<table class="small"><thead><tr><th class="">#</th><th class="">Deliverable</th><th class="">Where</th></tr></thead><tbody><tr><td class="">1</td><td class="">Datasets (4 &times; 10,000 rows)</td><td class="">data/{nmos,pmos}_{on,off}.csv</td></tr><tr><td class="">2</td><td class="">Example netlists</td><td class="">netlists/single_*.cir, gate_*.cir, cla3.cir</td></tr><tr><td class="">3</td><td class="">Kirchhoff check, trend plots</td><td class="">results/kirchhoff_check.csv, figures/data_check_trends.png (Table 1, Figure 1)</td></tr><tr><td class="">4</td><td class="">Model comparison</td><td class="">results/model_comparison.csv (Table 2)</td></tr><tr><td class="">5</td><td class="">Chosen models</td><td class="">results/chosen_models_test.csv, figures/pred_vs_spice_*.png, saved_models/*.joblib (Table 3)</td></tr><tr><td class="">6</td><td class="">Gate results</td><td class="">results/gate_results.csv, results/gate_samples.csv (Table 7)</td></tr><tr><td class="">7</td><td class="">Gate parity plot</td><td class="">figures/gate_parity.png</td></tr><tr><td class="">8</td><td class="">CLA results</td><td class="">results/circuit_summary.csv, circuit_results.csv, figures/circuit_parity.png (Table 8)</td></tr><tr><td class="">9</td><td class="">Code</td><td class="">00_ &hellip; 08_*.py, leakml/, run_all.sh, tests/</td></tr><tr><td class="">10</td><td class="">Report</td><td class="">report/Leaky_Lima_Report.pdf (this document, generated by report/build_report.py)</td></tr></tbody></table>
+</body></html>

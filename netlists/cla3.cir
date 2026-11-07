@@ -354,6 +354,7 @@ Mnand259_MP_A s2 xs2_n2 vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Mnand259_MP_B s2 xs2_n3 vdd vdd pmos W=6.400000000e-08 L=1.600000000e-08
 Mnand259_MN_A s2 xs2_n2 nand259_x 0 nmos W=3.200000000e-08 L=1.600000000e-08
 Mnand259_MN_B nand259_x xs2_n3 0 0 nmos W=3.200000000e-08 L=1.600000000e-08
+.nodeset v(G14_nd)=1 v(G15_nd)=1 v(G16_nr)=1 v(G17_nd)=1 v(G18_nd)=1 v(G19_nd)=1 v(G20_nr)=1 v(G21_nr)=1 v(G22_nd)=1 v(G23_nd)=1 v(G24_nd)=1 v(G25_nd)=1 v(G26_nd)=1 v(G27_nr)=1 v(G28_nr)=1 v(G29_nr)=1 v(G4_nd)=1 v(G9_nd)=1 v(c1)=0 v(c2)=0 v(c3)=0 v(g0)=0 v(g1)=0 v(g2)=0 v(p0)=0 v(p1)=0 v(p2)=0 v(s0)=0 v(s1)=0 v(s2)=0 v(t_c2a)=0 v(t_c3a)=0 v(t_c3b)=0 v(t_p0c0)=0 v(t_p1g0)=0 v(t_p1p0)=0 v(t_p1p0c0)=0 v(t_p2g1)=0 v(t_p2p1)=0 v(t_p2p1g0)=0 v(t_p2p1p0)=0 v(t_p2p1p0c0)=0 v(xp0_n1)=1 v(xp0_n2)=1 v(xp0_n3)=1 v(xp1_n1)=1 v(xp1_n2)=1 v(xp1_n3)=1 v(xp2_n1)=1 v(xp2_n2)=1 v(xp2_n3)=1 v(xs0_n1)=1 v(xs0_n2)=1 v(xs0_n3)=1 v(xs1_n1)=1 v(xs1_n2)=1 v(xs1_n3)=1 v(xs2_n1)=1 v(xs2_n2)=1 v(xs2_n3)=1
 .control
 op
 print i(Vdd) i(Va2) i(Va1) i(Va0) i(Vb2) i(Vb1) i(Vb0) i(Vc0)

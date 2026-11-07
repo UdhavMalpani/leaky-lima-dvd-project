@@ -1,0 +1,9 @@
+parity checker: 28 gates, 112 transistors, 256 vectors
+SPICE: 51200 simulations in 89s, 0 failed
+levels-aware ML: 269s, max 12 iterations; gate outputs vs SPICE: median |dV| 0.023 mV, max 3.06 mV
+                                             comparison  spice_median  ml_median  bias_pct  med_err_pct  p95_err_pct  max_err_pct     n  mean_acc
+            hierarchical ML (gate sum) vs SPICE circuit     1.474e-05  1.428e-05    -4.041        4.041        14.29         26.3 51200      94.8
+      SPICE gate sum vs SPICE circuit (hierarchy error)     1.474e-05  1.419e-05    -4.077        4.077        13.82        25.94 51200     94.74
+           hierarchical ML vs SPICE gate sum (ML error)     1.419e-05  1.428e-05    0.1422       0.7067        2.351        4.148 51200     99.12
+levels-aware ML hierarchy vs SPICE circuit (SPICE-free)     1.474e-05  1.475e-05    0.3053       0.6487        1.957        3.108 51200     99.24
+hierarchical ML time: 2.41s

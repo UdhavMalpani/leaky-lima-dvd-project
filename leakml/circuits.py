@@ -151,6 +151,27 @@ def cla3_gates():
     return G
 
 
+# --------------------------------------------------------------------------
+# 8-bit parity checker (the brief's other test circuit), used as a second,
+# unseen validation circuit: a balanced tree of seven 4-NAND2 XORs.
+#   par = a7 ^ a6 ^ ... ^ a0   (1 when an odd number of inputs is 1)
+# --------------------------------------------------------------------------
+PARITY_INPUTS = [f"a{i}" for i in range(7, -1, -1)]
+
+
+def parity8_gates():
+    G, level, k = [], [f"a{i}" for i in range(8)], 0
+    while len(level) > 1:
+        nxt = []
+        for a, b in zip(level[::2], level[1::2]):
+            out = "par" if len(level) == 2 else f"x{k}"
+            G += _xor(out, a, b, f"xr{k}")
+            nxt.append(out)
+            k += 1
+        level = nxt
+    return G
+
+
 def gate_cells(gate, ins, out, tag):
     """Expand one library gate instance into primitive cells."""
     pin = dict(zip(GATE_INPUTS[gate], ins))

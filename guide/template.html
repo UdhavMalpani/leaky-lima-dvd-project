@@ -106,7 +106,7 @@ svg text { font-family: "Segoe UI", Arial, sans-serif; }
   <div class="meta">
     <div><b>Team</b> Leaky Lima (Team 1)</div><div><b>Model</b> PTM 16 nm High-Performance</div>
     <div><b>VDD</b> 1.0 V nominal (0.9 – 1.1 V)</div><div><b>Test circuit</b> 3-bit carry-lookahead adder</div>
-    <div><b>Simulator</b> ngspice-44.2</div><div><b>Built</b> {{build_date}}</div>
+    <div><b>Simulator</b> ngspice 44.2 / 45.2</div><div><b>Built</b> {{build_date}}</div>
   </div>
 </section>
 
@@ -123,7 +123,7 @@ svg text { font-family: "Segoe UI", Arial, sans-serif; }
     <div class="row"><span class="n">5</span><span class="t">The key idea: a transistor is six bipoles<br><span class="d">Why direct prediction fails, passivity, log G, symmetry, the model architecture</span></span></div>
     <div class="row"><span class="n">6</span><span class="t">Part A2: Training and choosing the models<br><span class="d">Model comparison, chosen models, distribution shift and the rail fix, learning curve</span></span></div>
     <div class="row"><span class="n">7</span><span class="t">Part B: From transistors to gates<br><span class="d">Leakage definition, Tellegen's theorem, the stack effect, gate results</span></span></div>
-    <div class="row"><span class="n">8</span><span class="t">Part C: The 3-bit carry-lookahead adder<br><span class="d">Building it from gates, hierarchical estimation, splitting the error into its causes</span></span></div>
+    <div class="row"><span class="n">8</span><span class="t">Part C: The 3-bit carry-lookahead adder<br><span class="d">Building it from gates, hierarchical estimation, splitting the error into its causes, the levels-aware hierarchy</span></span></div>
     <div class="row"><span class="n">9</span><span class="t">Error analysis, limitations, improvements<br><span class="d">Where it is wrong, why, and what we would do next</span></span></div>
     <div class="row"><span class="n">10</span><span class="t">Viva preparation<br><span class="d">Questions you are likely to get, with short answers</span></span></div>
     <div class="row"><span class="n">A</span><span class="t">Appendix: files, how to re-run, glossary</span></div>
@@ -186,18 +186,19 @@ svg text { font-family: "Segoe UI", Arial, sans-serif; }
 
   <div class="kpis">
     <div class="kpi"><div class="v">{{kpi_trans_med}}</div><div class="l">median transistor error<br>(test set, average of 16 current models)</div></div>
-    <div class="kpi"><div class="v">{{kpi_gate_med}}</div><div class="l">median gate error<br>(3,600 gate sims)</div></div>
-    <div class="kpi"><div class="v">{{kpi_circ_med}}</div><div class="l">median adder error<br>(25,600 circuit sims)</div></div>
-    <div class="kpi"><div class="v">{{kpi_circ_acc}}</div><div class="l">mean accuracy on the adder<br>(100 % − mean |error|)</div></div>
+    <div class="kpi"><div class="v">{{kpi_gate_acc}}</div><div class="l">mean accuracy on gates<br>(3,600 gate sims, median error {{kpi_gate_med}})</div></div>
+    <div class="kpi"><div class="v">{{kpi_circ_acc}}</div><div class="l">adder, brief's hierarchy<br>(ideal 0/VDD levels, 25,600 sims)</div></div>
+    <div class="kpi"><div class="v">{{kpi_lev_acc}}</div><div class="l">adder, levels-aware ML<br>(no SPICE voltages; median error {{kpi_lev_med}})</div></div>
   </div>
 
-  <h3>The five ideas that made it work</h3>
+  <h3>The six ideas that made it work</h3>
   <ol>
     <li><b>Fast, verified SPICE.</b> One ngspice process loops over thousands of samples (40,000 sims in about a minute). It is checked against standalone netlists, and that check caught a silent simulator bug.</li>
     <li><b>Six bipoles, not four terminals.</b> Terminal currents are sums of mechanisms that cancel each other. Each mechanism on its own is a smooth, one-signed "non-linear resistor", which is easy to learn as <i>log G</i>.</li>
     <li><b>Smooth learners for smooth physics.</b> Tree models give staircases. A neural network trained with L-BFGS fits exponential laws to well under 1 %.</li>
     <li><b>Train where you deploy, and debug with physics.</b> Gates keep their transistors at the supply rails, a region uniform sampling almost never visits. Adding rail-focused samples, and two physics features found by a per-transistor "oracle" check (effective width and gate-voltage offset), cut the gate error by more than half.</li>
     <li><b>Leakage = power ÷ VDD.</b> Defined this way, gate leakages add up to circuit leakage, and every ML term is G·V² ≥ 0, which is robust to small errors.</li>
+    <li><b>Let the models solve the circuit too.</b> Kirchhoff's law at every internal node, solved with the ML currents, gives the node voltages without SPICE. Feeding each gate its driver's real output level removes the adder's −2.6 % hierarchy bias.</li>
   </ol>
 </section>
 
@@ -225,7 +226,7 @@ svg text { font-family: "Segoe UI", Arial, sans-serif; }
   <p>Our assignment (Team 1, "Leaky Lima"): PTM <b>16 nm high-performance</b> model card <span class="file">models/16nm_HP.pm</span>, nominal VDD <b>1.0 V</b>, test circuit a <b>3-bit carry-lookahead adder</b>. All of this lives in one file, <span class="file">config.py</span>, so every script uses the same values. One detail worth remembering: PTM's own nominal VDD for this card is 0.7 V. Running it at 1.0 V makes leakage unusually large (about 0.1-3 µA per gate), which is a good stress test.</p></div>
 
   <div class="box viva"><div class="box-title">Viva check</div>
-  <p><b>Why not just simulate everything in SPICE?</b> For our adder SPICE needed about 1,200 s for the 25,600 operating points on an otherwise idle 16-thread laptop with 12 parallel ngspice workers (the final rerun took {{circ_spice_s}} s because it shared the CPU with model training), against {{circ_ml_s}} s for the hierarchical ML. The gap widens with circuit size, because SPICE cost grows super-linearly with the number of nodes, while the ML cost is a lookup and a sum per gate.</p></div>
+  <p><b>Why not just simulate everything in SPICE?</b> For our adder SPICE needed {{circ_spice_s}} s of wall-clock time on 11 parallel ngspice workers (about 20 CPU-minutes) for the 25,600 operating points, against {{circ_ml_s}} s for the hierarchical ML lookup. The gap widens with circuit size, because SPICE cost grows super-linearly with the number of nodes, while the ML cost is a lookup and a sum per gate.</p></div>
 </section>
 
 <!-- ======================= 2 ======================= -->
@@ -426,7 +427,7 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
         <path d="M370 40 L480 75 M370 75 L480 40 M370 110 L480 145 M370 145 L480 110 M370 75 L480 110"/>
         <path d="M500 40 L608 92 M500 75 L608 92 M500 110 L608 92 M500 145 L608 92"/>
       </g>
-      <text x="20" y="172" fill="#5f6b7a">13 inputs</text><text x="250" y="172" fill="#5f6b7a">3 hidden layers of tanh neurons</text>
+      <text x="20" y="172" fill="#5f6b7a">16 inputs</text><text x="250" y="172" fill="#5f6b7a">3 hidden layers of tanh neurons</text>
       <text x="572" y="125" fill="#5f6b7a">log(G/W_eff)</text>
       <text x="650" y="60" fill="#34404d">each neuron:</text><text x="650" y="78" fill="#34404d">tanh(w·x + b)</text>
       <text x="650" y="105" fill="#34404d">≈ 9,000 knobs</text><text x="650" y="123" fill="#34404d">(64-64-64)</text>
@@ -499,7 +500,7 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
   <h3>Every bipole is passive, so learn its conductance</h3>
   <p>For each bipole, current flows from the higher voltage to the lower one, like a resistor. We verified sign(I) = sign(V) on <b>100 % of all 40,000 samples</b>. So each bipole is a (very non-linear) resistor with a positive conductance:</p>
   <div class="eq">I<sub>xy</sub> = G<sub>xy</sub>(inputs) · V<sub>xy</sub>, &nbsp;&nbsp; G &gt; 0 &nbsp; ⇒ &nbsp; learn &nbsp;<b>log G</b>, then I = e<sup>log G</sup> · V</div>
-  <p>One refinement, explained in Chapter 6: the final model learns the conductance <em>per unit effective width</em>, log(G/W<sub>eff</sub>) with W<sub>eff</sub> = W − 2·wint, and multiplies W<sub>eff</sub> back in. Wider transistors carry proportionally more current, and building that in lets the network concentrate on everything else.</p>
+  <p>One refinement, explained in Chapter 6: the final model learns the conductance <em>per unit of the width that mechanism actually scales with</em> (the BSIM4-clamped effective width for the OFF channel, the drawn width for the ON channel, W − 2·wint for tunnelling, none for junctions), and multiplies that width back in. Wider transistors carry proportionally more current, and building that in lets the network concentrate on everything else.</p>
   <figure><img src="fig/passive.png">
   <figcaption><b>Figure 5.3.</b> Left: gate-to-drain tunnelling current always has the sign of its voltage. Right: so log G is a smooth target with no zero crossings and no sign to predict. The sign and the zero come <em>for free</em> from multiplying by V.</figcaption></figure>
 
@@ -538,7 +539,7 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
       </g>
     </g>
   </svg>
-  <figcaption><b>Figure 5.4. One TransistorModel</b> (one per case, four in total). Five small regressors, one per mechanism, each predicting ŷ = log(G/W<sub>eff</sub>) from 13 features: VDD, T, log(W<sub>eff</sub>/L), (V<sub>g</sub> − ideal level)/V<sub>T</sub>, five normalised process parameters, the two diffusion voltages, V/V<sub>T</sub> and log|V|. Any of the four learner families can be plugged into the five slots, which is how the comparison in Chapter 6 is fair.</figcaption></figure>
+  <figcaption><b>Figure 5.4. One TransistorModel</b> (one per case, four in total). Five small regressors, one per mechanism, each predicting ŷ = log(G/W<sub>eff</sub>) from 16 features: VDD, T, log(W<sub>eff</sub>/L), (V<sub>g</sub> − ideal level)/V<sub>T</sub>, five normalised process parameters, the two diffusion voltages, V/V<sub>T</sub>, log|V|, and three Arrhenius-type inputs 1/V<sub>T</sub>, V<sub>th0</sub>/V<sub>T</sub> and (VDD − V<sub>th0</sub>)/V<sub>T</sub>. Each regressor is an average of five networks with different random starts. Any of the four learner families can be plugged into the five slots, which is how the comparison in Chapter 6 is fair.</figcaption></figure>
 
   <div class="box ours"><div class="box-title">In our project</div>
   <p><span class="file">leakml/bipoles.py</span>: the six bipoles, the BSIM4 decoding, the KCL assembly. <span class="file">leakml/models.py</span>: <code>TransistorModel</code>, the feature builder and the four learner families. Data: <span class="file">data/&lt;case&gt;_bipoles.csv</span>.</p></div>
@@ -554,7 +555,7 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
   <p class="lead">Four families × two hyper-parameter settings × five mechanisms × four cases = {{n_submodels}} small models, trained in parallel in about {{train_min}} minutes.</p>
 
   <figure><img src="fig/model_comparison.png">
-  <figcaption><b>Figure 6.1. Validation error of the four families</b> (best hyper-parameters per family, averaged over I<sub>d</sub>, I<sub>g</sub>, I<sub>s</sub>, I<sub>b</sub>; log scale). The neural network is best in every case, 4-7× better than the next family (lower score). This is the staircase-vs-smooth story of Figure 4.2, now on the real 13-dimensional problem.</figcaption></figure>
+  <figcaption><b>Figure 6.1. Validation error of the four families</b> (best hyper-parameters per family, averaged over I<sub>d</sub>, I<sub>g</sub>, I<sub>s</sub>, I<sub>b</sub>; log scale). The neural network is best in every case, 5-8× better than the next family (lower score). This is the staircase-vs-smooth story of Figure 4.2, now on the real 16-dimensional problem.</figcaption></figure>
 
   <h3>Model comparison table (deliverable 4, validation set)</h3>
   {{comparison_table}}
@@ -562,8 +563,8 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
 
   <h3>Why the ranking comes out this way</h3>
   <ul>
-    <li><b>MLP wins</b> because the targets (log G) are smooth functions of 13 inputs, and a tanh network is a smooth universal approximator. L-BFGS trains it to high precision on noise-free data.</li>
-    <li><b>Polynomial + Ridge</b> is smooth too, but a degree-4 polynomial in 13 variables has 2,380 terms and still cannot bend sharply enough near V ≈ 0 or across temperature.</li>
+    <li><b>MLP wins</b> because the targets (log G) are smooth functions of 16 inputs, and a tanh network is a smooth universal approximator. L-BFGS trains it to high precision on noise-free data.</li>
+    <li><b>Polynomial + Ridge</b> is smooth too, but a degree-4 polynomial in 16 variables has 4,845 terms and still cannot bend sharply enough near V ≈ 0 or across temperature.</li>
     <li><b>LightGBM and Random Forest</b> are excellent on tabular data with thresholds and categories, but here they approximate a smooth surface with flat boxes. That gives large p95 errors, especially in the steep regions.</li>
   </ul>
 
@@ -574,8 +575,8 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
   <figure><img src="../figures/pred_vs_spice_nmos_off.png">
   <figcaption><b>Figure 6.2. Predicted vs SPICE, NMOS OFF, test set</b> (the other three cases are in <span class="file">figures/pred_vs_spice_*.png</span>). Points on the dashed line are perfect. The spread at the bottom-left is the numerical-noise region.</figcaption></figure>
 
-  <h3>Three versions of the model: a debugging story</h3>
-  <p>The model above is the <em>third</em> version. The first two had excellent transistor test scores and still failed at the gate level. How we found and fixed each problem is the most useful part of this project to understand.</p>
+  <h3>Four versions of the model: a debugging story</h3>
+  <p>The model above is the <em>fourth</em> version. The first two had excellent transistor test scores and still failed at the gate level; the third reached {{v3_gate_acc}} mean gate accuracy, just short of the 99 % target. How we found and fixed each problem is the most useful part of this project to understand.</p>
   <table>
     <tr><th>Version</th><th>What changed</th><th class="num">gate median</th><th class="num">gate p95</th><th class="num">adder median</th></tr>
     {{version_rows}}
@@ -597,8 +598,17 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
   <div class="box intuition"><div class="box-title">Intuition: two physics features the network was missing</div>
   <p><b>Gate voltage.</b> In AND2 the inverter is driven by the NAND output, a "logic 0" that actually sits at 16-60 mV. Sub-threshold current is exponential in V<sub>GS</sub>: 16 mV/(1.5·26 mV) ≈ 0.4 → e<sup>0.4</sup> ≈ 1.5× more current. Our cases fixed V<sub>g</sub> at exactly 0 or VDD, so the model could not see this. Fix: add (V<sub>g</sub> − ideal)/V<sub>T</sub> as a feature, and in the supplement move V<sub>g</sub> up to 10 % of VDD away from its rail half the time.</p>
   <p><b>Effective width.</b> BSIM4 trims <code>wint</code> = 5 nm from each edge of the channel, so a drawn W = 16 nm conducts like 6 nm and W = 32 nm like 22 nm. Current is proportional to W<sub>eff</sub>, not W. At the narrow end the relationship is strongly curved, and the network, given only W/L, under-fitted it in a wavy pattern: +5.3 % at W = 1.5L, +2.8 % at 2L, −2.6 % at 3L. Fix: predict conductance <em>per unit effective width</em> and feed log(W<sub>eff</sub>/L). The bias dropped to within ±1.5 % at every width.</p></div>
+  <h3>Version 3 → 4: the last percent</h3>
+  <p>Version 3 had two remaining patterns: a +2 % bias on every gate whose leakage is set by an OFF NMOS at W = 2L, and errors that drifted with temperature. Plus one +126 % "outlier". Each had a physical cause.</p>
+  <ul>
+    <li><b>The BSIM4 width clamp.</b> A SPICE width sweep at nominal conditions showed the OFF current per unit W − 2·wint jumping 2.4× between W = 1L and 2L. BSIM4 does not let W<sub>eff</sub> go below 20 nm smoothly: it replaces it with 2·10⁻⁸(4·10⁻⁸ − W<sub>eff</sub>)/(6·10⁻⁸ − 2W<sub>eff</sub>), so a 1L device conducts like a 14 nm one, not 6 nm. Using the clamped width for the OFF channel removed the bias. The same sweep showed that the ON channel follows the drawn W, tunnelling W − 2·wint, and junctions no width at all, so each mechanism now gets its own width law.</li>
+    <li><b>Arrhenius features.</b> Sub-threshold current goes as exp(−V<sub>th</sub>/nV<sub>T</sub>). Handing the network 1/V<sub>T</sub>, V<sub>th0</sub>/V<sub>T</sub> and (VDD − V<sub>th0</sub>)/V<sub>T</sub> directly removed the temperature drift (signed gate error had been correlated −0.38 with T).</li>
+    <li><b>Ensembles.</b> Five networks per mechanism, averaged in log-G space. This removes most of L-BFGS's dependence on its random start: retraining on data from two ngspice versions moved gate accuracy by 0.07 points with 3 seeds and 0.02 with 5.</li>
+    <li><b>The outlier was SPICE's fault.</b> INV A=1 at corner 198 (112 °C, 1.09 V): forcing V(out) and sweeping it shows a single true KCL root at 42 mV (3.58 µA), but ngspice converged to 22 mV (1.85 µA) at a narrow model kink. Starting every gate and circuit run from a logic-level <code>.nodeset</code> fixed it. Only that 1 of 3,600 points moved by more than 0.1 %.</li>
+    <li><b>A deployment check set.</b> 2,000 extra single-transistor SPICE samples per case at the gate widths and rail voltages, used only for validation and test (never for training), so model selection sees the conditions the gates actually use.</li>
+  </ul>
   <figure><img src="fig/rail_before_after.png">
-  <figcaption><b>Figure 6.3. Gate-level error of the three model versions</b>, for all 18 gate cases. Same gates, same 200 corners; only the transistor models changed.</figcaption></figure>
+  <figcaption><b>Figure 6.3. Gate-level error of the four model versions</b>, for all 18 gate cases. Same gates, same 200 corners; only the transistor models changed.</figcaption></figure>
 
   <div class="box ours"><div class="box-title">Lesson</div>
   <p>A great test-set score is necessary but not sufficient. The test set measures accuracy <em>where the data was drawn</em>; the application decides where accuracy is <em>needed</em>. Every fix here came from an error pattern, a hypothesis grounded in device physics, and a targeted check, not from trying bigger models.</p></div>
@@ -730,8 +740,12 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
   <figure><img src="fig/circuit_decomposition.png">
   <figcaption><b>Figure 8.2. Where the adder error comes from.</b> "Hierarchy only" adds up <em>SPICE</em> gate leakages, so the ML plays no part: whatever error remains is the price of treating the circuit as independent ideal gates. "ML only" compares ML gates with SPICE gates. "Flat ML" runs the transistor models directly on the adder's own SPICE node voltages, with no gate-level assumption.</figcaption></figure>
 
+  <h3>Fixing the hierarchy: real logic levels, solved by the ML</h3>
+  <p>The decomposition says the adder error belongs to the ideal-level assumption, not to the ML. So we removed the assumption. At DC, the ML-predicted currents into every internal node of a gate must sum to zero (Kirchhoff). <span class="file">leakml/solve.py</span> solves that with a damped Newton method, each step limited to 50 mV as SPICE does, which gives every node voltage <em>without SPICE</em>. On the 18 gate cases the ML node voltages match SPICE to a few mV, and the leakage from them is just as accurate ({{gate_solved_acc}} mean accuracy).</p>
+  <p>For the adder, the gates are visited in logic order, and each one is solved with its inputs set to the <em>ML-predicted output voltages of its drivers</em>, a "0" a few mV above ground instead of exactly 0. The gate-output voltages match the full SPICE circuit to {{lev_dv_med}} mV (median), and the adder leakage reaches <b>{{kpi_lev_acc}} mean accuracy</b> (median error {{kpi_lev_med}}), with the bias gone. The whole chain, from the model card to the adder's leakage, now runs on four ML models.</p>
+
   <figure><img src="../figures/circuit_parity.png" style="max-width:66%">
-  <figcaption><b>Figure 8.3. Test-circuit parity plot (deliverable 8):</b> hierarchical ML vs full-circuit SPICE for all 25,600 simulations, log axes.</figcaption></figure>
+  <figcaption><b>Figure 8.3. Test-circuit parity plot (deliverable 8):</b> hierarchical ML (the brief) and levels-aware ML vs full-circuit SPICE for all 25,600 simulations, log axes.</figcaption></figure>
 
   <figure><img src="fig/circuit_vs_vector.png">
   <figcaption><b>Figure 8.4. Bonus insight: the adder's leakage depends on its input.</b> Median over the 200 corners for each of the 128 vectors: the stack effect at circuit scale.</figcaption></figure>
@@ -751,19 +765,21 @@ wrdata out.txt idx i(Vd) i(Vg) i(Vs) i(Vb) @m1[igs] ...   ← append results</pr
 
   <h3>Limitations</h3>
   <ul>
-    <li><b>Ideal-level assumption (Part C).</b> The hierarchy assumes inputs at exactly 0/VDD. At 16 nm, 1 V, a logic 0 can sit at 60-100 mV at hot corners, enough to change the next gate's leakage by several percent. This is a property of the <em>method</em>, not the ML.</li>
+    <li><b>Ideal-level assumption (Part C).</b> The brief's hierarchy assumes inputs at exactly 0/VDD. At 16 nm, 1 V, a logic 0 can sit tens of mV up at hot corners, enough to change the next gate's leakage by several percent. This is a property of the <em>method</em>, not the ML, and the levels-aware hierarchy (Chapter 8) removes it. Loading between gates is still ignored.</li>
     <li><b>Gate voltage only near its logic level.</b> The models take V<sub>g</sub> as an input, but were trained only within 10 % of VDD of the ideal level. A gate driven by a badly degraded signal would be outside the training range.</li>
     <li><b>Tiny currents.</b> Below ≈10⁻¹⁴ A the SPICE data is numerical noise, so no model can be judged there (it doesn't matter for leakage totals).</li>
     <li><b>One model card, one L.</b> Models are valid for 16 nm HP, L = L<sub>min</sub>, W in 1-8·L<sub>min</sub>, inside the trained PVT ranges. Outside them they extrapolate.</li>
     <li><b>Junction model artefact.</b> No AS/AD/PS/PD are given, so junction leakage is a geometry-default constant. Real layouts would leak more through junctions.</li>
   </ul>
 
-  <h3>What we would do next</h3>
+  <h3>What we did (v4) and what would come next</h3>
   <ul>
-    <li><b>ML node voltages.</b> Solve each gate's internal node voltages with the ML models themselves (KCL root-finding: every bipole is monotonic, so bisection always converges). That removes SPICE from the prediction completely.</li>
-    <li><b>Non-ideal inputs in Part C.</b> Feed each gate its driver's predicted output level instead of exact 0/VDD (a "levels-aware" hierarchy). That attacks the dominant Part C error directly.</li>
-    <li><b>Ensembles.</b> Average several MLPs trained from different random starts, which cuts variance in the tails at little cost.</li>
-    <li><b>Active learning.</b> Add SPICE samples where the model is least certain, for the same accuracy with fewer simulations.</li>
+    <li><b>Done: ML node voltages.</b> Each gate's internal node voltages are solved with the ML models themselves (Kirchhoff + damped Newton). SPICE is no longer needed for the prediction.</li>
+    <li><b>Done: non-ideal inputs in Part C.</b> The levels-aware hierarchy feeds each gate its driver's predicted output level and removes the dominant Part C error.</li>
+    <li><b>Done: ensembles.</b> Five MLPs per mechanism; their spread is also a (weak) uncertainty estimate.</li>
+    <li><b>Next: active learning.</b> Add SPICE samples where the ensemble members disagree most (cold, high-VDD, OFF-PMOS conditions hold the remaining tail), for the same accuracy with fewer simulations.</li>
+    <li><b>Next: faster solver.</b> An analytic Jacobian of the networks would make the levels-aware hierarchy as fast as the table lookup.</li>
+    <li><b>Next: loading.</b> Include the gate-tunnelling current drawn by fan-out pins. It is small here (tunnelling is under 10 % of leakage) but matters on thin-oxide LP cards.</li>
   </ul>
 </section>
 

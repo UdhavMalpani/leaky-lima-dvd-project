@@ -59,7 +59,8 @@ def model_comparison():
 
 VERSIONS = [("v1_uniform_only", "v1: uniform data", C[1]),
             ("v2_rail", "v2: + rail data", C[3]),
-            ("", "v3: + W_eff, Vg features", C[0])]
+            ("v3_main", "v3: + W_eff, Vg features", C[2]),
+            ("", "v4: + Weff clamp, Arrhenius, ensembles", C[0])]
 
 
 def before_after():
@@ -70,7 +71,8 @@ def before_after():
     for a, col, title in ((ax[0], "med_err_pct", "median error (%)"),
                           (ax[1], "p95_err_pct", "95th-percentile error (%)")):
         for k, (t, (_, name, c)) in enumerate(zip(tabs, VERSIONS)):
-            a.barh(y - 0.27 * (1 - k), t[col], 0.27, color=c, label=name)
+            w = 0.8 / len(tabs)
+            a.barh(y - 0.4 + w * (k + 0.5), t[col], w, color=c, label=name)
         a.set_xlabel(title)
     ax[0].invert_yaxis()            # axes are shared: invert once, INV at the top
     ax[0].set_yticks(y, lab, fontsize=7)
@@ -113,8 +115,8 @@ def gate_error_vs_corner():
         a.plot(mid, -np.array(q), c=C[1], lw=1.8)
         a.axhline(0, c=INK, lw=0.6)
         a.set(xlabel=lab)
-    lim = 15
-    ax[0].set_ylim(-lim, lim)       # one isolated +126 % point would otherwise squash the plot
+    lim = 8
+    ax[0].set_ylim(-lim, lim)
     n_off = int((s.err.abs() > lim).sum())
     if n_off:
         ax[-1].text(0.98, 0.97, f"{n_off} point(s) beyond ±{lim} % not shown", transform=ax[-1].transAxes,
@@ -127,8 +129,9 @@ def gate_error_vs_corner():
 def circuit():
     sm = pd.read_csv(R / "circuit_summary.csv")
     labels = ["Hierarchical ML\nvs SPICE circuit", "Hierarchy only\n(SPICE gates vs circuit)",
-              "ML only\n(ML gates vs SPICE gates)", "Flat ML on circuit\nnode voltages"]
-    fig, ax = plt.subplots(figsize=(8, 2.9))
+              "ML only\n(ML gates vs SPICE gates)", "Flat ML on circuit\nnode voltages",
+              "Levels-aware ML\n(SPICE-free)"][:len(sm)]
+    fig, ax = plt.subplots(figsize=(9, 2.9))
     x = np.arange(len(sm))
     ax.bar(x - 0.2, sm.med_err_pct, 0.4, color=C[0], label="median |error|")
     ax.bar(x + 0.2, sm.p95_err_pct, 0.4, color=C[0], alpha=0.35, label="95th percentile")

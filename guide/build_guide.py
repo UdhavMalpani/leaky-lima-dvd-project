@@ -20,8 +20,15 @@ import pandas as pd
 import config
 
 R = config.RESULTS_DIR
-CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-PDF = config.ROOT / "Leaky_Lima_Learning_Guide.pdf"
+import os  # noqa: E402
+import shutil  # noqa: E402
+_MAC_CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+CHROME = (os.environ.get("CHROME")
+          or shutil.which("google-chrome") or shutil.which("chromium") or shutil.which("chrome")
+          or (_MAC_CHROME if Path(_MAC_CHROME).exists() else None)
+          or next((str(p) for p in Path.home().glob("Library/Caches/ms-playwright/chromium-*/chrome-mac*/*.app/Contents/MacOS/*")), None)
+          or r"C:\Program Files\Google\Chrome\Application\chrome.exe")
+PDF = config.ROOT / "docs" / "Leaky_Lima_Learning_Guide.pdf"
 CUR = ["id", "ig", "is", "ib"]
 FAM = {"mlp": "Neural net (MLP)", "poly_ridge": "Polynomial + Ridge",
        "lightgbm": "LightGBM", "random_forest": "Random Forest"}
@@ -73,17 +80,26 @@ def values():
     v["kpi_circ_med"] = pct(circ.med_err_pct[0])
     cs = pd.read_csv(R / "circuit_samples.csv")
     v["kpi_circ_acc"] = pct(100 - 100 * np.mean(np.abs(cs.ml_gate_sum / cs.spice_leak - 1)))
+    v["kpi_gate_acc"] = pct(100 - 100 * gerr.mean())
+    v["kpi_lev_med"] = pct(circ.med_err_pct.iloc[-1])
+    v["kpi_lev_acc"] = pct(100 - 100 * np.mean(np.abs(cs.ml_levels / cs.spice_leak - 1)))
+    gsol = np.abs(gs.ml_solved_leak / gs.spice_leak - 1)
+    v["gate_solved_acc"] = pct(100 - 100 * gsol.mean())
+    v["circ_lev_s"] = parse_log(R / "circuit_log.txt", r"levels-aware ML: (\d+)s")
+    v["lev_dv_med"] = parse_log(R / "circuit_log.txt", r"median \|dV\| ([0-9.]+) mV")
+    v["v3_gate_acc"] = pct(100 - 100 * np.mean(np.abs(pd.read_csv(R / "v3_main" / "gate_samples.csv").eval("ml_leak / spice_leak - 1")).abs()))
     v["v1_gate_med"] = pct(100 * np.median(v1err))
     v["v1_gate_p95"] = pct(100 * np.quantile(v1err, 0.95))
     rows = []
     for sub, what in (("v1_uniform_only", "10k uniform samples per case, features: W/L"),
                       ("v2_rail", "+ 5k rail-focused samples per case"),
-                      ("", "+ effective-width target and feature, + V<sub>g</sub> offset feature (final)")):
+                      ("v3_main", "+ effective-width target and feature, + V<sub>g</sub> offset feature"),
+                      ("", "+ BSIM4 W<sub>eff</sub> clamp per mechanism, Arrhenius features, 5-seed ensembles, SPICE <code>.nodeset</code> fix (final)")):
         s = pd.read_csv(R / sub / "gate_samples.csv")
         e = np.abs(s.ml_leak / s.spice_leak - 1) * 100
         cf = R / sub / "circuit_summary.csv"
         cm = f"{pd.read_csv(cf).med_err_pct[0]:.2f} %" if cf.exists() else "–"
-        name = {"v1_uniform_only": "v1", "v2_rail": "v2", "": "<b>v3</b>"}[sub]
+        name = {"v1_uniform_only": "v1", "v2_rail": "v2", "v3_main": "v3", "": "<b>v4</b>"}[sub]
         rows.append(f"<tr><td>{name}</td><td>{what}</td><td class='num'>{np.median(e):.2f} %</td>"
                     f"<td class='num'>{np.quantile(e, .95):.2f} %</td><td class='num'>{cm}</td></tr>")
     v["version_rows"] = "".join(rows)
@@ -137,9 +153,11 @@ def values():
                             f"p95 {pct(100*np.quantile(gerr, .95))}, mean accuracy {pct(100-100*gerr.mean())}.")
 
     names = ["<b>Hierarchical ML vs SPICE circuit</b>", "SPICE gate sum vs SPICE circuit",
-             "ML gate sum vs SPICE gate sum", "Flat ML (circuit node voltages) vs SPICE circuit"]
+             "ML gate sum vs SPICE gate sum", "Flat ML (circuit node voltages) vs SPICE circuit",
+             "<b>Levels-aware ML hierarchy vs SPICE circuit</b>"]
     what = ["the full method of the brief", "error of the gate-level assumption itself",
-            "error of the ML models alone", "transistor models without any gate-level assumption"]
+            "error of the ML models alone", "transistor models without any gate-level assumption",
+            "our extension: real logic levels between gates, no SPICE voltages anywhere"]
     v["circuit_rows"] = "".join(
         f"<tr><td>{n}</td><td>{w}</td><td class='num'>{r.med_err_pct:.2f} %</td>"
         f"<td class='num'>{r.p95_err_pct:.2f} %</td><td class='num'>{r.bias_pct:+.2f} %</td></tr>"
@@ -158,9 +176,9 @@ def learning_section():
         rows = [[r.case, r.current, f"{r.direct_med_pct:.2f} / {r.direct_p95_pct:.1f}",
                  f"{r.bipole_med_pct:.2f} / {r.bipole_p95_pct:.1f}"] for r in abl.itertuples()]
         out.append("<h3>Ablation: how much does the bipole idea buy?</h3>"
-                   "<p>Same neural network and the same uniform training data, but predicting the four terminal "
-                   "currents <em>directly</em> (on an asinh signed-log scale), against our bipole model (validation set, "
-                   "median / p95 %). Note the bipole model here also had the rail data; the point is the size of the gap.</p>"
+                   "<p>Same neural network, same training rows (uniform + rail) and the same 5-seed ensemble, but predicting the four "
+                   "terminal currents <em>directly</em> (on an asinh signed-log scale), against our bipole model (validation set, "
+                   "median / p95 %).</p>"
                    + table(["case", "current", "direct MLP", "bipole MLP (ours)"], rows, num_cols=(2, 3)))
     except FileNotFoundError:
         pass
@@ -207,8 +225,9 @@ def error_analysis(gs, gate):
 def viva(v, chosen, gate, circ):
     qa = [
         ("Walk me through your project in one minute.",
-         "We simulate a single 16 nm transistor 40,000 times across random process, voltage and temperature and train four ML models (NMOS/PMOS × ON/OFF) to predict its terminal currents. A gate's leakage is then the sum over its transistors, and the adder's is the sum over its 42 gates. We check both against full SPICE: median error "
-         f"{v['kpi_gate_med']} for gates and {v['kpi_circ_med']} for the adder."),
+         "We simulate a single 16 nm transistor 40,000 times across random process, voltage and temperature and train four ML models (NMOS/PMOS × ON/OFF) to predict its terminal currents. A gate's leakage is then the sum over its transistors, and the adder's is the sum over its 42 gates. We check both against full SPICE: gate mean accuracy "
+         f"{v['kpi_gate_acc']} (median error {v['kpi_gate_med']}). For the adder, the brief's ideal-level hierarchy gives {v['kpi_circ_med']} median error; "
+         f"our levels-aware hierarchy, which solves the real logic levels with the same ML models and uses no SPICE voltages at all, gives {v['kpi_lev_med']} ({v['kpi_lev_acc']} mean accuracy)."),
         ("Why log scale?",
          "Currents span 14 decades. On a linear scale the squared error is dominated by the largest currents. On a log scale a fixed error means a fixed percentage for every current, which is what we are graded on."),
         ("Why did you not predict Id, Ig, Is, Ib directly?",
@@ -216,7 +235,7 @@ def viva(v, chosen, gate, circ):
         ("How do you know the bipoles are right?",
          "Two automatic checks: they rebuild the four SPICE terminal currents to about 1e-9 on every sample, and sign(I) = sign(V) holds for 100 % of samples."),
         ("Why a neural network and not XGBoost/LightGBM?",
-         "Tree models predict piecewise constants, which is good for thresholds but poor for smooth exponential laws (Figure 4.2). On our validation set the MLP's error score was 4-7× lower than the next-best family in every case."),
+         "Tree models predict piecewise constants, which is good for thresholds but poor for smooth exponential laws (Figure 4.2). On our validation set the MLP's error score was 5-8× lower than the next-best family in every case."),
         ("What is L-BFGS?",
          "A quasi-Newton optimiser: it uses the whole dataset each step and estimates curvature to take well-aimed steps. It suits small, noise-free problems like ours better than Adam."),
         ("How did you choose the model? Did you look at the test set?",
@@ -228,7 +247,8 @@ def viva(v, chosen, gate, circ):
         ("Why is your leakage defined as power/VDD?",
          "Gate-tunnelling current flowing into an input pin is supplied, in a real circuit, by the previous gate from VDD. Counting all source power makes gate leakages add up to the circuit's. We also report plain I(VDD); the conclusions are the same."),
         ("Why is the adder less accurate than the gates?",
-         "The hierarchy assumes ideal 0/VDD levels and no loading, but real logic-0 levels are typically 6-21 mV (up to 100 mV at hot corners) at this node. Our decomposition (Figure 8.2) separates the two: the hierarchy alone costs a −2.6 % bias, while the ML part adds only about 1.3 % median error, and flat ML on the real node voltages is 1.2 %."),
+         "The hierarchy assumes ideal 0/VDD levels and no loading, but real logic-0 levels are typically a few to 20 mV (more at hot corners) at this node. Our decomposition (Figure 8.2) separates the two: the hierarchy alone costs a −2.6 % bias, while the ML part adds only about 0.7 % median error, and flat ML on the real node voltages is 0.7 %. "
+         f"Feeding each gate its driver's ML-predicted output voltage (levels-aware hierarchy) removes the bias: {v['kpi_lev_med']} median error."),
         ("What was the hardest bug?",
          "ngspice's altermod silently ignores all but the first parameter on a line. We caught it by comparing the fast simulation path against standalone netlists."),
         ("You added extra data: is that allowed?",
@@ -238,9 +258,17 @@ def viva(v, chosen, gate, circ):
         ("Your transistor test error was below 1 %, but the gates were worse. How did you find out why?",
          "With a 'transistor oracle': re-simulate each transistor of a gate alone at its exact in-gate voltages and compare it with the ML, device by device. It showed a −27 % error for an OFF NMOS whose gate sat at 16 mV instead of 0 (the model had no Vg input) and a +3.6 % bias at narrow widths (effective width W − 2·wint not represented). Adding both as physics features fixed them."),
         ("What is effective width and why does it matter?",
-         "BSIM4 removes wint = 5 nm from each channel edge, so a drawn 16 nm device conducts like 6 nm. Current scales with W_eff, so we predict conductance per unit W_eff and give log(W_eff/L) as a feature."),
+         "BSIM4 removes wint = 5 nm from each channel edge, so a drawn 16 nm device would conduct like 6 nm. But below 20 nm BSIM4 also clamps W_eff to 2e-8(4e-8 − W_eff)/(6e-8 − 2W_eff), so it actually conducts like 14 nm. Each mechanism scales differently, which we measured with a SPICE width sweep: the OFF channel with the clamped W_eff, the ON channel with drawn W, tunnelling with W − 2·wint, and junctions not at all. Predicting conductance per unit of the right width removed a +2 % gate bias."),
+        ("Your worst gate error used to be +126 %. What was it?",
+         "A SPICE problem, not an ML one. Sweeping the inverter's output with a forcing source shows only one real KCL root (42 mV, 3.58 µA), but ngspice's default Newton start got stuck at a narrow model kink near 22 mV. Starting every gate and circuit from a logic-level .nodeset fixed it, and only that 1 of 3,600 points changed by more than 0.1 %."),
+        ("How do you get node voltages without SPICE?",
+         f"Kirchhoff's law: at DC the ML-predicted currents into every internal node must sum to zero. We solve that with a damped Newton method (step limited to 50 mV, like SPICE). The ML node voltages agree with SPICE to a few mV, and the leakage from them is as accurate ({v['gate_solved_acc']} mean accuracy)."),
+        ("Why an ensemble of five networks?",
+         "L-BFGS lands in a slightly different minimum for each random start. Averaging five (in log-conductance space) cancels most of that noise: retraining on data from two ngspice versions moved gate accuracy by 0.07 points with 3 seeds and 0.02 with 5. The spread between members is also a rough uncertainty estimate."),
+        ("Does the method work on a circuit you did not tune it on?",
+         "Yes. We built the brief's other test circuit, an 8-bit parity checker (28 NAND2, 112 transistors), and simulated all 256 vectors at the same 200 corners, with no retraining. The ideal-level hierarchy gives 94.8 % (its −4 % bias is the hierarchy, not the ML), while the levels-aware ML hierarchy gives 99.24 % mean accuracy."),
         ("What would you improve?",
-         "Solve internal node voltages with the ML models (no SPICE at all), propagate non-ideal logic levels in the hierarchy instead of assuming exact 0/VDD, and ensemble several networks to tighten the tails."),
+         "Adaptive sampling: add SPICE points where the ensemble members disagree, mainly cold, high-VDD, OFF-PMOS conditions, which hold the remaining tail. An analytic Jacobian for the ML solver, to make the SPICE-free levels-aware hierarchy as fast as the table lookup. And gate loading, which matters more on thin-oxide LP cards."),
     ]
     return "".join(f'<p class="q">Q. {q}</p><p class="a">{a}</p>' for q, a in qa)
 
